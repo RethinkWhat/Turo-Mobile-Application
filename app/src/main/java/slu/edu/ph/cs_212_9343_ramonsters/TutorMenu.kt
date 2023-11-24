@@ -7,6 +7,6 @@ class TutorMenu : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tutormenu)
+        setContentView(R.layout.activity_tutor_menu)
     }
 }
