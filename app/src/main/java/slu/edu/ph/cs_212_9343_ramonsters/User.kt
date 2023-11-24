@@ -8,5 +8,5 @@ data class User (
     val tutor : Boolean,
     val specialization : String,
     val rate : Double,
-    val rating : Int
+    val rating : Int,
 )

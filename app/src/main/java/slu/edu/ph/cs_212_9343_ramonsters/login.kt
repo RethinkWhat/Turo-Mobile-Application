@@ -38,6 +38,7 @@ class login : AppCompatActivity() {
         passwordField = findViewById(R.id.editTextTextPassword)
 
 
+
         /** To Reset the database uncomment this line and execute the program */
         /**val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
