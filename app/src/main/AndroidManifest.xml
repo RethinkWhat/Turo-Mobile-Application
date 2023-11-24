@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CS_212_9343_Ramonsters"
         tools:targetApi="31">
         <activity
+            android:name=".AdminMenu"
+            android:exported="false" />
+        <activity
             android:name=".profileMenu"
             android:exported="true" />
         <activity

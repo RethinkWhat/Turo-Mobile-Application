@@ -47,10 +47,12 @@ class login : AppCompatActivity() {
         */
 
 
-        /** To Register a user uncomment this line and execute the program
-        val newUser = User("Basti", "pass", false,"",0.0,0)
+
+        /** To Register a user uncomment this line and execute the program */
+        /*val newUser = User("Basti", "pass", 3,"",0.0,0)
         databaseHelper.addUser(newUser)
-        */
+         */
+
 
         signUpButton.setOnClickListener() {
             val intent = Intent(this, signUp::class.java)
@@ -66,11 +68,14 @@ class login : AppCompatActivity() {
 
 
             if (user != null && enteredPassword.equals(user.passHash)) {
-                if (user.tutor) {
+                if (user.userType == 1) {
                     val intent = Intent(this, TutorMenu::class.java)
                     startActivity(intent)
-                } else {
+                } else if (user.userType.equals(0)){
                     val intent = Intent(this, StudentMenu::class.java)
+                    startActivity(intent)
+                } else if (user.userType == 3) {
+                    val intent = Intent(this, AdminMenu::class.java)
                     startActivity(intent)
                 }
                 Log.i("User Success", "User find success")
