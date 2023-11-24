@@ -21,6 +21,10 @@ class DatabaseHandler(context : Context) :
         private const val columnUserID = "userID"
         private const val columnPassHash = "passHash"
         private const val columnTutor = "isTutor"
+        private const val columnSpecialization = "tutorSpeciality"
+        private const val columnRate = "tutorRate"
+        private const val columnRating = "tutorRating"
+
 
     }
 
@@ -29,7 +33,10 @@ class DatabaseHandler(context : Context) :
                     CREATE TABLE $usersTable (
                         $columnUserID TEXT PRIMARY KEY,
                         $columnPassHash TEXT,
-                        $columnTutor INTEGER
+                        $columnTutor INTEGER,
+                        $columnSpecialization STRING,
+                        $columnRate DOUBLE,
+                        $columnRating INT
                     )
                 """.trimIndent()
         db.execSQL(createTableQuery)
@@ -49,6 +56,9 @@ class DatabaseHandler(context : Context) :
             values.put(columnTutor,  1)
         else
             values.put(columnTutor, 0)
+        values.put(columnSpecialization, newUser.specialization)
+        values.put(columnRate, newUser.rate)
+        values.put(columnRating, newUser.rating)
         database.insert(usersTable,null,values)
         Log.i("addUser", "User added")
     }
@@ -65,11 +75,14 @@ class DatabaseHandler(context : Context) :
             Log.i("Get User" , "Get User Pass Hash Reached")
             val tutor = cursor.getString(cursor.getColumnIndexOrThrow(columnTutor))
             Log.i("Get User" , "Get User Tutor Status Reached")
+            val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
+            val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
+            val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
 
             if (tutor.equals("1"))
-                User(username,password,true)
+                User(username,password,true, specialization, rate.toDouble(),rating.toInt() )
             else
-                User(username, password, false)
+                User(username, password, false, specialization, rate.toDouble(),rating.toInt())
         }
 
         else {

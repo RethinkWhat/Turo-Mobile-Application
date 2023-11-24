@@ -16,6 +16,11 @@ import slu.edu.ph.cs_212_9343_ramonsters.DatabaseHandler
  *          1. Email: ramon, password: monem
  * */
 
+/**
+ * To stacktrace use Log.i(tag, message) after each method it helps track what executed,
+ * you can follow the it on Logcat
+ */
+
 class LoginActivity : AppCompatActivity() {
 
     var databaseHelper = DatabaseHandler(this)
@@ -31,6 +36,17 @@ class LoginActivity : AppCompatActivity() {
         emailField = findViewById(R.id.editTextTextEmailAddress)
         passwordField = findViewById(R.id.editTextTextPassword)
 
+
+        /** To Reset the database uncomment this line and execute the program
+        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+        if (databaseFile.exists()) {
+            databaseFile.delete()
+        }
+        */
+
+        // Register
+        val newUser = User("Basti", "pass", false,"",0.0,0)
+        databaseHelper.addUser(newUser)
 
         loginButton.setOnClickListener() {
             val enteredUsername = emailField.text.toString()
