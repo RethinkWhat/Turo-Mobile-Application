@@ -5,5 +5,8 @@ package slu.edu.ph.cs_212_9343_ramonsters
 data class User (
     val userID : String,
     val passHash : String,
-    val tutor : Boolean
+    val tutor : Boolean,
+    val specialization : String,
+    val rate : Double,
+    val rating : Int
 )
