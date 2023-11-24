@@ -20,7 +20,7 @@ class DatabaseHandler(context : Context) :
         private const val usersTable = "usersTable"
         private const val columnUserID = "userID"
         private const val columnPassHash = "passHash"
-        private const val columnTutor = "isTutor"
+        private const val columnUserType = "isTutor"
         private const val columnSpecialization = "tutorSpeciality"
         private const val columnRate = "tutorRate"
         private const val columnRating = "tutorRating"
@@ -33,7 +33,7 @@ class DatabaseHandler(context : Context) :
                     CREATE TABLE $usersTable (
                         $columnUserID TEXT PRIMARY KEY,
                         $columnPassHash TEXT,
-                        $columnTutor INTEGER,
+                        $columnUserType INTEGER,
                         $columnSpecialization STRING,
                         $columnRate DOUBLE,
                         $columnRating INT
@@ -51,11 +51,7 @@ class DatabaseHandler(context : Context) :
         val values = ContentValues()
         values.put(columnUserID, newUser.userID)
         values.put(columnPassHash, newUser.passHash)
-
-        if (newUser.tutor)
-            values.put(columnTutor,  1)
-        else
-            values.put(columnTutor, 0)
+        values.put(columnUserType,  newUser.userType)
         values.put(columnSpecialization, newUser.specialization)
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
@@ -73,16 +69,13 @@ class DatabaseHandler(context : Context) :
             Log.i("Get User" , "Get User ID reached")
             val password = cursor.getString(cursor.getColumnIndexOrThrow(columnPassHash))
             Log.i("Get User" , "Get User Pass Hash Reached")
-            val tutor = cursor.getString(cursor.getColumnIndexOrThrow(columnTutor))
+            val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
             Log.i("Get User" , "Get User Tutor Status Reached")
             val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
             val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
             val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
 
-            if (tutor.equals("1"))
-                User(username,password,true, specialization, rate.toDouble(),rating.toInt() )
-            else
-                User(username, password, false, specialization, rate.toDouble(),rating.toInt())
+                User(username,password,status.toInt(), specialization, rate.toDouble(),rating.toInt() )
         }
 
         else {

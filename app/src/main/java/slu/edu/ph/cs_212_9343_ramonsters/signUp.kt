@@ -26,7 +26,7 @@ class signUp : AppCompatActivity() {
             val email = emailField.text.toString()
             val password = passwordField.text.toString()
             Log.i("signUpButton", " SignUpButton reached")
-            val newUser = User(email, password, false,"",0.0,0)
+            val newUser = User(email, password, 0,"",0.0,0)
             databaseHelper.addUser(newUser)
             setContentView(R.layout.activity_student_menu)
         }
