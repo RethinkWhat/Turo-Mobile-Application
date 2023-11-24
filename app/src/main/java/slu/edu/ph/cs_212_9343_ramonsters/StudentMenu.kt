@@ -6,6 +6,6 @@ import android.os.Bundle
 class StudentMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.studentmenu)
+        setContentView(R.layout.activity_student_menu)
     }
 }
