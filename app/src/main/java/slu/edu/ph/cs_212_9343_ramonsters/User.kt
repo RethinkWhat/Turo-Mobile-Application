@@ -1,5 +1,7 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
+import java.sql.Blob
+
 
 // Declare what a user is in the system
 data class User (
@@ -10,4 +12,6 @@ data class User (
     val specialization : String,
     val rate : Double,
     val rating : Int,
+    val PFP : ByteArray?
+
 )

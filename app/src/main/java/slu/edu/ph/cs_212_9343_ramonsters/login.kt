@@ -10,7 +10,7 @@ import android.widget.EditText
 
 /** DECLARED USERS SO FAR:
  *      Tutor:
- *          1. Email: patrick, password: patpat
+ *          1. Email: ramonjasmin@gmail.com, password: monem
  *      User:
  *          1. Email: ramon, password: monem
  * */
@@ -40,11 +40,11 @@ class login : AppCompatActivity() {
 
 
         /** To Reset the database uncomment this line and execute the program */
-        /**val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
-        */
+
 
 
 

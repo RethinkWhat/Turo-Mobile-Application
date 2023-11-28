@@ -24,6 +24,7 @@ class DatabaseHandler(context : Context) :
         private const val columnSpecialization = "tutorSpeciality"
         private const val columnRate = "tutorRate"
         private const val columnRating = "tutorRating"
+        private const val columnPFP = "profilePicture"
 
 
     }
@@ -36,7 +37,8 @@ class DatabaseHandler(context : Context) :
                         $columnUserType INTEGER,
                         $columnSpecialization STRING,
                         $columnRate DOUBLE,
-                        $columnRating INT
+                        $columnRating INT,
+                        $columnPFP BLOB
                     )
                 """.trimIndent()
         db.execSQL(createTableQuery)
@@ -55,6 +57,7 @@ class DatabaseHandler(context : Context) :
         values.put(columnSpecialization, newUser.specialization)
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
+        values.put(columnPFP, newUser.PFP)
         database.insert(usersTable,null,values)
         Log.i("addUser", "User added")
     }
@@ -74,8 +77,8 @@ class DatabaseHandler(context : Context) :
             val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
             val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
             val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
-
-                User(username,password,status.toInt(), specialization, rate.toDouble(),rating.toInt() )
+            val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
+            User(username,password,status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP)
         }
 
         else {
