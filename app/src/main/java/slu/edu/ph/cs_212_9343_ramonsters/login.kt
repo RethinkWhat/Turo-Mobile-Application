@@ -40,10 +40,14 @@ class login : AppCompatActivity() {
 
 
         /** To Reset the database uncomment this line and execute the program */
-        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+        /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
+
+         */
+
+
 
 
 
@@ -70,12 +74,15 @@ class login : AppCompatActivity() {
             if (user != null && enteredPassword.equals(user.passHash)) {
                 if (user.userType == 1) {
                     val intent = Intent(this, TutorMenu::class.java)
+                    intent.putExtra("User", enteredUsername)
                     startActivity(intent)
                 } else if (user.userType.equals(0)){
                     val intent = Intent(this, StudentMenu::class.java)
+                    intent.putExtra("User", enteredUsername)
                     startActivity(intent)
                 } else if (user.userType == 3) {
                     val intent = Intent(this, AdminMenu::class.java)
+                    intent.putExtra("User", enteredUsername)
                     startActivity(intent)
                 }
                 Log.i("User Success", "User find success")
