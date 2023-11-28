@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -18,6 +19,8 @@ class profileMenu : AppCompatActivity() {
     lateinit var logoutText : TextView
     var databaseHelper = DatabaseHandler(this)
     lateinit var pic : ImageView
+    lateinit var nameText : TextView
+    lateinit var emailText : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,9 @@ class profileMenu : AppCompatActivity() {
         logout = findViewById(R.id.logoutButton)
         logoutText = findViewById(R.id.logoutText)
         pic = findViewById(R.id.profilePic)
+        nameText = findViewById(R.id.nameText)
+        emailText = findViewById(R.id.emailText)
+
 
 
         val intent = getIntent();
@@ -37,6 +43,8 @@ class profileMenu : AppCompatActivity() {
         val bitmap = BitmapFactory.decodeByteArray(user!!.PFP, 0, user!!.PFP!!.size)
         Log.i("bitmap", "Decode complete")
         pic.setImageBitmap(bitmap)
+        nameText.setText(user.fullName)
+        emailText.setText(user.userID)
         Log.i("pfpPic", "Set pic complete")
 
         beTutorText.setOnClickListener() {

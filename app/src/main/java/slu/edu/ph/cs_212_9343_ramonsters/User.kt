@@ -7,6 +7,7 @@ import java.sql.Blob
 data class User (
     val userID : String,
     val passHash : String,
+    val fullName : String,
     // 0 is regular user, 1 is tutor, 2 is pending tutor, 3 is admin
     val userType : Int,
     val specialization : String,

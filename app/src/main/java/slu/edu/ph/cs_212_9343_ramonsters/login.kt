@@ -43,9 +43,9 @@ class login : AppCompatActivity() {
         /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
-        }
+        } */
 
-         */
+
 
 
 

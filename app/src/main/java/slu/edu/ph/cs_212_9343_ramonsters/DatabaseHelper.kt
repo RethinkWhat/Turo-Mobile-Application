@@ -20,6 +20,7 @@ class DatabaseHandler(context : Context) :
         private const val usersTable = "usersTable"
         private const val columnUserID = "userID"
         private const val columnPassHash = "passHash"
+        private const val columnFullName = "fullName"
         private const val columnUserType = "isTutor"
         private const val columnSpecialization = "tutorSpeciality"
         private const val columnRate = "tutorRate"
@@ -34,6 +35,7 @@ class DatabaseHandler(context : Context) :
                     CREATE TABLE $usersTable (
                         $columnUserID TEXT PRIMARY KEY,
                         $columnPassHash TEXT,
+                        $columnFullName TEXT,
                         $columnUserType INTEGER,
                         $columnSpecialization STRING,
                         $columnRate DOUBLE,
@@ -53,6 +55,7 @@ class DatabaseHandler(context : Context) :
         val values = ContentValues()
         values.put(columnUserID, newUser.userID)
         values.put(columnPassHash, newUser.passHash)
+        values.put(columnFullName, newUser.fullName)
         values.put(columnUserType,  newUser.userType)
         values.put(columnSpecialization, newUser.specialization)
         values.put(columnRate, newUser.rate)
@@ -78,7 +81,8 @@ class DatabaseHandler(context : Context) :
             val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
             val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
-            User(username,password,status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP)
+            val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
+            User(username,password,name, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP)
         }
 
         else {

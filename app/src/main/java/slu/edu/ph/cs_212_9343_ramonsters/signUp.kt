@@ -18,11 +18,11 @@ class signUp : AppCompatActivity() {
 
     lateinit var emailField : EditText
     lateinit var passwordField : EditText
+    lateinit var nameField : EditText
     lateinit var signUpButton : Button
     lateinit var uploadPFPButton : ImageButton
     private var databaseHelper = DatabaseHandler(this)
     private var pfp : ByteArray? = null
-    lateinit var pfpPic : ImageView
     lateinit var imageMsg : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +32,8 @@ class signUp : AppCompatActivity() {
         passwordField = findViewById(R.id.passwordField)
         signUpButton = findViewById(R.id.signUpButton)
         uploadPFPButton = findViewById(R.id.uploadPFP)
-        pfpPic = findViewById(R.id.pfpDisplay)
         imageMsg = findViewById(R.id.imageUpload)
+        nameField = findViewById(R.id.nameField)
         Log.i("signUp", " SignUp Page clicked")
 
 
@@ -48,8 +48,9 @@ class signUp : AppCompatActivity() {
             Log.i("signUpButton", " SignUpButton clicked")
             val email = emailField.text.toString()
             val password = passwordField.text.toString()
+            val name = nameField.text.toString()
             Log.i("signUpButton", " SignUpButton reached")
-            val newUser = User(email, password, 0,"",0.0,0, pfp)
+            val newUser = User(email, password, name,0,"",0.0,0, pfp)
             databaseHelper.addUser(newUser)
             setContentView(R.layout.activity_student_menu)
         }
