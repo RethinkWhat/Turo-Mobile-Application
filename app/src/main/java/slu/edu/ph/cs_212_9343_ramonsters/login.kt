@@ -9,10 +9,10 @@ import android.widget.EditText
 
 
 /** DECLARED USERS SO FAR:
- *      Tutor:
- *          1. Email: ramonjasmin@gmail.com, password: monem
  *      User:
- *          1. Email: ramon, password: monem
+ *          1. Email: ramonjasmin@gmail.com, password: monem
+ *          2. Email: patricklacanilao@gmail.com, password: patpat
+ *          3. Email: sebastiansiccuan@gmail.com, password: basti
  * */
 
 /**
@@ -44,12 +44,6 @@ class login : AppCompatActivity() {
         if (databaseFile.exists()) {
             databaseFile.delete()
         } */
-
-
-
-
-
-
 
 
         /** To Register a user uncomment this line and execute the program */

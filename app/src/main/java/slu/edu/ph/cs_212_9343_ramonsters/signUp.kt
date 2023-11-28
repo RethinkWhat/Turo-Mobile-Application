@@ -52,7 +52,9 @@ class signUp : AppCompatActivity() {
             Log.i("signUpButton", " SignUpButton reached")
             val newUser = User(email, password, name,0,"",0.0,0, pfp)
             databaseHelper.addUser(newUser)
-            setContentView(R.layout.activity_student_menu)
+            val intent = Intent(this, StudentMenu::class.java)
+            intent.putExtra("User", newUser.userID)
+            startActivity(intent)
         }
     }
 
