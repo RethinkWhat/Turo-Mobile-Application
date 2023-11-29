@@ -8,14 +8,20 @@ import android.widget.ImageView
 class StudentMenu : AppCompatActivity() {
 
     lateinit var profileRedirect : ImageView
+    var databaseHelper = DatabaseHandler(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_menu)
 
         profileRedirect = findViewById(R.id.profileRedirectButton)
+        val intent = getIntent();
+        val username = intent.getStringExtra("User")
+
+
 
         profileRedirect.setOnClickListener() {
             val intent = Intent(this, profileMenu::class.java)
+            intent.putExtra("User", username)
             startActivity(intent)
         }
     }

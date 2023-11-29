@@ -20,10 +20,13 @@ class DatabaseHandler(context : Context) :
         private const val usersTable = "usersTable"
         private const val columnUserID = "userID"
         private const val columnPassHash = "passHash"
+        private const val columnFullName = "fullName"
+        private const val columnContactNumber = "contact"
         private const val columnUserType = "isTutor"
         private const val columnSpecialization = "tutorSpeciality"
         private const val columnRate = "tutorRate"
         private const val columnRating = "tutorRating"
+        private const val columnPFP = "profilePicture"
 
 
     }
@@ -33,10 +36,13 @@ class DatabaseHandler(context : Context) :
                     CREATE TABLE $usersTable (
                         $columnUserID TEXT PRIMARY KEY,
                         $columnPassHash TEXT,
+                        $columnFullName TEXT,
+                        $columnContactNumber TEXT,
                         $columnUserType INTEGER,
                         $columnSpecialization STRING,
                         $columnRate DOUBLE,
-                        $columnRating INT
+                        $columnRating INT,
+                        $columnPFP BLOB
                     )
                 """.trimIndent()
         db.execSQL(createTableQuery)
@@ -51,10 +57,13 @@ class DatabaseHandler(context : Context) :
         val values = ContentValues()
         values.put(columnUserID, newUser.userID)
         values.put(columnPassHash, newUser.passHash)
+        values.put(columnFullName, newUser.fullName)
+        values.put(columnContactNumber, newUser.contactNumber)
         values.put(columnUserType,  newUser.userType)
         values.put(columnSpecialization, newUser.specialization)
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
+        values.put(columnPFP, newUser.PFP)
         database.insert(usersTable,null,values)
         Log.i("addUser", "User added")
     }
@@ -74,8 +83,10 @@ class DatabaseHandler(context : Context) :
             val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
             val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
             val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
-
-                User(username,password,status.toInt(), specialization, rate.toDouble(),rating.toInt() )
+            val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
+            val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
+            User(username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, PFP,null) // last two are temporary
         }
 
         else {

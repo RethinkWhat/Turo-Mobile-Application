@@ -1,5 +1,6 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
