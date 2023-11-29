@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
+
 class DatabaseHandler(context : Context) :
     SQLiteOpenHelper(context, database_name, null, database_version) {
 
@@ -122,6 +123,31 @@ class DatabaseHandler(context : Context) :
         database.update(usersTable, values, "userID=?", arrayOf(username))
         database.close()
         Log.i("applyTutor", "User updated")
+    }
+
+    fun getUsers(userType : Int): ArrayList<User> {
+        val database = this.readableDatabase
+        val cursor : Cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf("2"))
+
+        var userList : ArrayList<User> = ArrayList()
+        while (cursor.moveToNext()) {
+            val username = cursor.getString(cursor.getColumnIndexOrThrow(columnUserID))
+            Log.i("Get User" , "Get User ID reached")
+            val password = cursor.getString(cursor.getColumnIndexOrThrow(columnPassHash))
+            Log.i("Get User" , "Get User Pass Hash Reached")
+            val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
+            Log.i("Get User" , "Get User Tutor Status Reached")
+            val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
+            val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
+            val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
+            val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
+            val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
+            val resume = cursor.getBlob(cursor.getColumnIndexOrThrow(columnResume))
+            val confirmation = cursor.getString(cursor.getColumnIndexOrThrow(columnConfirmation))
+            userList.add(User (username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, resume,confirmation))
+        }
+        return userList
     }
 
 }

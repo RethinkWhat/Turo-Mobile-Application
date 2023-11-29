@@ -39,7 +39,6 @@ class login : AppCompatActivity() {
         passwordField = findViewById(R.id.editTextTextPassword)
 
 
-
         /** To Reset the database uncomment this line and execute the program */
         /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
@@ -48,15 +47,12 @@ class login : AppCompatActivity() {
 
          */
 
-
-
-
-
-
         /** To Register a user uncomment this line and execute the program */
-        /*val newUser = User("Basti", "pass", 3,"",0.0,0)
+/*
+        val newUser = User("email2", "password2", "name","917790001533",3,"",0.0,0, null,null,null)
         databaseHelper.addUser(newUser)
-         */
+
+ */
 
 
         signUpButton.setOnClickListener() {
