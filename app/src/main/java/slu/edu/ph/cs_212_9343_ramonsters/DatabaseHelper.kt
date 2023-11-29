@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
+
 class DatabaseHandler(context : Context) :
     SQLiteOpenHelper(context, database_name, null, database_version) {
 
@@ -27,6 +28,8 @@ class DatabaseHandler(context : Context) :
         private const val columnRate = "tutorRate"
         private const val columnRating = "tutorRating"
         private const val columnPFP = "profilePicture"
+        private const val columnResume = "resume"
+        private const val columnConfirmation = "confirmation"
 
 
     }
@@ -42,7 +45,9 @@ class DatabaseHandler(context : Context) :
                         $columnSpecialization STRING,
                         $columnRate DOUBLE,
                         $columnRating INT,
-                        $columnPFP BLOB
+                        $columnPFP BLOB,
+                        $columnResume BLOB,
+                        $columnConfirmation STRING
                     )
                 """.trimIndent()
         db.execSQL(createTableQuery)
@@ -64,6 +69,8 @@ class DatabaseHandler(context : Context) :
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
         values.put(columnPFP, newUser.PFP)
+        values.put(columnResume, newUser.resume)
+        values.put(columnConfirmation, newUser.confirmations)
         database.insert(usersTable,null,values)
         Log.i("addUser", "User added")
     }
@@ -86,14 +93,61 @@ class DatabaseHandler(context : Context) :
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
             val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
             val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
-            User(username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, PFP,null) // last two are temporary
+            val resume = cursor.getBlob(cursor.getColumnIndexOrThrow(columnResume))
+            val confirmation = cursor.getString(cursor.getColumnIndexOrThrow(columnConfirmation))
+            User(username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, resume,confirmation)
         }
-
         else {
             null
         }
+    }
 
+    fun applyTutor(username : String, specialization : String, rate : Double, resume : ByteArray?) {
+        val database = this.writableDatabase
+        val values = ContentValues()
 
+        val newUser = getUser(username)
+
+        values.put(columnUserID, newUser!!.userID)
+        values.put(columnPassHash, newUser.passHash)
+        values.put(columnFullName, newUser.fullName)
+        values.put(columnContactNumber, newUser.contactNumber)
+        values.put(columnUserType,  2)
+        values.put(columnSpecialization, specialization)
+        values.put(columnRate, rate)
+        values.put(columnRating, newUser.rating)
+        values.put(columnPFP, newUser.PFP)
+        values.put(columnResume, resume)
+        values.put(columnConfirmation, newUser.confirmations)
+        Log.i("applyTutor", "user update attempted")
+        database.update(usersTable, values, "userID=?", arrayOf(username))
+        database.close()
+        Log.i("applyTutor", "User updated")
+    }
+
+    fun getUsers(userType : Int): ArrayList<User> {
+        val database = this.readableDatabase
+        val cursor : Cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf("2"))
+
+        var userList : ArrayList<User> = ArrayList()
+        while (cursor.moveToNext()) {
+            val username = cursor.getString(cursor.getColumnIndexOrThrow(columnUserID))
+            Log.i("Get User" , "Get User ID reached")
+            val password = cursor.getString(cursor.getColumnIndexOrThrow(columnPassHash))
+            Log.i("Get User" , "Get User Pass Hash Reached")
+            val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
+            Log.i("Get User" , "Get User Tutor Status Reached")
+            val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
+            val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
+            val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
+            val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
+            val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
+            val resume = cursor.getBlob(cursor.getColumnIndexOrThrow(columnResume))
+            val confirmation = cursor.getString(cursor.getColumnIndexOrThrow(columnConfirmation))
+            userList.add(User (username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, resume,confirmation))
+        }
+        return userList
     }
 
 }

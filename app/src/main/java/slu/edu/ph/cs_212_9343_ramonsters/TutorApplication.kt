@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -17,22 +19,41 @@ class TutorApplication : AppCompatActivity() {
     lateinit var imageButton : ImageButton
     private var resume : ByteArray? = null
     lateinit var resumeUploaded : TextView
+    private var username: String? = null
+    private var user : User? = null
 
-    //val intent = getIntent();
-    //val username = intent.getStringExtra("User")
-    //val user = databaseHelper.getUser(username.toString())
+    lateinit var specializationField : EditText
+    lateinit var rateField : EditText
+    lateinit var applyButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutor_application)
 
+        val intent = getIntent();
+        val username = intent.getStringExtra("User")
+        val user = databaseHelper.getUser(username.toString())
+
         imageButton = findViewById(R.id.uploadImageButton)
         resumeUploaded = findViewById(R.id.resumeUpload)
+        specializationField = findViewById(R.id.specializationField)
+        rateField = findViewById(R.id.askingRateField)
+        applyButton = findViewById(R.id.applyButton)
 
 
 
         imageButton.setOnClickListener {
             openFileChooser()
+        }
+
+        applyButton.setOnClickListener {
+            resumeUploaded.text = "Resume Upload Complete"
+
+            databaseHelper.applyTutor(
+                username!!,
+                specializationField.text.toString(),
+                rateField.text.toString().toDouble(),
+                resume)
         }
     }
 
@@ -59,10 +80,17 @@ class TutorApplication : AppCompatActivity() {
                 }
 
                 if (resume != null) {
+                    /*
+                    /** Not validated yet */
                     resumeUploaded.text = "Resume Upload Complete"
 
-                    // TODO: INSERT UPDATE STATEMENT OF USER SUCH THAT RESUME IS NO LONGER NULL
-                    // TODO: CHANGE USER STATUS OF USER
+                    databaseHelper.applyTutor(
+                        username!!,
+                        specializationField.text.toString(),
+                        rateField.text.toString().toDouble(),
+                        resume)
+
+                     */
 
                 } else {
                     Log.e("imagePickerLauncher", "resume is null")
