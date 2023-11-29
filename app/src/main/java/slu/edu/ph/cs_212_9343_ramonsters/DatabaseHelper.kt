@@ -27,6 +27,8 @@ class DatabaseHandler(context : Context) :
         private const val columnRate = "tutorRate"
         private const val columnRating = "tutorRating"
         private const val columnPFP = "profilePicture"
+        private const val columnResume = "resume"
+        private const val columnConfirmation = "confirmation"
 
 
     }
@@ -42,7 +44,9 @@ class DatabaseHandler(context : Context) :
                         $columnSpecialization STRING,
                         $columnRate DOUBLE,
                         $columnRating INT,
-                        $columnPFP BLOB
+                        $columnPFP BLOB,
+                        $columnResume BLOB,
+                        $columnConfirmation STRING
                     )
                 """.trimIndent()
         db.execSQL(createTableQuery)
@@ -64,6 +68,8 @@ class DatabaseHandler(context : Context) :
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
         values.put(columnPFP, newUser.PFP)
+        values.put(columnResume, newUser.resume)
+        values.put(columnConfirmation, newUser.confirmations)
         database.insert(usersTable,null,values)
         Log.i("addUser", "User added")
     }
@@ -86,14 +92,36 @@ class DatabaseHandler(context : Context) :
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
             val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
             val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
-            User(username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, PFP,null) // last two are temporary
+            val resume = cursor.getBlob(cursor.getColumnIndexOrThrow(columnResume))
+            val confirmation = cursor.getString(cursor.getColumnIndexOrThrow(columnConfirmation))
+            User(username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, resume,confirmation)
         }
-
         else {
             null
         }
+    }
 
+    fun applyTutor(username : String, specialization : String, rate : Double, resume : ByteArray?) {
+        val database = this.writableDatabase
+        val values = ContentValues()
 
+        val newUser = getUser(username)
+
+        values.put(columnUserID, newUser!!.userID)
+        values.put(columnPassHash, newUser.passHash)
+        values.put(columnFullName, newUser.fullName)
+        values.put(columnContactNumber, newUser.contactNumber)
+        values.put(columnUserType,  2)
+        values.put(columnSpecialization, specialization)
+        values.put(columnRate, rate)
+        values.put(columnRating, newUser.rating)
+        values.put(columnPFP, newUser.PFP)
+        values.put(columnResume, resume)
+        values.put(columnConfirmation, newUser.confirmations)
+        Log.i("applyTutor", "user update attempted")
+        database.update(usersTable, values, "userID=?", arrayOf(username))
+        database.close()
+        Log.i("applyTutor", "User updated")
     }
 
 }

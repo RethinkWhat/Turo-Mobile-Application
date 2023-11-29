@@ -34,11 +34,9 @@ class profileMenu : AppCompatActivity() {
         nameText = findViewById(R.id.nameText)
         emailText = findViewById(R.id.emailText)
 
-
-
-        val intent = getIntent();
+        val intent = intent;
         val username = intent.getStringExtra("User")
-        val user = databaseHelper.getUser(username.toString())
+        val user = databaseHelper.getUser(username!!)
 
         val bitmap = BitmapFactory.decodeByteArray(user!!.PFP, 0, user!!.PFP!!.size)
         Log.i("bitmap", "Decode complete")

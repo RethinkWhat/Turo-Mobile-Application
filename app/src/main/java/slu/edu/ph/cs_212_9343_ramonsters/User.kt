@@ -16,6 +16,6 @@ data class User(
     val rating: Int,
     val PFP: ByteArray?,
     var resume: ByteArray?,
-    val confirmations: Array<String>?
+    val confirmations: String?
 
 )
