@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 
 
 /** DECLARED USERS SO FAR:
@@ -27,6 +28,7 @@ class login : AppCompatActivity() {
     lateinit var signUpButton: Button
     lateinit var emailField: EditText
     lateinit var passwordField : EditText
+    lateinit var userNotFound : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +38,15 @@ class login : AppCompatActivity() {
         signUpButton = findViewById(R.id.signUp)
         emailField = findViewById(R.id.editTextTextEmailAddress)
         passwordField = findViewById(R.id.editTextTextPassword)
+        userNotFound = findViewById(R.id.userNotFound)
 
 
 
         /** To Reset the database uncomment this line and execute the program */
-        /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
-        } */
+        }
 
 
         /** To Register a user uncomment this line and execute the program */
@@ -66,6 +69,7 @@ class login : AppCompatActivity() {
 
 
             if (user != null && enteredPassword.equals(user.passHash)) {
+                userNotFound.setText("")
                 if (user.userType == 1) {
                     val intent = Intent(this, TutorMenu::class.java)
                     intent.putExtra("User", enteredUsername)
@@ -83,6 +87,7 @@ class login : AppCompatActivity() {
             } else {
                 Log.i("User Failed", "User find fail")
                 //Authentication failed
+                userNotFound.setText("User Not Found.")
             }
         }
 

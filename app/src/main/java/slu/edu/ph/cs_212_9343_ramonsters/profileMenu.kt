@@ -49,10 +49,12 @@ class profileMenu : AppCompatActivity() {
 
         beTutorText.setOnClickListener() {
             var intent = Intent(this, TutorApplication::class.java)
+            intent.putExtra("User", username)
             startActivity(intent)
         }
         beTutor.setOnClickListener() {
             var intent = Intent(this, TutorApplication::class.java)
+            intent.putExtra("User", username)
             startActivity(intent)
         }
 

@@ -1,14 +1,12 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import java.io.ByteArrayOutputStream
@@ -24,6 +22,7 @@ class signUp : AppCompatActivity() {
     private var databaseHelper = DatabaseHandler(this)
     private var pfp : ByteArray? = null
     lateinit var imageMsg : TextView
+    lateinit var contactField : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -34,6 +33,7 @@ class signUp : AppCompatActivity() {
         uploadPFPButton = findViewById(R.id.uploadPFP)
         imageMsg = findViewById(R.id.imageUpload)
         nameField = findViewById(R.id.nameField)
+        contactField = findViewById(R.id.contactField)
         Log.i("signUp", " SignUp Page clicked")
 
 
@@ -49,8 +49,9 @@ class signUp : AppCompatActivity() {
             val email = emailField.text.toString()
             val password = passwordField.text.toString()
             val name = nameField.text.toString()
+            val contact = contactField.text.toString()
             Log.i("signUpButton", " SignUpButton reached")
-            val newUser = User(email, password, name,0,"",0.0,0, pfp)
+            val newUser = User(email, password, name,contact,0,"",0.0,0, pfp,null,null)
             databaseHelper.addUser(newUser)
             val intent = Intent(this, StudentMenu::class.java)
             intent.putExtra("User", newUser.userID)
