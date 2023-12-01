@@ -49,7 +49,7 @@ class TutorApplication : AppCompatActivity() {
         applyButton.setOnClickListener {
             resumeUploaded.text = "Resume Upload Complete"
 
-            databaseHelper.applyTutor(
+            databaseHelper.applyToBecomeTutor(
                 username!!,
                 specializationField.text.toString(),
                 rateField.text.toString().toDouble(),

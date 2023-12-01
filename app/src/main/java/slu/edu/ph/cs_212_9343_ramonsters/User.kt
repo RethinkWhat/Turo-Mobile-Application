@@ -16,6 +16,11 @@ data class User(
     val rating: Int,
     val PFP: ByteArray?,
     var resume: ByteArray?,
+
+    // List of all the students who have applied to be tutored by the tutor
+    val pendings : String?,
+
+    // List of all the tutoring scheduled
     val confirmations: String?
 
 )
