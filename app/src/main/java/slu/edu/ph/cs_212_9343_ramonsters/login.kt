@@ -40,19 +40,19 @@ class login : AppCompatActivity() {
 
 
         /** To Reset the database uncomment this line and execute the program */
-        /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+/*        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
+*/
 
-         */
 
         /** To Register a user uncomment this line and execute the program */
 /*
-        val newUser = User("email2", "password2", "name","917790001533",3,"",0.0,0, null,null,null)
+        val newUser = User("email2", "password2", "name","917790001533",3,"",0.0,0, null,null,null,null)
         databaseHelper.addUser(newUser)
+*/
 
- */
 
 
         signUpButton.setOnClickListener() {
