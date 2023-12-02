@@ -14,6 +14,9 @@ import android.widget.TextView
  *          1. Email: ramonjasmin@gmail.com, password: monem
  *          2. Email: patricklacanilao@gmail.com, password: patpat
  *          3. Email: sebastiansiccuan@gmail.com, password: basti
+ *
+ *      Tutor:
+ *          1.
  * */
 
 /**
@@ -23,13 +26,13 @@ import android.widget.TextView
 
 class login : AppCompatActivity() {
 
-    var databaseHelper = DatabaseHandler(this)
     lateinit var loginButton: Button
     lateinit var signUpButton: Button
     lateinit var emailField: EditText
     lateinit var passwordField : EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        var databaseHelper = DatabaseHandler(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -40,11 +43,13 @@ class login : AppCompatActivity() {
 
 
         /** To Reset the database uncomment this line and execute the program */
-/*        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+       /* val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
-*/
+
+        */
+
 
 
         /** To Register a user uncomment this line and execute the program */
@@ -73,10 +78,12 @@ class login : AppCompatActivity() {
                     val intent = Intent(this, TutorMenu::class.java)
                     intent.putExtra("User", enteredUsername)
                     startActivity(intent)
-                } else if (user.userType.equals(0)){
+                } else if (user.userType == 0){
                     val intent = Intent(this, StudentMenu::class.java)
                     intent.putExtra("User", enteredUsername)
+                    Log.i("User == 0 ", "StartActivity attempted")
                     startActivity(intent)
+                    Log.i("User == 0 ", "StartActivity finished")
                 } else if (user.userType == 3) {
                     val intent = Intent(this, AdminMenu::class.java)
                     intent.putExtra("User", enteredUsername)

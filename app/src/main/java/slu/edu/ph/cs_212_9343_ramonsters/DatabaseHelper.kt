@@ -44,13 +44,13 @@ class DatabaseHandler(context : Context) :
                         $columnFullName TEXT,
                         $columnContactNumber TEXT,
                         $columnUserType INTEGER,
-                        $columnSpecialization STRING,
+                        $columnSpecialization TEXT,
                         $columnRate DOUBLE,
                         $columnRating INT,
                         $columnPFP BLOB,
                         $columnResume BLOB,
-                        $columnPendings STRING,
-                        $columnConfirmation STRING
+                        $columnPendings TEXT,
+                        $columnConfirmation TEXT
                     )
                 """.trimIndent()
         db.execSQL(createTableQuery)
@@ -98,8 +98,8 @@ class DatabaseHandler(context : Context) :
             val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
             Log.i("Get User" , "Get User Tutor Status Reached")
             val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
-            val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
-            val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
+            val rate = cursor.getDouble(cursor.getColumnIndexOrThrow(columnRate))
+            val rating = cursor.getInt(cursor.getColumnIndexOrThrow(columnRating))
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
             val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
             val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
@@ -309,27 +309,52 @@ class DatabaseHandler(context : Context) :
      * Call the method by passing in the pertinent user type number.
      */
     fun getUsers(userType : Int): ArrayList<User> {
+        Log.i("getUsers reached", "method started")
         val database = this.readableDatabase
-        val cursor : Cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf("2"))
+        Log.i("database", "database val created")
+        var cursor : Cursor? = null
+        try {
+            cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf("0"))
+        }catch (e : Exception) {
+            Log.i("cursor attempt", "No element found")
+        }
 
-        var userList : ArrayList<User> = ArrayList()
-        while (cursor.moveToNext()) {
+        var userList: ArrayList<User> = ArrayList()
+        Log.i("getUsers", "While statement started")
+
+        while (cursor!!.moveToNext() && cursor != null) {
+
             val username = cursor.getString(cursor.getColumnIndexOrThrow(columnUserID))
-            Log.i("Get User" , "Get User ID reached")
             val password = cursor.getString(cursor.getColumnIndexOrThrow(columnPassHash))
-            Log.i("Get User" , "Get User Pass Hash Reached")
+            Log.i("Get User", "Get User Pass Hash Reached")
             val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
-            Log.i("Get User" , "Get User Tutor Status Reached")
-            val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
-            val rate = cursor.getString(cursor.getColumnIndexOrThrow(columnRate))
-            val rating = cursor.getString(cursor.getColumnIndexOrThrow(columnRating))
+            Log.i("Get User", "Get User Tutor Status Reached")
+            val specialization =
+                cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
+            val rate = cursor.getDouble(cursor.getColumnIndexOrThrow(columnRate))
+            val rating = cursor.getInt(cursor.getColumnIndexOrThrow(columnRating))
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
             val name = cursor.getString(cursor.getColumnIndexOrThrow(columnFullName))
             val contact = cursor.getString(cursor.getColumnIndexOrThrow(columnContactNumber))
             val resume = cursor.getBlob(cursor.getColumnIndexOrThrow(columnResume))
             val pendings = cursor.getString(cursor.getColumnIndexOrThrow(columnPendings))
             val confirmation = cursor.getString(cursor.getColumnIndexOrThrow(columnConfirmation))
-            userList.add(User (username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, resume, pendings,confirmation))
+            userList.add(
+                User(
+                    username,
+                    password,
+                    name,
+                    contact,
+                    status.toInt(),
+                    specialization,
+                    rate,
+                    rating,
+                    PFP,
+                    resume,
+                    pendings,
+                    confirmation
+                )
+            )
         }
         return userList
     }
