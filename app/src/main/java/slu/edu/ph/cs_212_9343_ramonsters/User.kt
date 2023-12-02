@@ -22,5 +22,8 @@ data class User(
 
     // List of all the tutoring scheduled
     val confirmations: String?
-
-)
+) {
+    override fun toString(): String {
+        return fullName + "\n" + contactNumber
+    }
+}
