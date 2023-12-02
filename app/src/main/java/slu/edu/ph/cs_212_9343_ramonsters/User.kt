@@ -24,7 +24,6 @@ data class User(
     val confirmations: String?
 ) {
     override fun toString(): String {
-        return "User(userID='$userID', fullName='$fullName', " +
-                "contactNumber='$contactNumber')"
+        return fullName + "\n" + contactNumber
     }
 }

@@ -2,6 +2,7 @@ package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -47,8 +48,11 @@ class StudentMenu : AppCompatActivity() {
 
         class TutorViewHolder(val tutorView : View) : RecyclerView.ViewHolder(tutorView) {
             private val tutorTextView: TextView = tutorView.findViewById(R.id.tutor)
-            fun bind(word: String) {
-                tutorTextView.text = word
+            private val tutorImageView: ImageView = tutorView.findViewById(R.id.tutorImageView)
+            fun bind(user: User) {
+                tutorTextView.text = user.fullName
+                var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
+                tutorImageView.setImageBitmap(bitmap)
             }
         }
 
@@ -63,7 +67,7 @@ class StudentMenu : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: TutorViewHolder, position: Int) {
-            holder.bind(possibleTutors[position].toString())
+            holder.bind(possibleTutors[position])
         }
 
 
