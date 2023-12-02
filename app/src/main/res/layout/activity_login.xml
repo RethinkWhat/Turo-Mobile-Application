@@ -86,15 +86,15 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="191dp"
-        android:layout_height="22dp"
+        android:layout_width="336dp"
+        android:layout_height="25dp"
         android:text="You dont have an account yet?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintVertical_bias="0.698" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -117,8 +117,8 @@
     <Button
 
         android:id="@+id/signUp"
-        android:layout_width="116dp"
-        android:layout_height="44dp"
+        android:layout_width="104dp"
+        android:layout_height="49dp"
         android:background="@android:color/transparent"
         android:elevation="0dp"
         android:onClick="onSignUpClicked"
@@ -127,9 +127,9 @@
         android:textColor="#ffbb79"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.837"
+        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />/>
+        app:layout_constraintVertical_bias="0.7" />/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
