@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentMenu">
 
-    <TextView
-        android:layout_width="134dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="45dp"
-        android:fontFamily="@font/dmsansextrabold"
-        android:text="Hello, Marvin Patrick !"></TextView>
 
-    <
+    <TextView
+        android:id="@+id/hellMsg"
+        android:layout_width="135dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Hello, Marvin Patrick !"
+        android:textSize="20dp"></TextView>
+
+    <ImageView
+        android:id="@+id/profileRedirectButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginLeft="340dp"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_margin="100dp"
-        android:paddingTop="40dp"
-        android:paddingLeft="40dp"
-        app:layoutManager="LinearLayoutManager"
+        android:layout_width="340dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="120dp"
         android:background="@color/white"
-        />
-
+        android:paddingLeft="30dp"
+        android:paddingTop="20dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tutor"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        ></TextView>
+        android:layout_width="360dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"></TextView>
 
-</FrameLayout>
+</RelativeLayout >

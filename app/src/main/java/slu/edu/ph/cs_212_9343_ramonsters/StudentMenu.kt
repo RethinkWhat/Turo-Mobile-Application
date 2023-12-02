@@ -24,6 +24,13 @@ class StudentMenu : AppCompatActivity() {
          */
         var databaseHelper = DatabaseHandler(this)
 
+        //var intent = Intent()
+        //var username = intent.getStringExtra("User")
+
+        //var helloMessage : TextView = findViewById(R.id.hellMsg)
+        //var user : User? = databaseHelper.getUser(username.toString())
+        //helloMessage.text = "Hello ${user!!.fullName}"
+
         // This variable already holds all of the pending tutors in the database
         Log.i("onCreate", "possibleTutors Create")
         var possibleTutors : ArrayList<User> = databaseHelper.getUsers(1)
@@ -47,7 +54,7 @@ class StudentMenu : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TutorViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.activity_student_menu,parent,false)
+                .inflate(R.layout.test,parent,false)
             return TutorViewHolder(view)
         }
 
