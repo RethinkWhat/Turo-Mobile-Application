@@ -18,6 +18,14 @@
         android:text="Hello, Marvin Patrick!"
         android:textSize="20dp"></TextView>
 
+    <ImageButton
+        android:id="@+id/profileRedirectButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="350dp"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
+
     <TextView
         android:id="@+id/availableTutorsMsg"
         android:layout_width="116dp"
@@ -27,14 +35,6 @@
         android:fontFamily="@font/dmsansextrabold"
         android:text="Available Tutors"
         android:textSize="14dp"></TextView>
-
-    <ImageButton
-        android:id="@+id/profileRedirectButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginLeft="350dp"
-        app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -55,5 +55,35 @@
         android:layout_height="154dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="163dp"></TextView>
+
+    <TextView
+        android:id="@+id/approvedTutorsMsg"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="330dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Approved Tutors"
+        android:textSize="14dp"></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/approvedTutors_recycler_view"
+        android:layout_width="365dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="353dp"
+        android:background="@color/white"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/approvedTutor"
+        android:layout_width="365dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="353dp"></TextView>
 
 </RelativeLayout >
