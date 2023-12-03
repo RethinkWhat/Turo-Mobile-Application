@@ -18,6 +18,9 @@
         android:theme="@style/Theme.CS_212_9343_Ramonsters"
         tools:targetApi="31">
         <activity
+            android:name=".ViewDetails"
+            android:exported="false" />
+        <activity
             android:name=".AdminMenu"
             android:exported="true" />
         <activity
@@ -43,8 +46,7 @@
             android:exported="true" />
         <activity
             android:name=".TutorMenu"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

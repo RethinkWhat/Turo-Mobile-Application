@@ -8,7 +8,7 @@
     <!-- res/layout/item_tutor.xml -->
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/viewDetailsButton"
         android:layout_width="102dp"
         android:layout_height="30dp"
         android:layout_marginLeft="225dp"

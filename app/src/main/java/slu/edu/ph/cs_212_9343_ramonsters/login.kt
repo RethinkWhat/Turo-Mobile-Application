@@ -86,7 +86,7 @@ class login : AppCompatActivity() {
                     val intent = Intent(this, TutorMenu::class.java)
                     intent.putExtra("user", user.userID)
                     startActivity(intent)
-                } else if (user.userType == 0){
+                } else if (user.userType == 0 || user.userType == 2){
                     val intent = Intent(this, StudentMenu::class.java)
                     intent.putExtra("user", user.userID)
                     Log.i("User == 0 ", "StartActivity attempted")
