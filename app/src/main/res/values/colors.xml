@@ -3,6 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkPurple">#0d0140</color>
+    <color name="lightPurple">#514A69</color>
+    <color name="grey">#F2F2F2</color>
+    <color name="background_grey">#F9F9F9</color>
 
 
 </resources>

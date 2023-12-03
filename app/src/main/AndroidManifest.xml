@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -29,18 +31,19 @@
             android:exported="true" />
         <activity
             android:name=".login"
-            android:exported="true" />
-        <activity
-            android:name=".StudentMenu"
-            android:exported="true" />
-        <activity
-            android:name=".TutorMenu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".StudentMenu"
+            android:exported="true" />
+        <activity
+            android:name=".TutorMenu"
+            android:exported="true">
         </activity>
     </application>
 

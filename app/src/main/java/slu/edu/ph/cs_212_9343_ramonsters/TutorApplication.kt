@@ -1,12 +1,17 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import org.w3c.dom.Text
@@ -15,16 +20,20 @@ import java.io.InputStream
 
 class TutorApplication : AppCompatActivity() {
 
-    var databaseHelper = DatabaseHandler(this)
-    lateinit var imageButton : ImageButton
+    lateinit var imageButton : Button
     private var resume : ByteArray? = null
     lateinit var resumeUploaded : TextView
     private var username: String? = null
     private var user : User? = null
 
-    lateinit var specializationField : EditText
+    lateinit var name : TextView
+    lateinit var locationField : EditText
+    lateinit var specializationField1 : EditText
+    lateinit var specializationField2 : EditText
+    lateinit var specializationField3 : EditText
     lateinit var rateField : EditText
     lateinit var applyButton : Button
+    lateinit var pfp : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +41,23 @@ class TutorApplication : AppCompatActivity() {
 
         val intent = getIntent();
         val username = intent.getStringExtra("User")
+        var databaseHelper = DatabaseHandler(this)
         val user = databaseHelper.getUser(username.toString())
+        name = findViewById(R.id.name)
+        name.setText(user!!.fullName)
 
         imageButton = findViewById(R.id.uploadImageButton)
         resumeUploaded = findViewById(R.id.resumeUpload)
-        specializationField = findViewById(R.id.specializationField)
+        locationField = findViewById(R.id.locationField)
+        specializationField1 = findViewById(R.id.specialization1)
+        specializationField2 = findViewById(R.id.specialization2)
+        specializationField3 = findViewById(R.id.specialization3)
         rateField = findViewById(R.id.askingRateField)
         applyButton = findViewById(R.id.applyButton)
+        pfp = findViewById(R.id.pfp)
+
+        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
+        pfp.setImageBitmap(bitmap)
 
 
 
@@ -51,11 +70,16 @@ class TutorApplication : AppCompatActivity() {
 
             databaseHelper.applyToBecomeTutor(
                 username!!,
-                specializationField.text.toString(),
+                locationField.toString(),
+                specializationField1.text.toString(),
+                specializationField2.text.toString(),
+                specializationField3.text.toString(),
                 rateField.text.toString().toDouble(),
                 resume)
         }
     }
+
+
 
     private fun openFileChooser() {
         try {
@@ -80,6 +104,7 @@ class TutorApplication : AppCompatActivity() {
                 }
 
                 if (resume != null) {
+                    imageButton.setBackgroundColor(Color.GRAY)
                     /*
                     /** Not validated yet */
                     resumeUploaded.text = "Resume Upload Complete"

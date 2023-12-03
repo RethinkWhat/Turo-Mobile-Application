@@ -11,7 +11,10 @@ data class User(
     val userType: Int,
 
     /** Tutor */
-    val specialization: String,
+    val location : String,
+    val specialization1: String,
+    val specialization2: String,
+    val specialization3: String,
     val rate: Double,
     val rating: Int,
     val PFP: ByteArray?,

@@ -25,7 +25,10 @@ class DatabaseHandler(context : Context) :
         private const val columnFullName = "fullName"
         private const val columnContactNumber = "contact"
         private const val columnUserType = "isTutor"
-        private const val columnSpecialization = "tutorSpeciality"
+        private const val columnLocation = "tutorLocation"
+        private const val columnSpecialization1 = "tutorSpeciality1"
+        private const val columnSpecialization2 = "tutorSpeciality2"
+        private const val columnSpecialization3 = "tutorSpeciality3"
         private const val columnRate = "tutorRate"
         private const val columnRating = "tutorRating"
         private const val columnPFP = "profilePicture"
@@ -44,7 +47,10 @@ class DatabaseHandler(context : Context) :
                         $columnFullName TEXT,
                         $columnContactNumber TEXT,
                         $columnUserType INTEGER,
-                        $columnSpecialization TEXT,
+                        $columnLocation TEXT,
+                        $columnSpecialization1 TEXT,
+                        $columnSpecialization2 TEXT,
+                        $columnSpecialization3 TEXT,
                         $columnRate DOUBLE,
                         $columnRating INT,
                         $columnPFP BLOB,
@@ -71,7 +77,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, newUser.fullName)
         values.put(columnContactNumber, newUser.contactNumber)
         values.put(columnUserType,  newUser.userType)
-        values.put(columnSpecialization, newUser.specialization)
+        values.put(columnLocation, newUser.location)
+        values.put(columnSpecialization1, newUser.specialization1)
+        values.put(columnSpecialization2, newUser.specialization2)
+        values.put(columnSpecialization3, newUser.specialization3)
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
         values.put(columnPFP, newUser.PFP)
@@ -97,7 +106,10 @@ class DatabaseHandler(context : Context) :
             Log.i("Get User" , "Get User Pass Hash Reached")
             val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
             Log.i("Get User" , "Get User Tutor Status Reached")
-            val specialization = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
+            val location = cursor.getString(cursor.getColumnIndexOrThrow(columnLocation))
+            val specialization1 = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization1))
+            val specialization2 = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization2))
+            val specialization3 = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization3))
             val rate = cursor.getDouble(cursor.getColumnIndexOrThrow(columnRate))
             val rating = cursor.getInt(cursor.getColumnIndexOrThrow(columnRating))
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
@@ -106,7 +118,7 @@ class DatabaseHandler(context : Context) :
             val resume = cursor.getBlob(cursor.getColumnIndexOrThrow(columnResume))
             val pendings = cursor.getString(cursor.getColumnIndexOrThrow(columnPendings))
             val confirmation = cursor.getString(cursor.getColumnIndexOrThrow(columnConfirmation))
-            User(username,password,name, contact, status.toInt(), specialization, rate.toDouble(),rating.toInt(),PFP, resume,pendings,confirmation)
+            User(username,password,name, contact, status.toInt(), location,specialization1,specialization2,specialization3, rate.toDouble(),rating.toInt(),PFP, resume,pendings,confirmation)
         }
         else {
             null
@@ -118,7 +130,8 @@ class DatabaseHandler(context : Context) :
      * Get the username of the user, their specialization, the rate they are asking, and their resume
      * The user status will be changed to 2. Meaning that they are not tutors yet, but are under evaluation
      */
-    fun applyToBecomeTutor(username : String, specialization : String, rate : Double, resume : ByteArray?) {
+    fun applyToBecomeTutor(username : String, location : String,
+                           specialization1 : String,specialization2 : String,specialization3 : String, rate : Double, resume : ByteArray?) {
         val database = this.writableDatabase
         val values = ContentValues()
 
@@ -129,7 +142,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, newUser.fullName)
         values.put(columnContactNumber, newUser.contactNumber)
         values.put(columnUserType,  2)
-        values.put(columnSpecialization, specialization)
+        values.put(columnLocation, location)
+        values.put(columnSpecialization1, specialization1)
+        values.put(columnSpecialization2, specialization2)
+        values.put(columnSpecialization3, specialization3)
         values.put(columnRate, rate)
         values.put(columnRating, newUser.rating)
         values.put(columnPFP, newUser.PFP)
@@ -158,7 +174,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, newUser.fullName)
         values.put(columnContactNumber, newUser.contactNumber)
         values.put(columnUserType,  acceptStatus)
-        values.put(columnSpecialization, newUser.specialization)
+        values.put(columnLocation, newUser.location)
+        values.put(columnSpecialization1, newUser.specialization1)
+        values.put(columnSpecialization2, newUser.specialization2)
+        values.put(columnSpecialization3, newUser.specialization3)
         values.put(columnRate, newUser.rate)
         values.put(columnRating, newUser.rating)
         values.put(columnPFP, newUser.PFP)
@@ -200,7 +219,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, tutor.fullName)
         values.put(columnContactNumber, tutor.contactNumber)
         values.put(columnUserType,  tutor.userType)
-        values.put(columnSpecialization, tutor.specialization)
+        values.put(columnLocation, tutor.location)
+        values.put(columnSpecialization1, tutor.specialization1)
+        values.put(columnSpecialization2, tutor.specialization2)
+        values.put(columnSpecialization3, tutor.specialization3)
         values.put(columnRate, tutor.rate)
         values.put(columnRating, tutor.rating)
         values.put(columnPFP, tutor.PFP)
@@ -223,7 +245,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, student.fullName)
         values.put(columnContactNumber, student.contactNumber)
         values.put(columnUserType,  student.userType)
-        values.put(columnSpecialization, student.specialization)
+        values.put(columnLocation, student.location)
+        values.put(columnSpecialization1, student.specialization1)
+        values.put(columnSpecialization2, student.specialization2)
+        values.put(columnSpecialization3, student.specialization3)
         values.put(columnRate, student.rate)
         values.put(columnRating, student.rating)
         values.put(columnPFP, student.PFP)
@@ -272,7 +297,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, tutor.fullName)
         values.put(columnContactNumber, tutor.contactNumber)
         values.put(columnUserType,  tutor.userType)
-        values.put(columnSpecialization, tutor.specialization)
+        values.put(columnLocation, tutor.location)
+        values.put(columnSpecialization1, tutor.specialization1)
+        values.put(columnSpecialization2, tutor.specialization2)
+        values.put(columnSpecialization3, tutor.specialization3)
         values.put(columnRate, tutor.rate)
         values.put(columnRating, tutor.rating)
         values.put(columnPFP, tutor.PFP)
@@ -290,7 +318,10 @@ class DatabaseHandler(context : Context) :
         values.put(columnFullName, student.fullName)
         values.put(columnContactNumber, student.contactNumber)
         values.put(columnUserType,  student.userType)
-        values.put(columnSpecialization, student.specialization)
+        values.put(columnLocation, student.location)
+        values.put(columnSpecialization1, student.specialization1)
+        values.put(columnSpecialization2, student.specialization2)
+        values.put(columnSpecialization3, student.specialization3)
         values.put(columnRate, student.rate)
         values.put(columnRating, student.rating)
         values.put(columnPFP, student.PFP)
@@ -314,7 +345,7 @@ class DatabaseHandler(context : Context) :
         Log.i("database", "database val created")
         var cursor : Cursor? = null
         try {
-            cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf("0"))
+            cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf(userType.toString())) //TODO:Change 0 to userType
         }catch (e : Exception) {
             Log.i("cursor attempt", "No element found")
         }
@@ -329,8 +360,10 @@ class DatabaseHandler(context : Context) :
             Log.i("Get User", "Get User Pass Hash Reached")
             val status = cursor.getString(cursor.getColumnIndexOrThrow(columnUserType))
             Log.i("Get User", "Get User Tutor Status Reached")
-            val specialization =
-                cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization))
+            val location = cursor.getString(cursor.getColumnIndexOrThrow(columnLocation))
+            val specialization1 = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization1))
+            val specialization2 = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization2))
+            val specialization3 = cursor.getString(cursor.getColumnIndexOrThrow(columnSpecialization3))
             val rate = cursor.getDouble(cursor.getColumnIndexOrThrow(columnRate))
             val rating = cursor.getInt(cursor.getColumnIndexOrThrow(columnRating))
             val PFP = cursor.getBlob(cursor.getColumnIndexOrThrow(columnPFP))
@@ -346,7 +379,10 @@ class DatabaseHandler(context : Context) :
                     name,
                     contact,
                     status.toInt(),
-                    specialization,
+                    location,
+                    specialization1,
+                    specialization2,
+                    specialization3,
                     rate,
                     rating,
                     PFP,

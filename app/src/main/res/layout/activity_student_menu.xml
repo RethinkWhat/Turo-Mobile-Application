@@ -4,45 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_grey"
     tools:context=".StudentMenu">
 
 
     <TextView
-        android:id="@+id/hellMsg"
+        android:id="@+id/helloMsg"
         android:layout_width="135dp"
         android:layout_height="67dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="63dp"
         android:fontFamily="@font/dmsansextrabold"
-        android:text="Hello, Marvin Patrick !"
+        android:text="Hello, Marvin Patrick!"
         android:textSize="20dp"></TextView>
 
-    <ImageView
+    <TextView
+        android:id="@+id/availableTutorsMsg"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="141dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Available Tutors"
+        android:textSize="14dp"></TextView>
+
+    <ImageButton
         android:id="@+id/profileRedirectButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginLeft="340dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="350dp"
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="340dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="365dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="163dp"
         android:background="@color/white"
-        android:paddingLeft="30dp"
-        android:paddingTop="20dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tutor"
-        android:layout_width="360dp"
-        android:layout_height="170dp"
+        android:layout_width="365dp"
+        android:layout_height="154dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="120dp"></TextView>
+        android:layout_marginTop="163dp"></TextView>
 
 </RelativeLayout >

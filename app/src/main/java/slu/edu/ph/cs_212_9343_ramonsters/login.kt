@@ -27,7 +27,7 @@ import android.widget.TextView
 class login : AppCompatActivity() {
 
     lateinit var loginButton: Button
-    lateinit var signUpButton: Button
+    lateinit var signUpButton: TextView
     lateinit var emailField: EditText
     lateinit var passwordField : EditText
 
@@ -41,14 +41,22 @@ class login : AppCompatActivity() {
         emailField = findViewById(R.id.editTextTextEmailAddress)
         passwordField = findViewById(R.id.editTextTextPassword)
 
+        //val newUser = User("Rithik", "Rithik", "Rithik","09177900153",3,"","","","",0.0,0, null,null,null,null)
+        //databaseHelper.addUser(newUser)
+
+
 
         /** To Reset the database uncomment this line and execute the program */
-       /* val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+        /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
 
-        */
+         */
+
+
+
+
 
 
 
@@ -76,17 +84,17 @@ class login : AppCompatActivity() {
             if (user != null && enteredPassword.equals(user.passHash)) {
                 if (user.userType == 1) {
                     val intent = Intent(this, TutorMenu::class.java)
-                    intent.putExtra("User", enteredUsername)
+                    intent.putExtra("user", user.userID)
                     startActivity(intent)
                 } else if (user.userType == 0){
                     val intent = Intent(this, StudentMenu::class.java)
-                    intent.putExtra("User", enteredUsername)
+                    intent.putExtra("user", user.userID)
                     Log.i("User == 0 ", "StartActivity attempted")
                     startActivity(intent)
                     Log.i("User == 0 ", "StartActivity finished")
                 } else if (user.userType == 3) {
                     val intent = Intent(this, AdminMenu::class.java)
-                    intent.putExtra("User", enteredUsername)
+                    intent.putExtra("user", user.userID)
                     startActivity(intent)
                 }
                 Log.i("User Success", "User find success")
