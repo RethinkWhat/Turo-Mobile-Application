@@ -6,6 +6,7 @@
     <color name="lightPurple">#514A69</color>
     <color name="grey">#F2F2F2</color>
     <color name="background_grey">#F9F9F9</color>
+    <color name="red">#FF0000</color>
 
 
 </resources>

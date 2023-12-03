@@ -18,6 +18,9 @@
         android:theme="@style/Theme.CS_212_9343_Ramonsters"
         tools:targetApi="31">
         <activity
+            android:name=".PendingTutors"
+            android:exported="false" />
+        <activity
             android:name=".ViewDetails"
             android:exported="false" />
         <activity
@@ -46,7 +49,7 @@
             android:exported="true" />
         <activity
             android:name=".TutorMenu"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
