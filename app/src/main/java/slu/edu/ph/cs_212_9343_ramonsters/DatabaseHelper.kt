@@ -395,4 +395,33 @@ class DatabaseHandler(context : Context) :
         return userList
     }
 
+    /**
+     * Method to get the pendings of a given user
+     */
+    fun getPendings(username : String?) : ArrayList<User> {
+        val user: User = getUser(username!!)!!
+        val usernameList: List<String?> = user!!.pendings!!.split(",")
+        val toReturn: ArrayList<User> = ArrayList()
+
+        for (username in usernameList) {
+            toReturn!!.add(getUser(username!!)!!)
+        }
+        return toReturn
+    }
+
+    /**
+     * Method to get the confirmed of a given user
+     */
+    fun getConfirmed(username : String?) : ArrayList<User> {
+        val user: User = getUser(username!!)!!
+        val usernameList: List<String?> = user!!.confirmations!!.split(",")
+        val toReturn: ArrayList<User> = ArrayList()
+
+        for (username in usernameList) {
+            toReturn!!.add(getUser(username!!)!!)
+        }
+        return toReturn
+    }
+
+
 }
