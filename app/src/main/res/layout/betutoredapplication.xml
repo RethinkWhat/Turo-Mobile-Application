@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,7 +17,9 @@
         android:backgroundTint="@color/red"
         android:fontFamily="@font/dmsansextrabold"
         android:text="REJECT"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/acceptButton"
@@ -27,7 +30,9 @@
         android:backgroundTint="@color/darkPurple"
         android:fontFamily="@font/dmsansextrabold"
         android:text="ACCEPT"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tutor"
@@ -35,9 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="22dp"
-        android:textSize="20dp"
         android:fontFamily="@font/dmsansextrabold"
         android:text="Tutor Name"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,12 +50,14 @@
         android:id="@+id/tutorLocation"
         android:layout_width="175dp"
         android:layout_height="24dp"
-        android:textColor="@color/darkPurple"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/dmsans"
         android:text="Location"
-        android:textSize="15dp" />
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/phoneNumberText"
@@ -61,14 +68,17 @@
         android:fontFamily="@font/dmsans"
         android:text="Phone Number"
         android:textColor="@color/darkPurple"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/tutorImageView"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginTop="22dp"
         android:layout_marginLeft="230dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="83dp"
         tools:srcCompat="@tools:sample/avatars" />
@@ -86,7 +96,10 @@
         android:text="STUDENT ACCEPTED"
         android:textColor="#FFFFFFFF"
         android:textSize="17dp"
-        android:visibility="gone"></TextView>
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

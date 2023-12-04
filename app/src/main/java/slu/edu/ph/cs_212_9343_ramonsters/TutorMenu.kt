@@ -30,8 +30,35 @@ class TutorMenu : AppCompatActivity() {
 
 
         val studentApplicationRecyclerView: RecyclerView = findViewById(R.id.studentApplication_recycler_view)
+        val studentApplicationRecyclerView2: RecyclerView = findViewById(R.id.studentApplication_recycler_view2)
+        val studentApplicationRecyclerView3: RecyclerView = findViewById(R.id.studentApplication_recycler_view3)
         var users: ArrayList<User> = databaseHelper.getUsers(2)
-        studentApplicationRecyclerView.adapter =TutorAdapter(users, "ramonjasmin@gmail.com"!!)
+        var size = users.size / 3
+
+        var box1 : ArrayList<User> = ArrayList()
+        var box2 : ArrayList<User> = ArrayList()
+        var box3 : ArrayList<User> = ArrayList()
+
+        for (x in 0 until size) {
+            box1.add(users.get(x))
+        }
+        for (x in size until(size+size)) {
+            box2.add(users.get(x))
+        }
+        for (x in (size+size)until (size*3)) {
+            box3.add(users.get(x))
+        }
+        if (size % 3 ==2) {
+            box1.add(users.get(users.size-1))
+            box2.add(users.get(users.size-2))
+        }
+        if (size % 3 ==1) {
+            box1.add(users.get(users.size-1))
+        }
+
+        studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!)
+        studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!)
+        studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!)
     }
 
 
@@ -59,6 +86,7 @@ class TutorMenu : AppCompatActivity() {
                 }
                 rejectButton.setOnClickListener() {
                     acceptedText.visibility = View.VISIBLE
+                    acceptedText.setText("STUDENT REJECTED")
                     acceptButton.visibility = View.GONE
                     rejectButton.visibility = View.GONE
                 }
