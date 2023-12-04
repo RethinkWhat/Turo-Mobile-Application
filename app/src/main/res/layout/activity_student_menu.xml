@@ -82,8 +82,42 @@
     <TextView
         android:id="@+id/approvedTutor"
         android:layout_width="365dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:textAlignment="center"
         android:layout_height="154dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="353dp"></TextView>
+
+    <TextView
+        android:id="@+id/pendingApplicationsMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="520dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Pending Applications"
+        android:textSize="14dp"></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pendingApplications_recycler_view"
+        android:layout_width="365dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:textAlignment="center"
+        android:layout_height="154dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="543dp"
+        android:background="@color/white"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pendingApplications"
+        android:layout_width="365dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="543dp"></TextView>
 
 </RelativeLayout >
