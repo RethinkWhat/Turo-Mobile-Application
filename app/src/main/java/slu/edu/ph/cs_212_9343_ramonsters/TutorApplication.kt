@@ -3,18 +3,14 @@ package slu.edu.ph.cs_212_9343_ramonsters
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Im
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import org.w3c.dom.Text
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
@@ -49,7 +45,7 @@ class TutorApplication : AppCompatActivity() {
         imageButton = findViewById(R.id.uploadImageButton)
         resumeUploaded = findViewById(R.id.resumeUpload)
         locationField = findViewById(R.id.locationField)
-        specializationField1 = findViewById(R.id.specialization1)
+        specializationField1 = findViewById(R.id.phoneNumberText)
         specializationField2 = findViewById(R.id.specialization2)
         specializationField3 = findViewById(R.id.specialization3)
         rateField = findViewById(R.id.askingRateField)

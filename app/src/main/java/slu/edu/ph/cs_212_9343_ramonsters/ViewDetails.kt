@@ -19,7 +19,7 @@ class ViewDetails : AppCompatActivity() {
         var askingPrice : TextView = findViewById(R.id.askingPriceDisplay)
         var email : TextView = findViewById(R.id.email)
         var phoneNumber : TextView = findViewById(R.id.phoneNumber)
-        var specialization1 : TextView = findViewById(R.id.specialization1)
+        var specialization1 : TextView = findViewById(R.id.phoneNumberText)
         var specialization2 : TextView = findViewById(R.id.specialization2)
         var specialization3 : TextView = findViewById(R.id.specialization3)
         var viewResume : Button = findViewById(R.id.viewResume)

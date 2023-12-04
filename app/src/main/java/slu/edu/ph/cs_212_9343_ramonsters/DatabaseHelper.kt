@@ -345,7 +345,7 @@ class DatabaseHandler(context : Context) :
         Log.i("database", "database val created")
         var cursor : Cursor? = null
         try {
-            cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf("2")) //TODO:Change 0 to userType
+            cursor = database.rawQuery("SELECT * FROM $usersTable WHERE $columnUserType=?", arrayOf(userType.toString())) //TODO:Change 0 to userType
         }catch (e : Exception) {
             Log.i("cursor attempt", "No element found")
         }
