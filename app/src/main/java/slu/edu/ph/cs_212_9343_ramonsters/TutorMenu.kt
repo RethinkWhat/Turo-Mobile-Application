@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 
@@ -47,8 +48,13 @@ class TutorMenu : AppCompatActivity() {
             pendingSessionsButton.setTextColor(Color.parseColor("#0d0140"))
             pendingSessionsButton.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
 
-            users = databaseHelper.getUsers(1) //TODO:Change method when admin page finished
+            users = databaseHelper.getUsers(2) //TODO:Change method to get all the USERS that are confirmed under a tutor
             updateBoxes(users)
+
+            //TODO: Change Username when ADMIN Page is Finished
+            studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!,R.layout.approvedsessions)
+            studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!,R.layout.approvedsessions)
+            studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!,R.layout.approvedsessions)
         }
 
         pendingSessionsButton.setOnClickListener() {
@@ -57,10 +63,10 @@ class TutorMenu : AppCompatActivity() {
             approvedSessionsButton.setTextColor(Color.parseColor("#0d0140"))
             pendingSessionsButton.setBackgroundColor(Color.parseColor("#0d0140"))
 
-            users = databaseHelper.getUsers(2) //TODO:Change method when admin page finished
+            users = databaseHelper.getUsers(2) //TODO:Change method to get PENDING USERS
             updateBoxes(users)
         }
-        users = databaseHelper.getUsers(1) //TODO:Change method when admin page finished
+        users = databaseHelper.getUsers(1) //TODO:Change method to get PENDING USERS
         updateBoxes(users)
     }
 
@@ -83,21 +89,24 @@ class TutorMenu : AppCompatActivity() {
         if (size % 3 ==1) {
             box1.add(users.get(users.size-1))
         }
-        studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!)
-        studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!)
-        studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!)
+
+        //TODO: Change Username when ADMIN Page is Finished
+        studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!,R.layout.betutoredapplication)
+        studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!,R.layout.betutoredapplication)
+        studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!,R.layout.betutoredapplication)
     }
 
 
-    class TutorAdapter(val tutors: ArrayList<User>, val username: String) :
+    class TutorAdapter(val tutors: ArrayList<User>, val username: String, val layoutID : Int) :
         RecyclerView.Adapter<TutorAdapter.TutorViewHolder>() {
 
         class TutorViewHolder(val tutorView: View) : RecyclerView.ViewHolder(tutorView) {
             private val tutorTextView: TextView = tutorView.findViewById(R.id.tutor)
             private val tutorImageView: ImageView = tutorView.findViewById(R.id.tutorImageView)
-            private val rejectButton: Button = tutorView.findViewById(R.id.rejectButton)
-            private val acceptButton: Button = tutorView.findViewById(R.id.acceptButton)
-            private val acceptedText : TextView = tutorView.findViewById(R.id.studentAcceptedTxt)
+            private val rejectButton: Button? = tutorView.findViewById(R.id.rejectButton)
+            private val acceptButton: Button? = tutorView.findViewById(R.id.acceptButton)
+            private val acceptedText : TextView? = tutorView.findViewById(R.id.studentAcceptedTxt)
+            private val markButton : Button? = tutorView.findViewById(R.id.markSessionButton)
 
             fun bind(user: User, context: Context, username: String) {
                 tutorTextView.text = user.fullName
@@ -105,24 +114,34 @@ class TutorMenu : AppCompatActivity() {
                 tutorImageView.setImageBitmap(bitmap)
 
 
-                acceptButton.setOnClickListener() {
-                    acceptedText.visibility = View.VISIBLE
-                    acceptButton.visibility = View.GONE
-                    rejectButton.visibility = View.GONE
+                if (acceptButton != null) {
+                    acceptButton!!.setOnClickListener() {
+                        acceptedText!!.visibility = View.VISIBLE
+                        acceptButton.visibility = View.GONE
+                        rejectButton!!.visibility = View.GONE
+                        //TODO: Pass in method to accept user
 
+                    }
+                    rejectButton!!.setOnClickListener() {
+                        acceptedText!!.visibility = View.VISIBLE
+                        acceptedText.setText("STUDENT REJECTED")
+                        acceptButton.visibility = View.GONE
+                        rejectButton.visibility = View.GONE
+                        //TODO: Pass in method to reject user
+                    }
                 }
-                rejectButton.setOnClickListener() {
-                    acceptedText.visibility = View.VISIBLE
-                    acceptedText.setText("STUDENT REJECTED")
-                    acceptButton.visibility = View.GONE
-                    rejectButton.visibility = View.GONE
+                if (markButton != null) {
+                    markButton!!.setOnClickListener() {
+                        markButton.setBackgroundColor(Color.parseColor("#D4CEFA"))
+                        //TODO: Code to remove student from confirmation
+                    }
                 }
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TutorViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.betutoredapplication, parent, false)
+                .inflate(layoutID, parent, false)
             return TutorViewHolder(view)
         }
 
