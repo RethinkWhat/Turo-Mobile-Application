@@ -12,17 +12,16 @@
 
     <View
         android:id="@+id/view8"
-        android:layout_width="341dp"
-        android:layout_height="0dp"
+        android:layout_width="345dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="534dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:layout_constraintVertical_bias="0.219" />
-
 
     <TextView
         android:id="@+id/signUpText2"
@@ -66,10 +65,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.224" />
 
     <Button
         android:id="@+id/pendingSessionsButton"
@@ -81,10 +80,10 @@
         app:backgroundTint="@color/darkPurple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225" />
+        app:layout_constraintVertical_bias="0.223" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/studentApplication_recycler_view"

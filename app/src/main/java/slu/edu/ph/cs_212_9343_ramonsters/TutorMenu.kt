@@ -32,7 +32,7 @@ class TutorMenu : AppCompatActivity() {
         val studentApplicationRecyclerView: RecyclerView = findViewById(R.id.studentApplication_recycler_view)
         val studentApplicationRecyclerView2: RecyclerView = findViewById(R.id.studentApplication_recycler_view2)
         val studentApplicationRecyclerView3: RecyclerView = findViewById(R.id.studentApplication_recycler_view3)
-        var users: ArrayList<User> = databaseHelper.getUsers(2)
+        var users: ArrayList<User> = databaseHelper.getUsers(2) //TODO:Change method when admin page finished
         var size = users.size / 3
 
         var box1 : ArrayList<User> = ArrayList()
