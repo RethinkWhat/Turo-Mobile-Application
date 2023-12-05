@@ -138,7 +138,7 @@
         ></TextView>
 
     <TextView
-        android:id="@+id/specialization1"
+        android:id="@+id/phoneNumberText"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"

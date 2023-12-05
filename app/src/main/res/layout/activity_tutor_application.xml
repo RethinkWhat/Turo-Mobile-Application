@@ -200,7 +200,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/specialization1"
+        android:id="@+id/phoneNumberText"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
