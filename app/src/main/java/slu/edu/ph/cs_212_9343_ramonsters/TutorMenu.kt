@@ -17,28 +17,56 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TutorMenu : AppCompatActivity() {
 
+    var box1 : ArrayList<User> = ArrayList()
+    var box2 : ArrayList<User> = ArrayList()
+    var box3 : ArrayList<User> = ArrayList()
+
+    lateinit var studentApplicationRecyclerView: RecyclerView
+    lateinit var studentApplicationRecyclerView2: RecyclerView
+    lateinit var studentApplicationRecyclerView3: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutor_menu)
+        var users: ArrayList<User> = ArrayList()
 
-
+        studentApplicationRecyclerView = findViewById(R.id.studentApplication_recycler_view)
+        studentApplicationRecyclerView2 =  findViewById(R.id.studentApplication_recycler_view2)
+        studentApplicationRecyclerView3 = findViewById(R.id.studentApplication_recycler_view3)
         /**
          * When needing information from the database this DatabaseHandler obj is what you will use.
          * Pertinent data for this menu is the list of pending tutors
          */
         var databaseHelper = DatabaseHandler(this)
 
+        val approvedSessionsButton : Button = findViewById(R.id.approvedSessionsButton)
+        val pendingSessionsButton : Button = findViewById(R.id.pendingSessionsButton)
+        approvedSessionsButton.setOnClickListener() {
+            approvedSessionsButton.setBackgroundColor(Color.parseColor("#0d0140"))
+            approvedSessionsButton.setTextColor(Color.WHITE)
+            pendingSessionsButton.setTextColor(Color.parseColor("#0d0140"))
+            pendingSessionsButton.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
 
-        val studentApplicationRecyclerView: RecyclerView = findViewById(R.id.studentApplication_recycler_view)
-        val studentApplicationRecyclerView2: RecyclerView = findViewById(R.id.studentApplication_recycler_view2)
-        val studentApplicationRecyclerView3: RecyclerView = findViewById(R.id.studentApplication_recycler_view3)
-        var users: ArrayList<User> = databaseHelper.getUsers(2) //TODO:Change method when admin page finished
+            users = databaseHelper.getUsers(1) //TODO:Change method when admin page finished
+            updateBoxes(users)
+        }
+
+        pendingSessionsButton.setOnClickListener() {
+            approvedSessionsButton.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
+            pendingSessionsButton.setTextColor(Color.WHITE)
+            approvedSessionsButton.setTextColor(Color.parseColor("#0d0140"))
+            pendingSessionsButton.setBackgroundColor(Color.parseColor("#0d0140"))
+
+            users = databaseHelper.getUsers(2) //TODO:Change method when admin page finished
+            updateBoxes(users)
+        }
+        users = databaseHelper.getUsers(1) //TODO:Change method when admin page finished
+        updateBoxes(users)
+    }
+
+    fun updateBoxes(users : ArrayList<User>) {
+
         var size = users.size / 3
-
-        var box1 : ArrayList<User> = ArrayList()
-        var box2 : ArrayList<User> = ArrayList()
-        var box3 : ArrayList<User> = ArrayList()
-
         for (x in 0 until size) {
             box1.add(users.get(x))
         }
@@ -55,7 +83,6 @@ class TutorMenu : AppCompatActivity() {
         if (size % 3 ==1) {
             box1.add(users.get(users.size-1))
         }
-
         studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!)
         studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!)
         studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!)

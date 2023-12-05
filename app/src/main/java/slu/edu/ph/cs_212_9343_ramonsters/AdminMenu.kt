@@ -18,15 +18,17 @@ class AdminMenu : AppCompatActivity() {
         var databaseHelper = DatabaseHandler(this)
 
         // This variable already holds all of the pending tutors in the database
-        var pendingTutors : ArrayList<User> = databaseHelper.getUsers(2)
+        var pendingTutors: ArrayList<User> = databaseHelper.getUsers(2)
 
 
-        // Sample Run to check if code words only
+        /*   // Sample Run to check if code words only
         var users : String = " "
         names = findViewById(R.id.names)
         for (i in pendingTutors) {
             users += i.userID
         }
         names.setText(users)
+
+      */
     }
 }
