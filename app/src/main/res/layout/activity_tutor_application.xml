@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".TutorApplication">
 
-    <View android:id="@+id/rectangle_at_the_top"
+    <View
+        android:id="@+id/rectangle_at_the_top"
         android:layout_width="match_parent"
-        android:layout_marginTop="108dp"
-        android:layout_height="76dp"
+        android:layout_height="68dp"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="108dp"
         android:background="@color/grey"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/pfp"
@@ -45,12 +46,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
-        android:textSize="25dp"
-        android:layout_marginTop="189dp"
+        android:layout_marginTop="183dp"
         android:fontFamily="@font/dmsansextrabold"
-
         android:text="BE A TUTOR"
+
         android:textAlignment="center"
+        android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
         app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,13 +59,15 @@
 
     <TextView
         android:id="@+id/uploadCVText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="225dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="215dp"
+
         android:fontFamily="@font/dmsansextrabold"
         android:text="Upload CV"
-
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
         app:layout_constraintHorizontal_bias="0.905"
@@ -73,13 +76,15 @@
 
     <TextView
         android:id="@+id/locationText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="375dp"
+        android:layout_marginTop="335dp"
+
         android:fontFamily="@font/dmsansextrabold"
         android:text="Location"
-
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
         app:layout_constraintHorizontal_bias="0.905"
@@ -88,13 +93,15 @@
 
     <TextView
         android:id="@+id/askingPriceText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="445dp"
+        android:layout_marginTop="415dp"
+
         android:fontFamily="@font/dmsansextrabold"
         android:text="Asking Price"
-
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
         app:layout_constraintHorizontal_bias="0.905"
@@ -103,13 +110,15 @@
 
     <TextView
         android:id="@+id/specializationText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="505dp"
+        android:layout_marginTop="490dp"
+
         android:fontFamily="@font/dmsansextrabold"
         android:text="Specializations"
-
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
         app:layout_constraintHorizontal_bias="0.905"
@@ -120,11 +129,13 @@
         android:id="@+id/CVInstructionsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="235dp"
+
         android:fontFamily="@font/dmsans"
         android:text="Add your CV/Resume to apply for a job."
-
         android:textSize="13dp"
         app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
         app:layout_constraintHorizontal_bias="0.905"
@@ -153,115 +164,142 @@
 
     <Button
         android:id="@+id/uploadImageButton"
-        android:layout_width="379dp"
-        android:layout_height="85dp"
-        android:text= "Upload CV/Resume"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/darkPurple"
+        android:layout_width="348dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="260dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_background"
+        android:text="UPLOAD CV/RESUME"
+        app:backgroundTint="@color/darkPurple"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@android:drawable/ic_menu_upload" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <EditText
         android:id="@+id/askingRateField"
         android:layout_width="379dp"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="435dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
         android:ems="10"
         android:fontFamily="@font/dmsans"
-        android:textSize="15dp"
-        android:hint="Price per hour"
+        android:hint="₱ 5,523.34"
         android:inputType="numberDecimal"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-         />
+        />
+
 
     <EditText
         android:id="@+id/locationField"
         android:layout_width="379dp"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="360dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
         android:ems="10"
         android:fontFamily="@font/dmsans"
-        android:hint="Enter your location. (City, Province)"
+        android:hint="Baguio City, Benguet"
         android:inputType="text"
-        android:textSize="15dp"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/phoneNumberText"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="520dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:fontFamily="@font/dmsans"
-        android:textSize="15dp"
-        android:hint="Enter your specialization."
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+
+    <EditText
+        android:id="@+id/specialization1"
+        android:layout_width="379dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="510dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:fontFamily="@font/dmsans"
+        android:hint="Artificial Intelligence"
+        android:inputType="text"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
     <EditText
         android:id="@+id/specialization2"
         android:layout_width="379dp"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="560dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
         android:ems="10"
         android:fontFamily="@font/dmsans"
-        android:textSize="15dp"
-        android:hint="Enter your specialization."
+        android:hint="Programming"
         android:inputType="text"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-         />
+        />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
     <EditText
         android:id="@+id/specialization3"
         android:layout_width="379dp"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="615dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
         android:ems="10"
         android:fontFamily="@font/dmsans"
-        android:textSize="15dp"
-        android:hint="Enter your specialization."
+        android:hint="Mathematics"
         android:inputType="text"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
 
     <Button
         android:id="@+id/applyButton"
-        android:layout_width="match_parent"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="670dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Apply"
-        android:backgroundTint="@color/darkPurple"
-        android:textAlignment="center"
+        android:background="@drawable/edit_text_background"
+        android:text="Apply Now"
+        app:backgroundTint="@color/darkPurple"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resumeUpload" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </RelativeLayout>
