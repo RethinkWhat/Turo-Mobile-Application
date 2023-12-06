@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 
 /** DECLARED USERS SO FAR:
@@ -41,7 +42,8 @@ class login : AppCompatActivity() {
         emailField = findViewById(R.id.editTextTextEmailAddress)
         passwordField = findViewById(R.id.editTextTextPassword)
 
-        //val newUser = User("Rithik", "Rithik", "Rithik","09177900153",3,"","","","",0.0,0, null,null,null,null)
+        /** To Register a user uncomment this line and execute the program */
+       // val newUser = User("rithiktank358@gmail.com", "rithik", "Rithik Tank","09177900153",0,"Baguio City, Benguet","Computer Science","Mathematics","Science",100.20,0, null,null,null,null)
         //databaseHelper.addUser(newUser)
 
 
@@ -51,20 +53,8 @@ class login : AppCompatActivity() {
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
-
          */
 
-
-
-
-
-
-
-        /** To Register a user uncomment this line and execute the program */
-/*
-        val newUser = User("email2", "password2", "name","917790001533",3,"",0.0,0, null,null,null,null)
-        databaseHelper.addUser(newUser)
-*/
 
 
 
@@ -98,9 +88,13 @@ class login : AppCompatActivity() {
                     startActivity(intent)
                 }
                 Log.i("User Success", "User find success")
+                val toast = Toast.makeText(this,"Authentication Success", Toast.LENGTH_LONG)
+                toast.show()
             } else {
                 Log.i("User Failed", "User find fail")
                 //Authentication failed
+                val toast = Toast.makeText(this,"Authentication Error", Toast.LENGTH_LONG)
+                toast.show()
             }
         }
 
