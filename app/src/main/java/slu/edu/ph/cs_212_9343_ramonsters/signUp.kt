@@ -1,6 +1,7 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -18,10 +20,10 @@ class signUp : AppCompatActivity() {
     lateinit var passwordField : EditText
     lateinit var nameField : EditText
     lateinit var signUpButton : Button
-    lateinit var uploadPFPButton : ImageButton
+    lateinit var uploadPFPButton : Button
+    lateinit var loginButton : TextView
     private var databaseHelper = DatabaseHandler(this)
     private var pfp : ByteArray? = null
-    lateinit var imageMsg : TextView
     lateinit var contactField : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +33,8 @@ class signUp : AppCompatActivity() {
         passwordField = findViewById(R.id.passwordField)
         signUpButton = findViewById(R.id.signUpButton)
         uploadPFPButton = findViewById(R.id.uploadPFP)
-        imageMsg = findViewById(R.id.imageUpload)
         nameField = findViewById(R.id.nameField)
+        loginButton = findViewById(R.id.login)
         contactField = findViewById(R.id.contactField)
         Log.i("signUp", " SignUp Page clicked")
 
@@ -41,6 +43,10 @@ class signUp : AppCompatActivity() {
             openFileChooser()
         }
 
+        loginButton.setOnClickListener() {
+            val intent = Intent(this, login::class.java)
+            startActivity(intent)
+        }
 
 
 
@@ -53,8 +59,10 @@ class signUp : AppCompatActivity() {
             Log.i("signUpButton", " SignUpButton reached")
             val newUser = User(email, password, name,contact,0,"","","","",0.0,0, pfp,null,null,null)
             databaseHelper.addUser(newUser)
+            val toast = Toast.makeText(this,"Account Created", Toast.LENGTH_LONG)
+            toast.show()
             val intent = Intent(this, StudentMenu::class.java)
-            intent.putExtra("User", newUser.userID)
+            intent.putExtra("user", newUser.userID)
             startActivity(intent)
         }
     }
@@ -82,15 +90,11 @@ class signUp : AppCompatActivity() {
                 }
 
                 if (pfp != null) {
-                    imageMsg.text = "Image Upload Complete"
-                    /** TO DISPLAY THE IMAGE */
-                    /*
-                    val bitmap = BitmapFactory.decodeByteArray(pfp, 0, pfp!!.size)
-                    Log.i("bitmap", "Decode complete")
-                    pfpPic.setImageBitmap(bitmap)
-                    Log.i("pfpPic", "Set pic complete")
-                     */
+                    val toast = Toast.makeText(this,"Image Upload Success", Toast.LENGTH_LONG)
+                    toast.show()
                 } else {
+                    val toast = Toast.makeText(this,"Image Upload Failed", Toast.LENGTH_LONG)
+                    toast.show()
                     Log.e("imagePickerLauncher", "pfp is null")
                 }
             }

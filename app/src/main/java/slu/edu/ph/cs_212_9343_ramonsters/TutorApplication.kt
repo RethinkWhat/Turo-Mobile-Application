@@ -36,7 +36,7 @@ class TutorApplication : AppCompatActivity() {
         setContentView(R.layout.activity_tutor_application)
 
         val intent = getIntent();
-        val username = intent.getStringExtra("User")
+        val username = intent.getStringExtra("user")
         var databaseHelper = DatabaseHandler(this)
         val user = databaseHelper.getUser(username.toString())
         name = findViewById(R.id.name)

@@ -2,6 +2,7 @@ package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +26,6 @@ class StudentMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_menu)
 
-        var profileRedirectButton: ImageButton = findViewById(R.id.profileRedirectButton)
 
         /**
          * When needing information from the database this DatabaseHandler obj is what you will use.
@@ -36,6 +36,7 @@ class StudentMenu : AppCompatActivity() {
         var intent = getIntent()
         val username = intent.getStringExtra("user")
 
+        var profileRedirectButton: ImageButton = findViewById(R.id.profileRedirectButton)
         val approvedTutorsMsg : TextView = findViewById(R.id.approvedTutorsMsg)
         val pendingApplicationsMsg : TextView = findViewById(R.id.pendingApplicationsMsg)
         val pendingApplications : TextView = findViewById(R.id.pendingApplications)
@@ -52,9 +53,16 @@ class StudentMenu : AppCompatActivity() {
         var user: User? = databaseHelper.getUser(username.toString())
         helloMessage.setText("Hello ${user!!.fullName}!")
 
+        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
+        var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
+            100,
+            100, true)
+
+        profileRedirectButton.setImageBitmap(scaledBitMap)
+
         // This variable already holds all of the pending tutors in the database
         Log.i("onCreate", "possibleTutors Create")
-        var possibleTutors: ArrayList<User> = databaseHelper.getUsers(1)
+        var possibleTutors: ArrayList<User>? = databaseHelper.getUsers(1)
 
         if (databaseHelper.getUser(username!!)!!.confirmations != null) {
             var confirmedTutors: ArrayList<User> = databaseHelper.getConfirmed(username)
@@ -77,17 +85,20 @@ class StudentMenu : AppCompatActivity() {
         Log.i("onCreate", "recyclerView Create")
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         Log.i("onCreate", "recyclerView Adapater Create")
-        recyclerView.adapter = TutorAdapter(possibleTutors, username!!)
+
+        if (possibleTutors != null) {
+            recyclerView.adapter = TutorAdapter(possibleTutors, username!!)
+        }
         Log.i("onCreate", "recyclerView Adapater End")
 
         profileRedirectButton.setOnClickListener() {
-            val intent = Intent(this, TutorApplication::class.java)
-            intent.putExtra("User", username)
+            val intent = Intent(this, profileMenu::class.java)
+            intent.putExtra("user", username)
             startActivity(intent)
         }
     }
 
-    class TutorAdapter(val tutors: ArrayList<User>, val username: String) :
+    class TutorAdapter(val tutors: ArrayList<User>?, val username: String) :
         RecyclerView.Adapter<TutorAdapter.TutorViewHolder>() {
 
         class TutorViewHolder(val tutorView: View) : RecyclerView.ViewHolder(tutorView) {
@@ -116,11 +127,11 @@ class StudentMenu : AppCompatActivity() {
         }
 
         override fun getItemCount(): Int {
-            return tutors.size
+            return tutors!!.size
         }
 
         override fun onBindViewHolder(holder: TutorViewHolder, position: Int) {
-            holder.bind(tutors[position], holder.itemView.context, username)
+            holder.bind(tutors!![position], holder.itemView.context, username)
         }
     }
 }
