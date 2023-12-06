@@ -33,8 +33,8 @@ class StudentMenu : AppCompatActivity() {
          */
         var databaseHelper = DatabaseHandler(this)
 
-        var intent = getIntent()
-        val username = intent.getStringExtra("user")
+        var thisIntent = getIntent()
+        val username = thisIntent.getStringExtra("user")
 
         var profileRedirectButton: ImageButton = findViewById(R.id.profileRedirectButton)
         val approvedTutorsMsg : TextView = findViewById(R.id.approvedTutorsMsg)

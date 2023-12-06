@@ -47,14 +47,14 @@ class profileMenu : AppCompatActivity() {
         nameText = findViewById(R.id.nameField)
         phoneText = findViewById(R.id.contactField)
 
-        val intent = intent;
+        val intent = getIntent();
         val username = intent.getStringExtra("user")
         val user = databaseHelper.getUser(username!!)
 
         emailText.setHint(user!!.userID)
         nameText.setHint(user!!.fullName)
         phoneText.setHint(user!!.contactNumber)
-        name.setText(user!!.userID)
+        name.setText(user!!.fullName)
         location.setText(user!!.location)
 
         var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
@@ -63,13 +63,13 @@ class profileMenu : AppCompatActivity() {
 
         backButton.setOnClickListener() {
             var newIntent = Intent(this,StudentMenu::class.java)
-            intent.putExtra("user", user!!.userID)
+            newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
         beTutor.setOnClickListener() {
             var newIntent = Intent(this,TutorApplication::class.java)
-            intent.putExtra("user", user!!.userID)
+            newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
