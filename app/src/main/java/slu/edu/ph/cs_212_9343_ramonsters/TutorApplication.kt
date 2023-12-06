@@ -14,6 +14,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
+
+/**
+* @author Tank, Rithik
+* This class represents the backend functionality of the process of being a tutor.
+* It handles the process of a user applying to be a tutor.
+*/
 class TutorApplication : AppCompatActivity() {
 
     lateinit var imageButton : Button
