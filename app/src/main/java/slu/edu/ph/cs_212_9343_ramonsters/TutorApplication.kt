@@ -18,7 +18,7 @@ import java.io.InputStream
 /**
 * @author Tank, Rithik
 * This class represents the backend functionality of the process of being a tutor.
-* It handles 
+* It handles the process of a user applying to be a tutor.
 */
 class TutorApplication : AppCompatActivity() {
 
