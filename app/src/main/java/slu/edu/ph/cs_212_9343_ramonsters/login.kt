@@ -76,20 +76,25 @@ class login : AppCompatActivity() {
                     val intent = Intent(this, TutorMenu::class.java)
                     intent.putExtra("user", user.userID)
                     startActivity(intent)
-                } else if (user.userType == 0 || user.userType == 2){
+                } else if (user.userType == 0) {
                     val intent = Intent(this, StudentMenu::class.java)
                     intent.putExtra("user", user.userID)
                     Log.i("User == 0 ", "StartActivity attempted")
                     startActivity(intent)
                     Log.i("User == 0 ", "StartActivity finished")
+                } else if (user.userType == 2) {
+                    val toast = Toast.makeText(this,"Your application is still under process.", Toast.LENGTH_LONG)
+                    toast.show()
                 } else if (user.userType == 3) {
                     val intent = Intent(this, AdminMenu::class.java)
                     intent.putExtra("user", user.userID)
                     startActivity(intent)
                 }
                 Log.i("User Success", "User find success")
-                val toast = Toast.makeText(this,"Authentication Success", Toast.LENGTH_LONG)
-                toast.show()
+                if (user.userType!=2) {
+                    val toast = Toast.makeText(this, "Authentication Success", Toast.LENGTH_LONG)
+                    toast.show()
+                }
             } else {
                 Log.i("User Failed", "User find fail")
                 //Authentication failed

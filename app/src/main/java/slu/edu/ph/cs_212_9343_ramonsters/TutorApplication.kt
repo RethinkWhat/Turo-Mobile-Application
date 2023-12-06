@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -30,6 +32,7 @@ class TutorApplication : AppCompatActivity() {
     lateinit var rateField : EditText
     lateinit var applyButton : Button
     lateinit var pfp : ImageView
+    lateinit var backButton : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,33 +48,48 @@ class TutorApplication : AppCompatActivity() {
         imageButton = findViewById(R.id.uploadImageButton)
         resumeUploaded = findViewById(R.id.resumeUpload)
         locationField = findViewById(R.id.locationField)
-        specializationField1 = findViewById(R.id.phoneNumberText)
+        specializationField1 = findViewById(R.id.specialization1)
         specializationField2 = findViewById(R.id.specialization2)
         specializationField3 = findViewById(R.id.specialization3)
         rateField = findViewById(R.id.askingRateField)
         applyButton = findViewById(R.id.applyButton)
         pfp = findViewById(R.id.pfp)
+        backButton = findViewById(R.id.backButton)
 
         var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
         pfp.setImageBitmap(bitmap)
 
 
+        backButton.setOnClickListener() {
+            var newIntent = Intent(this,profileMenu::class.java)
+            newIntent.putExtra("user", user!!.userID)
+            startActivity(newIntent)
+        }
 
         imageButton.setOnClickListener {
             openFileChooser()
         }
 
         applyButton.setOnClickListener {
-            resumeUploaded.text = "Resume Upload Complete"
+            if (resume != null) {
 
-            databaseHelper.applyToBecomeTutor(
-                username!!,
-                locationField.toString(),
-                specializationField1.text.toString(),
-                specializationField2.text.toString(),
-                specializationField3.text.toString(),
-                rateField.text.toString().toDouble(),
-                resume)
+                databaseHelper.applyToBecomeTutor(
+                    username!!,
+                    locationField.toString(),
+                    specializationField1.text.toString(),
+                    specializationField2.text.toString(),
+                    specializationField3.text.toString(),
+                    rateField.text.toString().toDouble(),
+                    resume
+                )
+                val toast = Toast.makeText(this, "Application sent.", Toast.LENGTH_LONG)
+                toast.show()
+                val intent = Intent(this, login::class.java)
+                startActivity(intent)
+            } else {
+                val toast = Toast.makeText(this, "Upload a resume.", Toast.LENGTH_LONG)
+                toast.show()
+            }
         }
     }
 
@@ -100,18 +118,8 @@ class TutorApplication : AppCompatActivity() {
                 }
 
                 if (resume != null) {
-                    imageButton.setBackgroundColor(Color.GRAY)
-                    /*
-                    /** Not validated yet */
-                    resumeUploaded.text = "Resume Upload Complete"
-
-                    databaseHelper.applyTutor(
-                        username!!,
-                        specializationField.text.toString(),
-                        rateField.text.toString().toDouble(),
-                        resume)
-
-                     */
+                    val toast = Toast.makeText(this, "Resume Upload Successful", Toast.LENGTH_LONG)
+                    toast.show()
 
                 } else {
                     Log.e("imagePickerLauncher", "resume is null")
