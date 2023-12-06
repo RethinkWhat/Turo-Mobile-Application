@@ -43,7 +43,7 @@
         android:textSize="15dp" />
 
     <TextView
-        android:id="@+id/phoneNumberText"
+        android:id="@+id/specialization1"
         android:layout_width="98dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

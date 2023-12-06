@@ -423,5 +423,37 @@ class DatabaseHandler(context : Context) :
         return toReturn
     }
 
+    /**
+     * Method to change status of a user
+     */
+
+    fun changeStatus (username : String, status : Int) {
+        var user = getUser(username)
+
+        val database = this.writableDatabase
+        val values = ContentValues()
+
+        values.put(columnUserID, user!!.userID)
+        values.put(columnPassHash, user.passHash)
+        values.put(columnFullName, user.fullName)
+        values.put(columnContactNumber, user.contactNumber)
+        values.put(columnUserType,  status)
+        values.put(columnLocation, user.location)
+        values.put(columnSpecialization1, user.specialization1)
+        values.put(columnSpecialization2, user.specialization2)
+        values.put(columnSpecialization3, user.specialization3)
+        values.put(columnRate, user.rate)
+        values.put(columnRating, user.rating)
+        values.put(columnPFP, user.PFP)
+        values.put(columnResume, user.resume)
+        values.put(columnPendings, user.pendings)
+        values.put(columnConfirmation, user.confirmations)
+        Log.i("applyToATutor", "user update attempted")
+        database.update(usersTable, values, "userID=?", arrayOf(user.userID))
+        database.close()
+        Log.i("changeStatus", "User updated")
+    }
+
+
 
 }
