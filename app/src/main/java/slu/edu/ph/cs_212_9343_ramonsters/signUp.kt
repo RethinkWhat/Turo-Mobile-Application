@@ -14,6 +14,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
+
+/**
+* @author Tank, Rithik
+* @author Jasmin, Ramon Emmiel P.
+*
+* This class represents the backend functionality of the signUp page. It gathers necessary user information to create a basic account for the application.
+*/
 class signUp : AppCompatActivity() {
 
     lateinit var emailField : EditText
