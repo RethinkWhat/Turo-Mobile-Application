@@ -1,16 +1,18 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 
-class ViewDetails : AppCompatActivity() {
+class PendingTutorsViewDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_details)
+        setContentView(R.layout.activity_pending_tutors_view_details)
 
         var databaseHandler : DatabaseHandler = DatabaseHandler(this)
 
@@ -18,18 +20,23 @@ class ViewDetails : AppCompatActivity() {
         var location : TextView = findViewById(R.id.location)
         var askingPrice : TextView = findViewById(R.id.askingPriceDisplay)
         var email : TextView = findViewById(R.id.email)
+        var pfp : ImageView = findViewById(R.id.tutorPicture)
         var phoneNumber : TextView = findViewById(R.id.phoneNumber)
         var specialization1 : TextView = findViewById(R.id.specialization1)
         var specialization2 : TextView = findViewById(R.id.specialization2)
         var specialization3 : TextView = findViewById(R.id.specialization3)
         var viewResume : Button = findViewById(R.id.viewResume)
         var backButton : ImageButton = findViewById(R.id.backButton)
+        var acceptButton : Button = findViewById(R.id.acceptButton)
+        var rejectButton : Button = findViewById(R.id.rejectButton)
 
         var intent = getIntent()
         var tutor = intent.getStringExtra("tutor")
+        var username = intent.getStringExtra("username")
         var tutorObj : User? = databaseHandler.getUser(tutor!!)
 
         var databaseHelper = DatabaseHandler(this)
+        var user : User? = databaseHelper.getUser(username.toString())
 
         name.setText(tutorObj!!.fullName)
         location.setText(tutorObj!!.location)
@@ -40,15 +47,20 @@ class ViewDetails : AppCompatActivity() {
         specialization2.setText(tutorObj!!.specialization2)
         specialization3.setText(tutorObj!!.specialization3)
 
-       /* viewResume.setOnClickListener() {
-            databaseHandler.applyToATutor(username!!,tutor)
-        }
+        var bitmap = BitmapFactory.decodeByteArray(tutorObj.PFP,0,tutorObj.PFP!!.size)
+        pfp.setImageBitmap(bitmap)
 
-        */
+
+        acceptButton.setOnClickListener() {
+            databaseHandler.acceptOrRejectTutor(tutorObj.userID,1)
+        }
+        rejectButton.setOnClickListener() {
+            databaseHandler.acceptOrRejectTutor(tutorObj.userID,0)
+        }
 
         backButton.setOnClickListener() {
             var newIntent = Intent(this,StudentMenu::class.java)
-           // intent.putExtra("user", user!!.userID)
+            intent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
