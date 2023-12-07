@@ -25,10 +25,10 @@
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
-        android:id="@+id/pendingTutorsText"
+        android:id="@+id/viewDetailsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pending Tutor"
+        android:text="View Details"
         android:layout_marginLeft="158dp"
         android:layout_marginTop="58dp"
         android:textSize="18dp"
@@ -216,13 +216,13 @@
         android:id="@+id/acceptButton"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="630dp"
         android:backgroundTint="@color/darkPurple"
-        android:text="Accept"></Button>
+        android:text="ACCEPT"></Button>
 
     <Button
-        android:id="@+id/acceptButton"
+        android:id="@+id/rejectButton"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="220dp"

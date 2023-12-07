@@ -81,7 +81,7 @@ class TutorApplication : AppCompatActivity() {
 
                 databaseHelper.applyToBecomeTutor(
                     username!!,
-                    locationField.toString(),
+                    locationField.text.toString(),
                     specializationField1.text.toString(),
                     specializationField2.text.toString(),
                     specializationField3.text.toString(),

@@ -27,6 +27,9 @@
             android:name=".AdminMenu"
             android:exported="true" />
         <activity
+            android:name=".PendingTutorsViewDetails"
+            android:exported="true" />
+        <activity
             android:name=".profileMenu"
             android:exported="true" />
         <activity
