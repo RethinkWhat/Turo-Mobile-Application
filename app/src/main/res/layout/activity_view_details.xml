@@ -7,6 +7,19 @@
     android:background="@color/background_grey"
     tools:context=".ViewDetails">
 
+
+
+    <TextView
+        android:id="@+id/specialization6"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="450dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Data Structure"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"></TextView>
+
     <ImageButton
         android:id="@+id/backButton"
         android:layout_marginLeft="18dp"
@@ -160,6 +173,17 @@
         android:textSize="15dp"></TextView>
 
     <TextView
+        android:id="@+id/specialization4"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="425dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Mathematics"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"></TextView>
+
+    <TextView
         android:id="@+id/specialization3"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
@@ -182,6 +206,9 @@
         android:textColor="@color/darkPurple"
         ></TextView>
 
+
+
+
     <TextView
         android:id="@+id/cvText"
         android:layout_width="240dp"
@@ -193,24 +220,35 @@
         android:textColor="@color/darkPurple"
         android:textSize="15dp"></TextView>
 
+    <TextView
+        android:id="@+id/cvText2"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="510dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• CV/Resume"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"></TextView>
+
+    <TextView
+        android:id="@+id/cvText3"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="510dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• CV/Resume"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"></TextView>
 
     <ImageView
         android:id="@+id/tutorPicture"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginLeft="260dp"
         android:layout_marginTop="160dp"
-        android:layout_marginLeft="260dp"/>
-
-    <Button
-        android:id="@+id/viewResume"
-        android:layout_width="500dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="535dp"
-        android:backgroundTint="@color/darkPurple"
-        android:text="Jasmin-Resume.pdf"></Button>
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/acceptButton"
@@ -220,5 +258,113 @@
         android:layout_marginTop="630dp"
         android:backgroundTint="@color/darkPurple"
         android:text="BOOK TUTOR"></Button>
+
+    <Button
+        android:id="@+id/acceptButton2"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="630dp"
+        android:backgroundTint="@color/darkPurple"
+        android:text="BOOK TUTOR"></Button>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="545dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="125dp"
+        android:background="@drawable/dotted" />
+
+    <TextView
+        android:id="@+id/specialization5"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="425dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Mathematics"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"></TextView>
+
+    <TextView
+        android:id="@+id/specialization7"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="425dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Mathematics"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="551dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="134dp"
+        app:srcCompat="@drawable/pdf" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="121dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="425dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="133dp"
+        android:fontFamily="@font/dmsans"
+        android:text="dasdfasdfaate . . .."
+        android:textColor="@color/black"
+
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="119dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="425dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="161dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Jasmin-Resume.pdf"
+
+        android:textColor="@color/darkPurple" />
+
+    <Button
+        android:id="@+id/viewResume"
+        android:layout_width="332dp"
+        android:layout_height="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="544dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="125dp"
+        android:background="@android:color/transparent"
+
+       ></Button>
 
 </RelativeLayout>

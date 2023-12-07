@@ -8,5 +8,7 @@
     <color name="background_grey">#F9F9F9</color>
     <color name="red">#FF0000</color>
     <color name="pink">#d6cdfe</color>
-
+    <color name="lightPink">#f5f3fe</color>
+    <color name="darkPink">#aba6c0</color>
+    #aba6c0
 </resources>
