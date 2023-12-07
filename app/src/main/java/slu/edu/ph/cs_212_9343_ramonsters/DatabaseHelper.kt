@@ -454,6 +454,60 @@ class DatabaseHandler(context : Context) :
         Log.i("changeStatus", "User updated")
     }
 
+    fun deleteFromConfirms(studentUsername : String, tutorUsername : String) {
+        var tutor = getUser(tutorUsername)
+        var student = getUser(studentUsername)
+
+        var studConfirmations = student!!.confirmations
+        var tutorConfirmations = tutor!!.confirmations
+
+        studConfirmations!!.replace("${tutor.userID}", "")
+        tutorConfirmations!!.replace("${student.userID}", "")
+
+        val database = this.writableDatabase
+        val values = ContentValues()
+        values.put(columnUserID, tutor!!.userID)
+        values.put(columnPassHash, tutor.passHash)
+        values.put(columnFullName, tutor.fullName)
+        values.put(columnContactNumber, tutor.contactNumber)
+        values.put(columnUserType,  tutor.userType)
+        values.put(columnLocation, tutor.location)
+        values.put(columnSpecialization1, tutor.specialization1)
+        values.put(columnSpecialization2, tutor.specialization2)
+        values.put(columnSpecialization3, tutor.specialization3)
+        values.put(columnRate, tutor.rate)
+        values.put(columnRating, tutor.rating)
+        values.put(columnPFP, tutor.PFP)
+        values.put(columnResume, tutor.resume)
+        values.put(columnPendings, tutor.pendings)
+        values.put(columnConfirmation, tutorConfirmations)
+        Log.i("deleteFromConfirms", "user update attempted")
+        database.update(usersTable, values, "userID=?", arrayOf(tutorUsername))
+        database.close()
+        Log.i("deleteFromConfirms", "User updated")
+
+
+        values.put(columnUserID, student!!.userID)
+        values.put(columnPassHash, student.passHash)
+        values.put(columnFullName, student.fullName)
+        values.put(columnContactNumber, student.contactNumber)
+        values.put(columnUserType,  student.userType)
+        values.put(columnLocation, student.location)
+        values.put(columnSpecialization1, student.specialization1)
+        values.put(columnSpecialization2, student.specialization2)
+        values.put(columnSpecialization3, student.specialization3)
+        values.put(columnRate, student.rate)
+        values.put(columnRating, student.rating)
+        values.put(columnPFP, student.PFP)
+        values.put(columnResume, student.resume)
+        values.put(columnPendings, student.pendings)
+        values.put(columnConfirmation, studConfirmations)
+        Log.i("deleteFromConfirms", "user update attempted")
+        database.update(usersTable, values, "userID=?", arrayOf(studentUsername))
+        database.close()
+        Log.i("deleteFromConfirms", "User updated")
+    }
+
 
 
 }

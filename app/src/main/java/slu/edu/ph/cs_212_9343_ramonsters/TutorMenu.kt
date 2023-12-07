@@ -40,6 +40,10 @@ class TutorMenu : AppCompatActivity() {
          */
         var databaseHelper = DatabaseHandler(this)
 
+        val intent = getIntent();
+        val username = intent.getStringExtra("user")
+        val user = databaseHelper.getUser(username!!)
+
         val approvedSessionsButton : Button = findViewById(R.id.approvedSessionsButton)
         val pendingSessionsButton : Button = findViewById(R.id.pendingSessionsButton)
         approvedSessionsButton.setOnClickListener() {
@@ -48,13 +52,12 @@ class TutorMenu : AppCompatActivity() {
             pendingSessionsButton.setTextColor(Color.parseColor("#0d0140"))
             pendingSessionsButton.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
 
-            users = databaseHelper.getUsers(2) //TODO:Change method to get all the USERS that are confirmed under a tutor
-            updateBoxes(users)
+            users = databaseHelper.getConfirmed(user!!.userID)
+            updateBoxes(users, user)
 
-            //TODO: Change Username when ADMIN Page is Finished
-            studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!,R.layout.approvedsessions)
-            studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!,R.layout.approvedsessions)
-            studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!,R.layout.approvedsessions)
+            studentApplicationRecyclerView.adapter =TutorAdapter(box1, user.userID!!,R.layout.approvedsessions)
+            studentApplicationRecyclerView2.adapter =TutorAdapter(box2, user.userID!!,R.layout.approvedsessions)
+            studentApplicationRecyclerView3.adapter =TutorAdapter(box3, user.userID!!,R.layout.approvedsessions)
         }
 
         pendingSessionsButton.setOnClickListener() {
@@ -63,14 +66,14 @@ class TutorMenu : AppCompatActivity() {
             approvedSessionsButton.setTextColor(Color.parseColor("#0d0140"))
             pendingSessionsButton.setBackgroundColor(Color.parseColor("#0d0140"))
 
-            users = databaseHelper.getUsers(2) //TODO:Change method to get PENDING USERS
-            updateBoxes(users)
+            users = databaseHelper.getPendings(user!!.userID)
+            updateBoxes(users, user)
         }
-        users = databaseHelper.getUsers(1) //TODO:Change method to get PENDING USERS
-        updateBoxes(users)
+        users = databaseHelper.getPendings(user!!.userID)
+        updateBoxes(users, user)
     }
 
-    fun updateBoxes(users : ArrayList<User>) {
+    fun updateBoxes(users : ArrayList<User>, user : User) {
 
         var size = users.size / 3
         for (x in 0 until size) {
@@ -90,10 +93,9 @@ class TutorMenu : AppCompatActivity() {
             box1.add(users.get(users.size-1))
         }
 
-        //TODO: Change Username when ADMIN Page is Finished
-        studentApplicationRecyclerView.adapter =TutorAdapter(box1, "ramonjasmin@gmail.com"!!,R.layout.betutoredapplication)
-        studentApplicationRecyclerView2.adapter =TutorAdapter(box2, "ramonjasmin@gmail.com"!!,R.layout.betutoredapplication)
-        studentApplicationRecyclerView3.adapter =TutorAdapter(box3, "ramonjasmin@gmail.com"!!,R.layout.betutoredapplication)
+        studentApplicationRecyclerView.adapter =TutorAdapter(box1, user!!.userID,R.layout.betutoredapplication)
+        studentApplicationRecyclerView2.adapter =TutorAdapter(box2, user!!.userID,R.layout.betutoredapplication)
+        studentApplicationRecyclerView3.adapter =TutorAdapter(box3, user!!.userID,R.layout.betutoredapplication)
     }
 
 
@@ -112,6 +114,7 @@ class TutorMenu : AppCompatActivity() {
                 tutorTextView.text = user.fullName
                 var bitmap = BitmapFactory.decodeByteArray(user.PFP, 0, user.PFP!!.size)
                 tutorImageView.setImageBitmap(bitmap)
+                var databaseHelper = DatabaseHandler(context)
 
 
                 if (acceptButton != null) {
@@ -119,21 +122,20 @@ class TutorMenu : AppCompatActivity() {
                         acceptedText!!.visibility = View.VISIBLE
                         acceptButton.visibility = View.GONE
                         rejectButton!!.visibility = View.GONE
-                        //TODO: Pass in method to accept user
-
+                        databaseHelper.tutorAcceptOrRejectStudent(user.userID, username, 1)
                     }
                     rejectButton!!.setOnClickListener() {
                         acceptedText!!.visibility = View.VISIBLE
                         acceptedText.setText("STUDENT REJECTED")
                         acceptButton.visibility = View.GONE
                         rejectButton.visibility = View.GONE
-                        //TODO: Pass in method to reject user
+                        databaseHelper.tutorAcceptOrRejectStudent(user.userID, username, 2)
                     }
                 }
                 if (markButton != null) {
                     markButton!!.setOnClickListener() {
                         markButton.setBackgroundColor(Color.parseColor("#D4CEFA"))
-                        //TODO: Code to remove student from confirmation
+                        databaseHelper.deleteFromConfirms(user.userID,username)
                     }
                 }
             }
