@@ -15,7 +15,7 @@
         android:background="@color/grey"
         android:visibility="visible" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/pfp"
         android:layout_width="87dp"
         android:layout_height="87dp"
