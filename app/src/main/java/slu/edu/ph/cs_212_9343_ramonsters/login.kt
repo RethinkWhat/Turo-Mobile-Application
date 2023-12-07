@@ -53,7 +53,10 @@ class login : AppCompatActivity() {
         if (databaseFile.exists()) {
             databaseFile.delete()
         }
+
          */
+
+       // databaseHelper.changeStatus("patrick@gmail.com", 1)
 
 
 

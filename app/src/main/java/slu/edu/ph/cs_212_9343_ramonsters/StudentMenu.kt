@@ -105,11 +105,19 @@ class StudentMenu : AppCompatActivity() {
             private val tutorTextView: TextView = tutorView.findViewById(R.id.tutor)
             private val tutorImageView: ImageView = tutorView.findViewById(R.id.tutorImageView)
             private val viewDetails: Button = tutorView.findViewById(R.id.viewDetailsButton)
+            private val location : TextView = tutorView.findViewById(R.id.tutorLocation)
+            private val specialization1 : TextView = tutorView.findViewById(R.id.specialization1)
+            private val specialization2 : TextView = tutorView.findViewById(R.id.specialization2)
+            private val specialization3 : TextView = tutorView.findViewById(R.id.specialization3)
 
             fun bind(user: User, context: Context, username: String) {
                 tutorTextView.text = user.fullName
                 var bitmap = BitmapFactory.decodeByteArray(user.PFP, 0, user.PFP!!.size)
                 tutorImageView.setImageBitmap(bitmap)
+                location.setText(user.location)
+                specialization1.setText(user.specialization1)
+                specialization2.setText(user.specialization2)
+                specialization3.setText(user.specialization3)
 
                 viewDetails.setOnClickListener() {
                     val intent = Intent(context, ViewDetails::class.java)
