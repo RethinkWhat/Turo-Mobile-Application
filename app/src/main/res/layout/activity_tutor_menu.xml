@@ -24,13 +24,12 @@
         app:layout_constraintVertical_bias="0.219" />
 
     <TextView
-        android:id="@+id/signUpText2"
-        android:layout_width="0dp"
-        android:layout_height="41dp"
+        android:id="@+id/helloMsg"
+        android:layout_width="278dp"
+        android:layout_height="77dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="64dp"
         android:text="Hello "
-        android:textAlignment="center"
         android:textColor="#0d0140"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -74,7 +73,7 @@
         android:id="@+id/pendingSessionsButton"
         android:layout_width="170dp"
         android:layout_height="38dp"
-        android:text="Pending Session"
+        android:text="Pending Sessions"
         android:textSize="15dp"
 
         app:backgroundTint="@color/darkPurple"
@@ -90,7 +89,7 @@
         android:layout_width="344dp"
         android:layout_height="493dp"
         android:layout_marginTop="208dp"
-        android:background="@color/white"
+        android:background="@color/background_grey"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
         app:layoutManager="LinearLayoutManager"

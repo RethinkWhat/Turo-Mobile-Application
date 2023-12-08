@@ -427,7 +427,18 @@ class DatabaseHandler(context : Context) :
      */
     fun getConfirmed(username : String?) : ArrayList<User> {
         val user: User = getUser(username!!)!!
-        val usernameList: List<String?> = user!!.confirmations!!.split(",")
+
+        if (user == null || user.confirmations.isNullOrEmpty()) {
+            // Return an empty list if the user is null or has no confirmations
+            return ArrayList()
+        }
+
+        val usernameList: List<String> = if (user.confirmations.contains(",")) {
+            user.confirmations.split(",")
+        } else {
+            listOf(user.confirmations)
+        }
+
         val toReturn: ArrayList<User> = ArrayList()
 
         for (username in usernameList) {
@@ -474,8 +485,24 @@ class DatabaseHandler(context : Context) :
         var studConfirmations = student!!.confirmations
         var tutorConfirmations = tutor!!.confirmations
 
-        studConfirmations!!.replace("${tutor.userID}", "")
-        tutorConfirmations!!.replace("${student.userID}", "")
+
+        if (studConfirmations!!.contains(",${tutor.userID}")) {
+            studConfirmations = studConfirmations!!.replace(",${tutor.userID}", "")
+        } else if (studConfirmations!!.contains("${tutor.userID},")) {
+            studConfirmations = studConfirmations!!.replace(",${tutor.userID}", "")
+        } else {
+            studConfirmations = studConfirmations!!.replace("${tutor.userID}", "")
+        }
+
+        if (tutorConfirmations!!.contains(",${student.userID}")) {
+
+            tutorConfirmations = tutorConfirmations!!.replace(",${student.userID}", "")
+        } else if (tutorConfirmations!!.contains("${student.userID},")) {
+
+            tutorConfirmations = tutorConfirmations!!.replace(",${student.userID}", "")
+
+        } else { tutorConfirmations = tutorConfirmations!!.replace("${student.userID}", "")
+        }
 
         val database = this.writableDatabase
         val values = ContentValues()
@@ -499,7 +526,7 @@ class DatabaseHandler(context : Context) :
         database.close()
         Log.i("deleteFromConfirms", "User updated")
 
-
+        val database2 = this.writableDatabase
         values.put(columnUserID, student!!.userID)
         values.put(columnPassHash, student.passHash)
         values.put(columnFullName, student.fullName)
@@ -516,8 +543,8 @@ class DatabaseHandler(context : Context) :
         values.put(columnPendings, student.pendings)
         values.put(columnConfirmation, studConfirmations)
         Log.i("deleteFromConfirms", "user update attempted")
-        database.update(usersTable, values, "userID=?", arrayOf(studentUsername))
-        database.close()
+        database2.update(usersTable, values, "userID=?", arrayOf(studentUsername))
+        database2.close()
         Log.i("deleteFromConfirms", "User updated")
     }
 
