@@ -43,6 +43,56 @@
         android:background="@color/white"
         ></View>
 
+    <View
+        android:id="@+id/pinkButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="543dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="127dp"
+        android:background="@drawable/dotted" />
+
+    <TextView
+        android:id="@+id/resumeText3"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="560dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Jasmin-Resume.jpg"
+
+        android:textColor="@color/darkPurple" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="575dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Click here to view file"
+        android:textColor="@color/black"
+        android:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="547dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="125dp"
+        app:srcCompat="@drawable/jpg" />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="200dp"
@@ -202,15 +252,7 @@
         android:layout_marginTop="160dp"
         android:layout_marginLeft="260dp"/>
 
-    <Button
-        android:id="@+id/viewResume"
-        android:layout_width="500dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="535dp"
-        android:backgroundTint="@color/darkPurple"
-        android:text="Jasmin-Resume.pdf"></Button>
+
 
     <Button
         android:id="@+id/acceptButton"
@@ -229,5 +271,19 @@
         android:layout_marginTop="630dp"
         android:backgroundTint="@color/red"
         android:text="REJECT"></Button>
+
+    <Button
+        android:id="@+id/viewResume"
+        android:layout_width="318dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="535dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="125dp"
+        android:background="android:color/transparent"></Button>
 
 </RelativeLayout>
