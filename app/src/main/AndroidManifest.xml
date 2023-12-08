@@ -27,13 +27,17 @@
             android:name=".AdminMenu"
             android:exported="true" />
         <activity
+            android:name=".AdminProfileMenu"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".TutorProfileMenu"
             android:exported="true" />
         <activity
             android:name=".PendingTutorsViewDetails"
             android:exported="true" />
         <activity
-            android:name=".profileMenu"
+            android:name=".ProfileMenu"
             android:exported="true" />
         <activity
             android:name=".TutorApplication"

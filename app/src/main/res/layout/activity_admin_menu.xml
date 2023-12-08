@@ -8,20 +8,42 @@
     tools:context=".AdminMenu">
 
 
-    <TextView
-        android:id="@+id/adminPageText"
-        android:layout_width="128dp"
-        android:layout_height="21dp"
-        android:ems="10"
-        android:fontFamily="@font/dmsansextrabold"
-        android:text="Admin Page"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/profileRedirectButton"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="29dp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileRedirectImage"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="60dp"
+
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/helloMsg"
+        android:layout_width="276dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Hello, Marvin Patrick!"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/pendingTutorsText"

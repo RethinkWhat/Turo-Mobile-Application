@@ -66,7 +66,7 @@ class TutorApplication : AppCompatActivity() {
 
 
         backButton.setOnClickListener() {
-            var newIntent = Intent(this,profileMenu::class.java)
+            var newIntent = Intent(this,ProfileMenu::class.java)
             newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }

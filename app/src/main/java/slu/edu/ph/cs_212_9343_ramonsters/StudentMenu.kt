@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +19,6 @@ class StudentMenu : AppCompatActivity() {
 
     lateinit var helloMessage: TextView
     lateinit var viewDetails: Button
-    lateinit var button: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +35,9 @@ class StudentMenu : AppCompatActivity() {
         var thisIntent = getIntent()
         val username = thisIntent.getStringExtra("user")
 
-        var profileRedirectButton: ImageButton = findViewById(R.id.profileRedirectButton)
         val approvedTutorsMsg : TextView = findViewById(R.id.approvedTutorsMsg)
         val pendingApplicationsMsg : TextView = findViewById(R.id.pendingApplicationsMsg)
         val pendingApplications : TextView = findViewById(R.id.pendingApplications)
-        var button:Button=findViewById(R.id.button)
 
         val approvedTutor : TextView = findViewById(R.id.approvedTutor)
         val approvedTutorsRecyclerView: RecyclerView = findViewById(R.id.approvedTutors_recycler_view)
@@ -58,12 +54,6 @@ class StudentMenu : AppCompatActivity() {
         var user: User? = databaseHelper.getUser(username.toString())
         helloMessage.setText("Hello ${user!!.fullName}!")
 
-        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
-        var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
-            100,
-            100, true)
-
-        profileRedirectButton.setImageBitmap(scaledBitMap)
 
         // This variable already holds all of the pending tutors in the database
         Log.i("onCreate", "possibleTutors Create")
@@ -92,8 +82,16 @@ class StudentMenu : AppCompatActivity() {
         }
         Log.i("onCreate", "recyclerView Adapater End")
 
+
+        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
+        var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
+            100,
+            100, true)
+        var profileRedirectButton: Button = findViewById(R.id.profileRedirectButton)
+        var imageOfRedirectButton : ImageView = findViewById(R.id.profileRedirectImage)
+        imageOfRedirectButton.setImageBitmap(scaledBitMap)
         profileRedirectButton.setOnClickListener() {
-            val intent = Intent(this, profileMenu::class.java)
+            val intent = Intent(this, ProfileMenu::class.java)
             intent.putExtra("user", username)
             startActivity(intent)
         }

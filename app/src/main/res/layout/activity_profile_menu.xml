@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profileMenu">
+    tools:context=".ProfileMenu">
 
 
     <ImageView
@@ -23,10 +23,26 @@
 
         android:layout_width="262dp"
         android:layout_height="50dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="102dp"
         android:background="@drawable/edit_text_background"
         android:text="BE A TUTOR"
         app:backgroundTint="@color/darkPurple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784" />
+
+    <Button
+        android:id="@+id/logout"
+
+        android:layout_width="262dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/edit_text_background"
+        android:text="LOGOUT"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"

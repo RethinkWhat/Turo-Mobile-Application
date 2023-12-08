@@ -2,6 +2,7 @@ package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
@@ -30,7 +31,6 @@ class TutorMenu : AppCompatActivity(){
         var approvedSessionButton: Button = findViewById(R.id.approvedSessionsButton)
         var pendingSessionButton: Button = findViewById(R.id.pendingSessionsButton)
         var helloMsg: TextView = findViewById(R.id.helloMsg)
-        var profileRedirectButton : ImageButton = findViewById(R.id.profileRedirectButton)
 
         val intent = getIntent();
         val username = intent.getStringExtra("user")
@@ -39,6 +39,14 @@ class TutorMenu : AppCompatActivity(){
         helloMsg.setText("Hello ${user!!.fullName}!")
         Log.i("Tutor Menu", "getUser")
 
+
+        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
+        var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
+            100,
+            100, true)
+        var profileRedirectButton: Button = findViewById(R.id.profileRedirectButton)
+        var imageOfRedirectButton : ImageView = findViewById(R.id.profileRedirectImage)
+        imageOfRedirectButton.setImageBitmap(scaledBitMap)
         profileRedirectButton.setOnClickListener() {
             val newIntent = Intent(this, TutorProfileMenu::class.java)
             newIntent.putExtra("user", username)

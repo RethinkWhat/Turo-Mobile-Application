@@ -3,18 +3,17 @@ package slu.edu.ph.cs_212_9343_ramonsters
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
-class TutorProfileMenu : AppCompatActivity() {
+class ProfileMenu : AppCompatActivity() {
 
+    lateinit var beTutorText : TextView
     lateinit var logout : ImageView
     lateinit var logoutText : TextView
     lateinit var pic : ImageView
@@ -26,28 +25,23 @@ class TutorProfileMenu : AppCompatActivity() {
     lateinit var emailText : EditText
     lateinit var phoneText : EditText
 
-    lateinit var specialization1 : EditText
-    lateinit var specialization2 : EditText
-    lateinit var specialization3 : EditText
-
     lateinit var backButton : ImageButton
+    lateinit var beTutor : Button
     lateinit var pfp : ImageView
     lateinit var logoutButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tutor_profile_menu)
+        setContentView(R.layout.activity_profile_menu)
 
+        backButton = findViewById(R.id.backButton)
+        beTutor = findViewById(R.id.beTutor)
         pfp = findViewById(R.id.PFP)
         name = findViewById(R.id.name)
         location = findViewById(R.id.address)
         emailText = findViewById(R.id.emailAddressField)
         nameText = findViewById(R.id.nameField)
         phoneText = findViewById(R.id.contactField)
-        backButton = findViewById(R.id.backButton)
-        specialization1 = findViewById(R.id.specialization1)
-        specialization2 = findViewById(R.id.specialization2)
-        specialization3 = findViewById(R.id.specialization3)
         logoutButton = findViewById(R.id.logout)
 
         var databaseHelper = DatabaseHandler(this)
@@ -60,22 +54,25 @@ class TutorProfileMenu : AppCompatActivity() {
         phoneText.setHint(user!!.contactNumber)
         name.setText(user!!.fullName)
         location.setText(user!!.location)
-        specialization1.setText(user!!.specialization1)
-        specialization2.setText(user!!.specialization2)
-        specialization3.setText(user!!.specialization3)
 
         var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
         var scaledBitmap = Bitmap.createScaledBitmap(bitmap,150,150,true)
         pfp.setImageBitmap(scaledBitmap)
 
         backButton.setOnClickListener() {
-            var newIntent = Intent(this,TutorMenu::class.java)
+            var newIntent = Intent(this,StudentMenu::class.java)
             newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
         logoutButton.setOnClickListener() {
             var newIntent = Intent(this, Login::class.java)
+            startActivity(newIntent)
+        }
+
+        beTutor.setOnClickListener() {
+            var newIntent = Intent(this,TutorApplication::class.java)
+            newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
     }

@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/helloMsg"
-        android:layout_width="135dp"
-        android:layout_height="67dp"
+        android:layout_width="276dp"
+        android:layout_height="61dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="63dp"
         android:fontFamily="@font/dmsansextrabold"
@@ -53,7 +53,7 @@
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="520dp"
         android:fontFamily="@font/dmsansextrabold"
         android:text="Approved Tutors"
         android:textSize="14dp"></TextView>
@@ -63,7 +63,7 @@
         android:layout_width="365dp"
         android:layout_height="154dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="353dp"
+        android:layout_marginTop="543dp"
         android:background="@color/white"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
@@ -74,18 +74,18 @@
     <TextView
         android:id="@+id/approvedTutor"
         android:layout_width="365dp"
-        android:fontFamily="@font/dmsansextrabold"
-        android:textAlignment="center"
         android:layout_height="154dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="353dp"></TextView>
+        android:layout_marginTop="543dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:textAlignment="center"></TextView>
 
     <TextView
         android:id="@+id/pendingApplicationsMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="330dp"
         android:fontFamily="@font/dmsansextrabold"
         android:text="Pending Applications"
         android:textSize="14dp"></TextView>
@@ -97,7 +97,7 @@
         android:textAlignment="center"
         android:layout_height="154dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="543dp"
+        android:layout_marginTop="353dp"
         android:background="@color/white"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
@@ -110,31 +110,31 @@
         android:layout_width="365dp"
         android:layout_height="154dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="543dp"></TextView>
+        android:layout_marginTop="353dp"></TextView>
+
+    <Button
+        android:id="@+id/profileRedirectButton"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="29dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/profileRedirectImage"
         android:layout_width="54dp"
         android:layout_height="46dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="60dp"
 
         android:layout_marginEnd="27dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="328dp"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="54dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="29dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </RelativeLayout >
