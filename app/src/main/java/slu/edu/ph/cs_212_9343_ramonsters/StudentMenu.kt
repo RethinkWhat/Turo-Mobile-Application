@@ -40,9 +40,12 @@ class StudentMenu : AppCompatActivity() {
         val approvedTutorsMsg : TextView = findViewById(R.id.approvedTutorsMsg)
         val pendingApplicationsMsg : TextView = findViewById(R.id.pendingApplicationsMsg)
         val pendingApplications : TextView = findViewById(R.id.pendingApplications)
+
         val approvedTutor : TextView = findViewById(R.id.approvedTutor)
         val approvedTutorsRecyclerView: RecyclerView = findViewById(R.id.approvedTutors_recycler_view)
         val pendingApplicationRecyclerView: RecyclerView = findViewById(R.id.pendingApplications_recycler_view)
+
+
 
         approvedTutorsMsg.text = ""
         pendingApplicationsMsg.text = ""
@@ -64,13 +67,11 @@ class StudentMenu : AppCompatActivity() {
         Log.i("onCreate", "possibleTutors Create")
         var possibleTutors: ArrayList<User>? = databaseHelper.getUsers(1)
 
-        if (databaseHelper.getUser(username!!)!!.confirmations != null) {
+        if (!databaseHelper.getUser(username!!)!!.confirmations.equals("")) {
             var confirmedTutors: ArrayList<User> = databaseHelper.getConfirmed(username)
             approvedTutorsRecyclerView.adapter = TutorAdapter(confirmedTutors, username!!)
             approvedTutorsMsg.text = "Approved Tutors"
 
-            //TODO: SET background to background_grey
-            // approvedTutorsRecyclerView.setBackgroundColor(255)
         }
 
         if (databaseHelper.getUser(username!!)!!.pendings != null) {
@@ -78,15 +79,13 @@ class StudentMenu : AppCompatActivity() {
             pendingApplicationRecyclerView.adapter = TutorAdapter(pendingTutors, username!!)
             pendingApplicationsMsg.text = "Pending Applications"
 
-            //TODO: SET background to background_grey
-            // pendingApplicationRecyclerView.setBackgroundColor(255)
         }
 
         Log.i("onCreate", "recyclerView Create")
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         Log.i("onCreate", "recyclerView Adapater Create")
 
-        if (possibleTutors != null) {
+        if (!possibleTutors!!.equals("")) {
             recyclerView.adapter = TutorAdapter(possibleTutors, username!!)
         }
         Log.i("onCreate", "recyclerView Adapater End")
@@ -121,12 +120,13 @@ class StudentMenu : AppCompatActivity() {
 
                 viewDetails.setOnClickListener() {
                     val intent = Intent(context, ViewDetails::class.java)
-                    intent.putExtra("username", username)
+                    intent.putExtra("user", username)
                     intent.putExtra("tutor", user.userID)
                     context.startActivity(intent)
                 }
             }
         }
+
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TutorViewHolder {
             val view = LayoutInflater.from(parent.context)

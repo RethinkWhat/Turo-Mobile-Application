@@ -234,6 +234,7 @@ class DatabaseHandler(context : Context) :
         database.close()
         Log.i("applyToATutor", "User updated")
 
+        val database2 = this.writableDatabase
         var studentNewPendings = ""
         if (tutor!!.pendings!="") {
             studentNewPendings = tutor!!.pendings + ",$tutorUsername"
@@ -256,8 +257,8 @@ class DatabaseHandler(context : Context) :
         values.put(columnPendings, studentNewPendings)
         values.put(columnConfirmation, student.confirmations)
         Log.i("applyToATutor", "user update attempted")
-        database.update(usersTable, values, "userID=?", arrayOf(studentUsername))
-        database.close()
+        database2.update(usersTable, values, "userID=?", arrayOf(studentUsername))
+        database2.close()
         Log.i("applyToATutor", "User updated")
     }
 
@@ -400,7 +401,18 @@ class DatabaseHandler(context : Context) :
      */
     fun getPendings(username : String?) : ArrayList<User> {
         val user: User = getUser(username!!)!!
-        val usernameList: List<String?> = user!!.pendings!!.split(",")
+
+        if (user == null || user.pendings.isNullOrEmpty()) {
+            // Return an empty list if the user is null or has no pendings
+            return ArrayList()
+        }
+
+        val usernameList: List<String> = if (user.pendings.contains(",")) {
+            user.pendings.split(",")
+        } else {
+            listOf(user.pendings)
+        }
+
         val toReturn: ArrayList<User> = ArrayList()
 
         for (username in usernameList) {

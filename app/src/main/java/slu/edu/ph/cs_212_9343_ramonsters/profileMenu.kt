@@ -18,7 +18,6 @@ class profileMenu : AppCompatActivity() {
     lateinit var beTutorText : TextView
     lateinit var logout : ImageView
     lateinit var logoutText : TextView
-    var databaseHelper = DatabaseHandler(this)
     lateinit var pic : ImageView
 
     lateinit var name : TextView
@@ -39,14 +38,13 @@ class profileMenu : AppCompatActivity() {
         backButton = findViewById(R.id.backButton)
         beTutor = findViewById(R.id.beTutor)
         pfp = findViewById(R.id.PFP)
-
         name = findViewById(R.id.name)
         location = findViewById(R.id.address)
-
         emailText = findViewById(R.id.emailAddressField)
         nameText = findViewById(R.id.nameField)
         phoneText = findViewById(R.id.contactField)
 
+        var databaseHelper = DatabaseHandler(this)
         val intent = getIntent();
         val username = intent.getStringExtra("user")
         val user = databaseHelper.getUser(username!!)
