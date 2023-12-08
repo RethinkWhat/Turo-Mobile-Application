@@ -10,5 +10,7 @@
     <color name="pink">#d6cdfe</color>
     <color name="lightPink">#f5f3fe</color>
     <color name="darkPink">#aba6c0</color>
-    #aba6c0
+    <color name="semiGray">#f5f4f6</color>
+    <color name="tGray">#544e6d</color>
+
 </resources>

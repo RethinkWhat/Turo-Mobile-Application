@@ -49,15 +49,18 @@ class login : AppCompatActivity() {
 
 
         /** To Reset the database uncomment this line and execute the program */
-        /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+       /* val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) { databaseFile.delete()
-        }*/
+        }
+
+        */
 
 
 
 
 
-        //databaseHelper.changeStatus("admin", 3)
+
+      //databaseHelper.changeStatus("admin", 3)
 
 
 
