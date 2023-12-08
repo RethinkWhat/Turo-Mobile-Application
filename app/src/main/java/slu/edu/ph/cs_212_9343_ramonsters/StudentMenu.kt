@@ -68,7 +68,7 @@ class StudentMenu : AppCompatActivity() {
         var possibleTutors: ArrayList<User>? = databaseHelper.getUsers(1)
 
         if (!databaseHelper.getUser(username!!)!!.confirmations.equals("")) {
-            var confirmedTutors: ArrayList<User> = databaseHelper.getConfirmed(username)
+            var confirmedTutors: ArrayList<User>? = databaseHelper.getConfirmed(username)
             approvedTutorsRecyclerView.adapter = TutorAdapter(confirmedTutors, username!!)
             approvedTutorsMsg.text = "Approved Tutors"
 
