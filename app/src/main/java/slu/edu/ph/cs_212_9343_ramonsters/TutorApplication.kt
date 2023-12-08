@@ -2,7 +2,6 @@ package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -90,7 +89,7 @@ class TutorApplication : AppCompatActivity() {
                 )
                 val toast = Toast.makeText(this, "Application sent.", Toast.LENGTH_LONG)
                 toast.show()
-                val intent = Intent(this, login::class.java)
+                val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             } else {
                 val toast = Toast.makeText(this, "Upload a resume.", Toast.LENGTH_LONG)

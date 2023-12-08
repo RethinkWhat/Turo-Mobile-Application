@@ -26,6 +26,7 @@ class ViewDetails : AppCompatActivity() {
         var specialization1 : TextView = findViewById(R.id.specialization1)
         var specialization2 : TextView = findViewById(R.id.specialization2)
         var specialization3 : TextView = findViewById(R.id.specialization3)
+        var tutorPicture : ImageView = findViewById(R.id.tutorPicture)
         var viewResume : Button = findViewById(R.id.viewResume)
 
         var backButton : ImageButton = findViewById(R.id.backButton)
@@ -55,6 +56,9 @@ class ViewDetails : AppCompatActivity() {
 
         var bitmap = BitmapFactory.decodeByteArray(tutorObj.resume,0,tutorObj.resume!!.size)
         resumeImg.setImageBitmap(bitmap)
+
+        var bitmap2 = BitmapFactory.decodeByteArray(tutorObj.PFP,0,tutorObj.PFP!!.size)
+        tutorPicture.setImageBitmap(bitmap2)
 
         viewResume.setOnClickListener() {
             resumeImg.visibility = View.VISIBLE

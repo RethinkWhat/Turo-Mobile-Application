@@ -27,6 +27,9 @@
             android:name=".AdminMenu"
             android:exported="true" />
         <activity
+            android:name=".TutorProfileMenu"
+            android:exported="true" />
+        <activity
             android:name=".PendingTutorsViewDetails"
             android:exported="true" />
         <activity
@@ -36,10 +39,10 @@
             android:name=".TutorApplication"
             android:exported="true" />
         <activity
-            android:name=".signUp"
+            android:name=".SignUp"
             android:exported="true" />
         <activity
-            android:name=".login"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
