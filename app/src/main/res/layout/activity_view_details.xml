@@ -63,13 +63,12 @@
         android:id="@+id/name"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="160dp"
         android:layout_marginLeft="40dp"
-        android:text="Ramon Emmiel Jasmin"
-        android:textSize="17dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/dmsansextrabold"
+        android:text="Ramon Emmiel Jasmin"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="17dp"></TextView>
 
     <TextView
         android:id="@+id/location"
@@ -246,14 +245,6 @@
         android:layout_marginBottom="125dp"
         android:background="@drawable/dotted" />
 
-    <ImageView
-        android:id="@+id/jpgIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="556dp"
-        android:layout_marginLeft="74dp"
-        app:srcCompat="@drawable/pdf" />
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
@@ -276,17 +267,7 @@
 
         android:textColor="@color/darkPurple" />
 
-    <Button
-        android:id="@+id/viewResume"
-        android:layout_width="318dp"
-        android:layout_height="62dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="544dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="125dp"
-        android:background="@android:color/transparent"
 
-       ></Button>
 
     <View
         android:id="@+id/backgroundGray"
@@ -319,6 +300,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="547dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="125dp"
+        app:srcCompat="@drawable/jpg" />
+    <Button
+        android:id="@+id/viewResume"
+        android:layout_width="318dp"
+        android:layout_height="62dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="544dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="125dp"
+        android:background="@android:color/transparent"
+
+        ></Button>
 
 
 </RelativeLayout>
