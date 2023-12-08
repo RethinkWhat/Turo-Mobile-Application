@@ -7,21 +7,25 @@
     android:background="@color/background_grey"
     tools:context=".ViewDetails">
 
+
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
-
 
     <ImageButton
         android:id="@+id/profileRedirectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="345dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
@@ -30,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="View Details"
         android:layout_marginLeft="158dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="40dp"
         android:textSize="18dp"
         android:fontFamily="@font/dmsansextrabold"/>
 
@@ -56,42 +60,6 @@
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="127dp"
         android:background="@drawable/dotted" />
-
-    <TextView
-        android:id="@+id/resumeText3"
-        android:layout_width="180dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="560dp"
-        android:fontFamily="@font/dmsans"
-        android:text="Jasmin-Resume.jpg"
-
-        android:textColor="@color/darkPurple" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="575dp"
-        android:fontFamily="@font/dmsans"
-        android:text="Click here to view file"
-        android:textColor="@color/black"
-        android:textSize="10dp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="547dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="125dp"
-        app:srcCompat="@drawable/jpg" />
 
     <TextView
         android:id="@+id/name"
@@ -272,6 +240,55 @@
         android:backgroundTint="@color/red"
         android:text="REJECT"></Button>
 
+
+    <TextView
+        android:id="@+id/tutorAcceptedTxt"
+        android:layout_width="370dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="630dp"
+        android:background="#D4CEFA"
+        android:fontFamily="@font/dmsansextrabold"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="TUTOR ACCEPTED"
+        android:textColor="#FFFFFFFF"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <TextView
+        android:id="@+id/resumeText"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="560dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Jasmin-Resume.jpg"
+
+        android:textColor="@color/darkPurple" />
+
+    <TextView
+        android:id="@+id/clickHere"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="575dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Click here to view file"
+        android:textColor="@color/black"
+        android:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="552dp"
+        app:srcCompat="@drawable/jpg" />
+
     <Button
         android:id="@+id/viewResume"
         android:layout_width="318dp"
@@ -284,6 +301,38 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="35dp"
         android:layout_marginBottom="125dp"
-        android:background="android:color/transparent"></Button>
+        android:background="@android:color/transparent"></Button>
+
+    <View
+        android:id="@+id/backgroundGray"
+        android:layout_width="500dp"
+        android:layout_height="1000dp"
+        android:visibility="gone"
+        android:background="#90808080"
+        >
+    </View>
+
+    <ImageButton
+        android:id="@+id/backButton2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/resumeImg"
+        android:layout_width="370dp"
+        android:layout_height="580dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="116dp"
+        android:visibility="gone"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
 
 </RelativeLayout>

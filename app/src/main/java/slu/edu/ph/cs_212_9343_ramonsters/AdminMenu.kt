@@ -93,6 +93,11 @@ class AdminMenu : AppCompatActivity() {
 
                 if (user2.userID != "") {
                     //Second box
+                    pendingTutorName2.visibility = View.VISIBLE
+                    pendingTutorLocation2.visibility = View.VISIBLE
+                    pendingTutorImage2.visibility = View.VISIBLE
+                    pendingButton2.visibility = View.VISIBLE
+
                     pendingTutorName2.setText(user2.fullName)
                     pendingTutorLocation2.setText(user2.location)
                     var bitmap2 = BitmapFactory.decodeByteArray(user2.PFP, 0, user2.PFP!!.size)
@@ -101,6 +106,11 @@ class AdminMenu : AppCompatActivity() {
 
                 if (user3.userID != "") {
                     // Third box
+                    pendingTutorName3.visibility = View.VISIBLE
+                    pendingTutorLocation3.visibility = View.VISIBLE
+                    pendingTutorImage3.visibility = View.VISIBLE
+                    pendingButton3.visibility = View.VISIBLE
+
                     pendingTutorName3.setText(user3.fullName)
                     pendingTutorLocation3.setText(user3.location)
                     var bitmap3 = BitmapFactory.decodeByteArray(user3.PFP, 0, user3.PFP!!.size)
@@ -109,6 +119,11 @@ class AdminMenu : AppCompatActivity() {
 
                 if (user4.userID != "") {
                     // Fourth box
+                    pendingTutorName4.visibility = View.VISIBLE
+                    pendingTutorLocation4.visibility = View.VISIBLE
+                    pendingTutorImage4.visibility = View.VISIBLE
+                    pendingButton4.visibility = View.VISIBLE
+
                     pendingTutorName4.setText(user4.fullName)
                     pendingTutorLocation4.setText(user4.location)
                     var bitmap4 = BitmapFactory.decodeByteArray(user1.PFP, 0, user4.PFP!!.size)
