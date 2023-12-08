@@ -236,8 +236,8 @@ class DatabaseHandler(context : Context) :
 
         val database2 = this.writableDatabase
         var studentNewPendings = ""
-        if (tutor!!.pendings!="") {
-            studentNewPendings = tutor!!.pendings + ",$tutorUsername"
+        if (student!!.pendings!="") {
+            studentNewPendings = student!!.pendings + ",$tutorUsername"
         } else {
             studentNewPendings = "$tutorUsername"
         }
@@ -275,24 +275,17 @@ class DatabaseHandler(context : Context) :
         var tutor = getUser(tutorUsername)
         var student = getUser(studentUsername)
 
-        var studPendings = student!!.pendings
-        var tutorPendings = tutor!!.pendings
-        var studConfirms = student!!.confirmations
-        var tutorConfirms = tutor!!.confirmations
-
-        studPendings!!.replace("$tutorPendings", "")
-        tutorPendings!!.replace("$tutorPendings", "")
-        // Tutor approves the student
-        if (choice == 1) {
-            if (studConfirms == "")
-                studConfirms += "$tutorUsername"
-            else {
-                studConfirms += ",$tutorUsername"
-            }
-        }
-
         val database = this.writableDatabase
         val values = ContentValues()
+        var newConfirms = ""
+        var currTutorPendings = tutor!!.pendings.toString()
+        var newTutorPendings = currTutorPendings.replace(studentUsername, "")
+        if (tutor!!.confirmations!="") {
+            newConfirms = tutor!!.confirmations + ",$studentUsername"
+        } else {
+            newConfirms = "$studentUsername"
+        }
+
         values.put(columnUserID, tutor!!.userID)
         values.put(columnPassHash, tutor.passHash)
         values.put(columnFullName, tutor.fullName)
@@ -306,14 +299,22 @@ class DatabaseHandler(context : Context) :
         values.put(columnRating, tutor.rating)
         values.put(columnPFP, tutor.PFP)
         values.put(columnResume, tutor.resume)
-        values.put(columnPendings, tutorPendings)
-        values.put(columnConfirmation, tutorConfirms)
-        Log.i("tutorAcceptOrReject", "user update attempted")
+        values.put(columnPendings, newTutorPendings)
+        values.put(columnConfirmation, newConfirms)
+        Log.i("tutorAcceptOrRejectStudent", "user update attempted")
         database.update(usersTable, values, "userID=?", arrayOf(tutorUsername))
         database.close()
-        Log.i("tutorAcceptOrReject", "User updated")
+        Log.i("tutorAcceptOrRejectStudent", "User updated")
 
-
+        val database2 = this.writableDatabase
+        var studentNewConfirms = ""
+        var currStudentPendings = student!!.pendings.toString()
+        var newStudentPendings = currStudentPendings.replace(tutorUsername, "")
+        if (student!!.confirmations!="") {
+            studentNewConfirms = student!!.confirmations + ",$tutorUsername"
+        } else {
+            studentNewConfirms = "$tutorUsername"
+        }
         values.put(columnUserID, student!!.userID)
         values.put(columnPassHash, student.passHash)
         values.put(columnFullName, student.fullName)
@@ -327,11 +328,11 @@ class DatabaseHandler(context : Context) :
         values.put(columnRating, student.rating)
         values.put(columnPFP, student.PFP)
         values.put(columnResume, student.resume)
-        values.put(columnPendings, studPendings)
-        values.put(columnConfirmation, studConfirms)
+        values.put(columnPendings, newStudentPendings)
+        values.put(columnConfirmation, studentNewConfirms)
         Log.i("tutorAcceptOrReject", "user update attempted")
-        database.update(usersTable, values, "userID=?", arrayOf(studentUsername))
-        database.close()
+        database2.update(usersTable, values, "userID=?", arrayOf(studentUsername))
+        database2.close()
         Log.i("tutorAcceptOrReject", "User updated")
     }
 
@@ -460,7 +461,7 @@ class DatabaseHandler(context : Context) :
         values.put(columnResume, user.resume)
         values.put(columnPendings, user.pendings)
         values.put(columnConfirmation, user.confirmations)
-        Log.i("applyToATutor", "user update attempted")
+        Log.i("changeStatus", "user update attempted")
         database.update(usersTable, values, "userID=?", arrayOf(user.userID))
         database.close()
         Log.i("changeStatus", "User updated")

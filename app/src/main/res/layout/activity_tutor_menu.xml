@@ -88,7 +88,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/studentApplication_recycler_view"
         android:layout_width="344dp"
-        android:layout_height="155dp"
+        android:layout_height="493dp"
         android:layout_marginTop="208dp"
         android:background="@color/white"
         android:paddingLeft="0dp"
@@ -101,54 +101,8 @@
     <TextView
         android:id="@+id/studentApplication"
         android:layout_width="344dp"
-        android:layout_height="155dp"
+        android:layout_height="493dp"
         android:layout_marginTop="208dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/studentApplication_recycler_view2"
-        android:layout_width="344dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="378dp"
-        android:background="@color/white"
-        android:paddingLeft="0dp"
-        android:paddingTop="0dp"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/studentApplication2"
-        android:layout_width="344dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="378dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/studentApplication_recycler_view3"
-        android:layout_width="344dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="548dp"
-        android:background="@color/white"
-        android:paddingLeft="0dp"
-        android:paddingTop="0dp"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/studentApplication3"
-        android:layout_width="344dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="548dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
