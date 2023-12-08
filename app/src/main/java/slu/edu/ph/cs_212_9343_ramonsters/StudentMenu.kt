@@ -20,6 +20,7 @@ class StudentMenu : AppCompatActivity() {
 
     lateinit var helloMessage: TextView
     lateinit var viewDetails: Button
+    lateinit var button: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,7 @@ class StudentMenu : AppCompatActivity() {
         val approvedTutorsMsg : TextView = findViewById(R.id.approvedTutorsMsg)
         val pendingApplicationsMsg : TextView = findViewById(R.id.pendingApplicationsMsg)
         val pendingApplications : TextView = findViewById(R.id.pendingApplications)
+        var button:Button=findViewById(R.id.button)
 
         val approvedTutor : TextView = findViewById(R.id.approvedTutor)
         val approvedTutorsRecyclerView: RecyclerView = findViewById(R.id.approvedTutors_recycler_view)
