@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import androidx.core.content.contentValuesOf
 
-
+/**
+* The class DatabaseHandler handles the CRUD operations for the SQLite, which is the database utilized for this application.
+*/
 class DatabaseHandler(context : Context) :
     SQLiteOpenHelper(context, database_name, null, database_version) {
 
@@ -62,9 +64,7 @@ class DatabaseHandler(context : Context) :
         db.execSQL(createTableQuery)
     }
 
-    /**
-     * Ignore this
-     */
+
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
     }
@@ -92,7 +92,7 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method  to get a user given their username.
+     * This method returns a user based on the passed username
      */
     fun getUser(username : String) : User? {
         Log.i("Get User" , "Get User Reached")
@@ -126,9 +126,9 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method for when a user would like to apply to be a tutor
-     * Get the username of the user, their specialization, the rate they are asking, and their resume
-     * The user status will be changed to 2. Meaning that they are not tutors yet, but are under evaluation
+     * This method is utilized when a user would like to apply to be a tutor.
+     * It needs the username of the user, their specialization, asking rate, and their resume or cv.
+     * Afterwards, the status of the user will be changed to '2', which indicates they are pending tutors that are under evaluation from the admins.
      */
     fun applyToBecomeTutor(username : String, location : String,
                            specialization1 : String,specialization2 : String,specialization3 : String, rate : Double, resume : ByteArray?) {
@@ -159,10 +159,8 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to accept of reject a tutor application.
-     * For this method all you need to do is pass in
-     * the user who you would like to accept or reject as a tutor and pass in 0 or 1. If you would like
-     * to accept the user as a tutor pass in 1 and if you would like to reject the application pass in 0.
+     * This method will accept or reject a tutor application depending upon the decision of an administrator.
+     * This method only needs the pending tutori (user) and the status (1 for accept, 0 for reject)
      */
     fun acceptOrRejectTutor(username : String, acceptStatus : Int) {
         val database = this.writableDatabase
