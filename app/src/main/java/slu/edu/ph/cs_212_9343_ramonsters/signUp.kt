@@ -64,7 +64,7 @@ class signUp : AppCompatActivity() {
             val name = nameField.text.toString()
             val contact = contactField.text.toString()
             Log.i("signUpButton", " SignUpButton reached")
-            val newUser = User(email, password, name,contact,0,"","","","",0.0,0, pfp,null,null,null)
+            val newUser = User(email, password, name,contact,0,"","","","",0.0,0, pfp,null,"","")
             databaseHelper.addUser(newUser)
             val toast = Toast.makeText(this,"Account Created", Toast.LENGTH_LONG)
             toast.show()

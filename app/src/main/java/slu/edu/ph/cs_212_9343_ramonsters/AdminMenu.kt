@@ -30,7 +30,7 @@ class AdminMenu : AppCompatActivity() {
 
         //val intent = getIntent();
     //    val username = intent.getStringExtra("user")
-        val username = "test@gmail.com"
+        val username = "admin"
         val user = databaseHelper.getUser(username)
 
 
