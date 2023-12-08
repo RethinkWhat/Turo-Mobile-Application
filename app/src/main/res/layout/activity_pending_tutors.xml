@@ -40,8 +40,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="116dp"
         android:layout_marginRight="20dp"
-        android:background="@color/white"
-        ></View>
+        android:background="@color/white"></View>
 
     <View
         android:id="@+id/pinkButton2"
