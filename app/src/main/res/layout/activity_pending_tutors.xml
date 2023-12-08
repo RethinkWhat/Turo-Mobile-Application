@@ -288,4 +288,24 @@
         android:background="@android:color/transparent"
         ></Button>
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView4"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="21dp"
+
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent" />
 </RelativeLayout>
