@@ -2,6 +2,7 @@ package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 class AdminMenu : AppCompatActivity() {
 
     private lateinit var recycler1: RecyclerView
+    private lateinit var helloMessage: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +30,25 @@ class AdminMenu : AppCompatActivity() {
         val pendingTutors: ArrayList<User> = databaseHelper.getUsers(2)
         Log.i("Get Users", "Get Users finished")
 
-        //val intent = getIntent();
-    //    val username = intent.getStringExtra("user")
-        val username = "admin"
-        val user = databaseHelper.getUser(username)
+        val intent = getIntent();
+        val username = intent.getStringExtra("user")
+        val user = databaseHelper.getUser(username!!)
+
+        helloMessage = findViewById(R.id.helloMsg)
+        helloMessage.setText("Hello ${user!!.fullName}!")
+
+        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
+        var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
+            100,
+            100, true)
+        var profileRedirectButton: Button = findViewById(R.id.profileRedirectButton)
+        var imageOfRedirectButton : ImageView = findViewById(R.id.profileRedirectImage)
+        imageOfRedirectButton.setImageBitmap(scaledBitMap)
+        profileRedirectButton.setOnClickListener() {
+            val intent = Intent(this, AdminProfileMenu::class.java)
+            intent.putExtra("user", username)
+            startActivity(intent)
+        }
 
 
         recycler1 = findViewById(R.id.pendingTutor1_recycler_view)

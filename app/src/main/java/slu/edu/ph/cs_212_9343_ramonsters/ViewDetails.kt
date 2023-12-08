@@ -1,8 +1,8 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 class ViewDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class ViewDetails : AppCompatActivity() {
         var specialization3 : TextView = findViewById(R.id.specialization3)
         var tutorPicture : ImageView = findViewById(R.id.tutorPicture)
         var viewResume : Button = findViewById(R.id.viewResume)
+        var requestSentText : TextView = findViewById(R.id.requestSentText)
 
         var backButton : ImageButton = findViewById(R.id.backButton)
         var resumeText : TextView = findViewById(R.id.resumeText)
@@ -42,6 +44,16 @@ class ViewDetails : AppCompatActivity() {
         var username = intent.getStringExtra("user")
         var user = databaseHandler.getUser(username!!)
         var tutorObj : User? = databaseHandler.getUser(tutor!!)
+
+        if (user!!.pendings.toString().contains(tutorObj!!.userID)) {
+            requestSentText.visibility = View.VISIBLE
+            bookButton.visibility = View.GONE
+        }
+        if (user!!.confirmations.toString().contains(tutorObj!!.userID)) {
+            requestSentText.visibility = View.VISIBLE
+            requestSentText.setText("TUTOR BOOKED")
+            bookButton.visibility = View.GONE
+        }
 
         name.setText(tutorObj!!.fullName)
         location.setText(tutorObj!!.location)
@@ -78,6 +90,22 @@ class ViewDetails : AppCompatActivity() {
         }
         bookButton.setOnClickListener() {
             databaseHandler.applyToATutor(username!!,tutor)
+            bookButton.visibility = View.GONE
+            requestSentText.visibility = View.VISIBLE
+        }
+
+
+        var bitmap3 = BitmapFactory.decodeByteArray(user!!.PFP,0,user.PFP!!.size)
+        var scaledBitMap = Bitmap.createScaledBitmap(bitmap3,
+            100,
+            100, true)
+        var profileRedirectButton: Button = findViewById(R.id.profileRedirectButton)
+        var imageOfRedirectButton : ImageView = findViewById(R.id.profileRedirectImage)
+        imageOfRedirectButton.setImageBitmap(scaledBitMap)
+        profileRedirectButton.setOnClickListener() {
+            val intent = Intent(this, ProfileMenu::class.java)
+            intent.putExtra("user", username)
+            startActivity(intent)
         }
 
 

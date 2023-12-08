@@ -15,8 +15,98 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/pfp_background" />
+
+    <Button
+        android:id="@+id/logout"
+
+        android:layout_width="262dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/edit_text_background"
+        android:text="LOGOUT"
+        app:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889" />
+
+    <EditText
+        android:id="@+id/contactField"
+        android:layout_width="316dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:fontFamily="@font/dmsans"
+        android:hint="+63 917 690 6969"
+        android:enabled="false"
+        android:textIsSelectable="false"
+        android:inputType="phone"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.623" />
+
+    <TextView
+        android:id="@+id/phoneNumber5"
+        android:layout_width="111dp"
+        android:layout_height="24dp"
+        android:text="Phone Number"
+        android:textColor="#0d0140"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <TextView
+        android:id="@+id/email7"
+        android:layout_width="41dp"
+        android:layout_height="24dp"
+        android:text="Email"
+        android:textColor="#0d0140"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418" />
+
+    <EditText
+        android:id="@+id/emailAddressField"
+        android:layout_width="316dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:enabled="false"
+        android:textIsSelectable="false"
+        android:fontFamily="@font/dmsans"
+        android:hint="patrick@gmail.com"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="25dp"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485" />
 
     <TextView
         android:id="@+id/fullName5"
@@ -32,81 +122,7 @@
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address"
-        app:layout_constraintVertical_bias="0.351" />
-
-    <EditText
-        android:id="@+id/contactField"
-        android:layout_width="316dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:enabled="false"
-        android:fontFamily="@font/dmsans"
-        android:hint="+63 917 690 6969"
-        android:inputType="phone"
-        android:paddingLeft="25dp"
-        android:textIsSelectable="false"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.549" />
-
-    <TextView
-        android:id="@+id/phoneNumber5"
-        android:layout_width="111dp"
-        android:layout_height="24dp"
-        android:text="Phone Number"
-        android:textColor="#0d0140"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
-
-    <TextView
-        android:id="@+id/email7"
-        android:layout_width="41dp"
-        android:layout_height="24dp"
-        android:text="Email"
-        android:textColor="#0d0140"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.371" />
-
-    <EditText
-        android:id="@+id/emailAddressField"
-        android:layout_width="316dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:enabled="false"
-        android:fontFamily="@font/dmsans"
-        android:hint="patrick@gmail.com"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="25dp"
-        android:textIsSelectable="false"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/nameField"
@@ -117,98 +133,19 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
-        android:enabled="false"
         android:fontFamily="@font/dmsans"
+        android:enabled="false"
+        android:textIsSelectable="false"
         android:hint="Marvin Patrick D. Lacanilao"
         android:inputType="textEmailAddress"
         android:paddingLeft="25dp"
-        android:textIsSelectable="false"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
-
-    <EditText
-        android:id="@+id/specialization1"
-        android:layout_width="316dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="472dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:enabled="false"
-        android:fontFamily="@font/dmsans"
-        android:hint="Artificial Intelligence"
-        android:inputType="phone"
-        android:paddingLeft="25dp"
-        android:textIsSelectable="false"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/specialization2"
-        android:layout_width="316dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:enabled="false"
-        android:fontFamily="@font/dmsans"
-        android:hint="Mathematics"
-        android:inputType="phone"
-        android:paddingLeft="25dp"
-        android:textIsSelectable="false"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
-
-    <EditText
-        android:id="@+id/specialization3"
-        android:layout_width="316dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_border"
-        android:ems="10"
-        android:enabled="false"
-        android:fontFamily="@font/dmsans"
-        android:hint="Programming"
-        android:inputType="phone"
-        android:paddingLeft="25dp"
-        android:textIsSelectable="false"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
-
-    <TextView
-        android:id="@+id/locationTxt2"
-        android:layout_width="111dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="440dp"
-        android:text="Specialization"
-        android:textColor="#0d0140"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.159" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/PFP"
@@ -224,7 +161,7 @@
         android:id="@+id/backButton"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
@@ -255,22 +192,6 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PFP" />
-
-    <Button
-        android:id="@+id/logout"
-
-        android:layout_width="262dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="232dp"
-        android:background="@drawable/edit_text_background"
-        android:text="LOGOUT"
-        app:backgroundTint="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
