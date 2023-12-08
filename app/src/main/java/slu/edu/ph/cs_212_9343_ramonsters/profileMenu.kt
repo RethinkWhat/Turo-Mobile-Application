@@ -1,3 +1,17 @@
+/**
+ * This class represents the profile menu activity where users can view their profile information,
+ * become a tutor, and logout from the application.
+ *
+ * @property beTutor ImageView representing the "Become a Tutor" option.
+ * @property beTutorText TextView representing the text for the "Become a Tutor" option.
+ * @property logout ImageView representing the "Logout" option.
+ * @property logoutText TextView representing the text for the "Logout" option.
+ * @property databaseHelper DatabaseHandler instance for database operations.
+ * @property pic ImageView representing the user's profile picture.
+ * @property nameText TextView displaying the user's full name.
+ * @property emailText TextView displaying the user's email.
+ */
+
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
@@ -22,10 +36,17 @@ class profileMenu : AppCompatActivity() {
     lateinit var nameText : TextView
     lateinit var emailText : TextView
 
+
+    /**
+     * Overrides the onCreate method to initialize the activity.
+     *
+     * @param savedInstanceState The saved instance state of the activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_menu)
 
+        // UI element initialization
         beTutor = findViewById(R.id.beTutorImage)
         beTutorText = findViewById(R.id.beTutorText)
         logout = findViewById(R.id.logoutButton)
@@ -34,10 +55,12 @@ class profileMenu : AppCompatActivity() {
         nameText = findViewById(R.id.nameText)
         emailText = findViewById(R.id.emailText)
 
+        // Retrieving user information from the intent
         val intent = intent;
         val username = intent.getStringExtra("User")
         val user = databaseHelper.getUser(username!!)
 
+        // Displaying user profile information
         val bitmap = BitmapFactory.decodeByteArray(user!!.PFP, 0, user!!.PFP!!.size)
         Log.i("bitmap", "Decode complete")
         pic.setImageBitmap(bitmap)
@@ -45,6 +68,7 @@ class profileMenu : AppCompatActivity() {
         emailText.setText(user.userID)
         Log.i("pfpPic", "Set pic complete")
 
+        // Setting up click listeners for "Become a Tutor" and "Logout" options
         beTutorText.setOnClickListener() {
             var intent = Intent(this, TutorApplication::class.java)
             intent.putExtra("User", username)
