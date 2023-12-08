@@ -1,13 +1,11 @@
 package slu.edu.ph.cs_212_9343_ramonsters
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,7 +19,7 @@ import java.io.InputStream
 *
 * This class represents the backend functionality of the signUp page. It gathers necessary user information to create a basic account for the application.
 */
-class signUp : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
 
     lateinit var emailField : EditText
     lateinit var passwordField : EditText
@@ -51,7 +49,7 @@ class signUp : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener() {
-            val intent = Intent(this, login::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
 

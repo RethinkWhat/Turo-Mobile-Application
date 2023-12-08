@@ -25,7 +25,7 @@ import android.widget.Toast
  * you can follow the it on Logcat
  */
 
-class login : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     lateinit var loginButton: Button
     lateinit var signUpButton: TextView
@@ -73,7 +73,7 @@ class login : AppCompatActivity() {
 
 
         signUpButton.setOnClickListener() {
-            val intent = Intent(this, signUp::class.java)
+            val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
 

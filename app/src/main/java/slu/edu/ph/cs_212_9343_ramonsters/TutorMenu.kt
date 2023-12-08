@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ class TutorMenu : AppCompatActivity(){
         var approvedSessionButton: Button = findViewById(R.id.approvedSessionsButton)
         var pendingSessionButton: Button = findViewById(R.id.pendingSessionsButton)
         var helloMsg: TextView = findViewById(R.id.helloMsg)
+        var profileRedirectButton : ImageButton = findViewById(R.id.profileRedirectButton)
 
         val intent = getIntent();
         val username = intent.getStringExtra("user")
@@ -36,6 +38,12 @@ class TutorMenu : AppCompatActivity(){
         val user = databaseHelper.getUser(username!!)
         helloMsg.setText("Hello ${user!!.fullName}!")
         Log.i("Tutor Menu", "getUser")
+
+        profileRedirectButton.setOnClickListener() {
+            val newIntent = Intent(this, TutorProfileMenu::class.java)
+            newIntent.putExtra("user", username)
+            startActivity(newIntent)
+        }
 
         var pendingTutors: ArrayList<User>? = databaseHelper.getPendings(user!!.userID)
         Log.i("Tutor Menu", "getPendings")
