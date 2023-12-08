@@ -175,7 +175,7 @@ class AdminMenu : AppCompatActivity() {
             var blankUser = User("","","","",0,"","","","",0.0,0,null,null,"","")
             Log.i("holder.bind", "Binding attempt")
             holder.bind(
-                box1.getOrNull(0) ?: blankUser,
+                box1.getOrNull(box1Position) ?: blankUser,
                 box2.getOrNull(box2Position) ?: blankUser,
                 box3.getOrNull(box3Position) ?: blankUser,
                 box4.getOrNull(box4Position) ?: blankUser,
