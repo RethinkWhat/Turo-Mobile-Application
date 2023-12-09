@@ -8,7 +8,6 @@
     tools:context=".ViewDetails">
 
 
-
     <TextView
         android:id="@+id/specialization6"
         android:layout_width="240dp"
