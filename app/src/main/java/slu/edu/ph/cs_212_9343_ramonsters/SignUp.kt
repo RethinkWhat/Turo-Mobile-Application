@@ -56,19 +56,40 @@ class SignUp : AppCompatActivity() {
 
 
         signUpButton.setOnClickListener() {
-            Log.i("signUpButton", " SignUpButton clicked")
-            val email = emailField.text.toString()
-            val password = passwordField.text.toString()
-            val name = nameField.text.toString()
-            val contact = contactField.text.toString()
-            Log.i("signUpButton", " SignUpButton reached")
-            val newUser = User(email, password, name,contact,0,"","","","",0.0,0, pfp,null,"","")
-            databaseHelper.addUser(newUser)
-            val toast = Toast.makeText(this,"Account Created", Toast.LENGTH_LONG)
-            toast.show()
-            val intent = Intent(this, StudentMenu::class.java)
-            intent.putExtra("user", newUser.userID)
-            startActivity(intent)
+            if (pfp!= null) {
+                Log.i("signUpButton", " SignUpButton clicked")
+                val email = emailField.text.toString()
+                val password = passwordField.text.toString()
+                val name = nameField.text.toString()
+                val contact = contactField.text.toString()
+                Log.i("signUpButton", " SignUpButton reached")
+                val newUser = User(
+                    email,
+                    password,
+                    name,
+                    contact,
+                    0,
+                    "",
+                    "",
+                    "",
+                    "",
+                    0.0,
+                    0,
+                    pfp,
+                    null,
+                    "",
+                    ""
+                )
+                databaseHelper.addUser(newUser)
+                val toast = Toast.makeText(this, "Account Created", Toast.LENGTH_LONG)
+                toast.show()
+                val intent = Intent(this, StudentMenu::class.java)
+                intent.putExtra("user", newUser.userID)
+                startActivity(intent)
+            } else {
+                var toast = Toast.makeText(this, "Upload a Photo.", Toast.LENGTH_LONG)
+                toast.show()
+            }
         }
     }
 
