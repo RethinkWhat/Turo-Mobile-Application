@@ -75,7 +75,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Text views displaying various specializations -->
+    <!-- Text view displaying various specializations -->
     <TextView
         android:id="@+id/specialization1"
         android:layout_width="240dp"
@@ -89,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text view displaying various specializations -->
     <TextView
         android:id="@+id/specialization2"
         android:layout_width="240dp"
@@ -102,6 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text view displaying various specializations -->
     <TextView
         android:id="@+id/specialization3"
         android:layout_width="240dp"
@@ -129,6 +131,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying credentials -->
     <TextView
         android:id="@+id/cvText"
         android:layout_width="240dp"
@@ -142,7 +145,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    <!-- Text views for displaying personal details -->
+    <!-- Text views for displaying personal details (name) -->
     <TextView
         android:id="@+id/name"
         android:layout_width="200dp"
@@ -156,6 +159,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (location) -->
     <TextView
         android:id="@+id/location"
         android:layout_width="200dp"
@@ -168,6 +172,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (asking price text) -->
     <TextView
         android:id="@+id/askingPriceText"
         android:layout_width="200dp"
@@ -181,6 +186,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (asking price display) -->
     <TextView
         android:id="@+id/askingPriceDisplay"
         android:layout_width="200dp"
@@ -208,7 +214,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    <!-- Text views for displaying contact details -->
+    <!-- Text views for displaying contact details (email) -->
     <TextView
         android:id="@+id/email"
         android:layout_width="200dp"
@@ -222,6 +228,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying contact details (phone number) -->
     <TextView
         android:id="@+id/phoneNumber"
         android:layout_width="240dp"
@@ -260,7 +267,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <!-- Buttons for accepting a tutor -->
+    <!-- Button for accepting a tutor -->
     <Button
         android:id="@+id/acceptButton"
         android:layout_width="140dp"
@@ -272,6 +279,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Button>
 
+    <!-- Button for rejecting a tutor -->
     <Button
         android:id="@+id/rejectButton"
         android:layout_width="140dp"
