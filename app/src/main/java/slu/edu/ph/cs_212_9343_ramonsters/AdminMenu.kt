@@ -26,6 +26,10 @@ class AdminMenu : AppCompatActivity() {
     private lateinit var recycler1: RecyclerView
     private lateinit var helloMessage: TextView
 
+    /**
+     * Called when the activity is first created.
+     * Sets up the UI, retrieves data from the database, and populates the pending tutor list.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_menu)
