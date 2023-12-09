@@ -14,11 +14,14 @@ import java.io.InputStream
 
 
 /**
-* @author Tank, Rithik
-* @author Jasmin, Ramon Emmiel P.
-*
-* This class represents the backend functionality of the signUp page. It gathers necessary user information to create a basic account for the application.
-*/
+ * This class represents the backend functionality of the signUp page.
+ * It gathers necessary user information to create a basic account for the application.
+ * The class includes methods for handling user input, uploading a profile picture, and navigating to the login page.
+ * It also uses a DatabaseHandler to add a new user to the database.
+ *
+ * @author Tank, Rithik
+ * @author Jasmin, Ramon Emmiel P.
+ */
 class SignUp : AppCompatActivity() {
 
     lateinit var emailField : EditText
@@ -30,6 +33,11 @@ class SignUp : AppCompatActivity() {
     private var databaseHelper = DatabaseHandler(this)
     private var pfp : ByteArray? = null
     lateinit var contactField : EditText
+
+    /**
+     * Called when the activity is first created. Initializes UI components, sets up click listeners, and handles user input.
+     * @param savedInstanceState The saved instance state of the activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -93,6 +101,10 @@ class SignUp : AppCompatActivity() {
         }
     }
 
+    /**
+     * Opens the file chooser for selecting a profile picture.
+     * Uses the imagePickerLauncher to handle the result of the file chooser activity.
+     */
     private fun openFileChooser() {
         try {
             val intent = Intent(Intent.ACTION_PICK)
@@ -105,6 +117,9 @@ class SignUp : AppCompatActivity() {
         }
     }
 
+    /**
+     * Handles the result of the file chooser activity, retrieves the selected image, and sets it as the user's profile picture.
+     */
     private val imagePickerLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -127,6 +142,11 @@ class SignUp : AppCompatActivity() {
             Log.i("imagePickerLauncher", "imagePickerLauncher reached")
         }
 
+    /**
+     * Reads bytes from the input stream.
+     * @param inputStream The input stream to read from.
+     * @return The byte array read from the input stream.
+     */
     private fun readBytes(inputStream: InputStream?): ByteArray? {
         if (inputStream == null) return null
         val byteBuffer = ByteArrayOutputStream()
