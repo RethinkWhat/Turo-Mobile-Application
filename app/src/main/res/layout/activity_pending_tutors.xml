@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_grey"
@@ -9,10 +10,12 @@
 
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
 
@@ -22,290 +25,308 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="345dp"
         android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/pendingTutorsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pending Tutor"
         android:layout_marginLeft="158dp"
         android:layout_marginTop="58dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Pending Tutor"
         android:textSize="18dp"
-        android:fontFamily="@font/dmsansextrabold"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/white"></View>
+        android:layout_width="366dp"
+        android:layout_height="518dp"
+        android:layout_marginTop="148dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></View>
 
     <View
         android:id="@+id/pinkButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="61dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="544dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="126dp"
-        android:background="@drawable/dotted" />
+        android:layout_width="297dp"
+        android:layout_height="83dp"
+        android:background="@drawable/dotted"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="569dp" />
 
     <TextView
         android:id="@+id/resumeText2"
         android:layout_width="180dp"
         android:layout_height="20dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="560dp"
         android:fontFamily="@font/dmsans"
-        android:text="Jasmin-Resume.jpg"
 
-        android:textColor="@color/darkPurple" />
+        android:text="Jasmin-Resume.jpg"
+        android:textColor="@color/darkPurple"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="588dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="575dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="608dp"
         android:fontFamily="@font/dmsans"
         android:text="Click here to view file"
         android:textColor="@color/black"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_width="69dp"
+        android:layout_height="78dp"
         android:layout_marginStart="85dp"
         android:layout_marginTop="547dp"
         android:layout_marginEnd="280dp"
         android:layout_marginBottom="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.229"
         app:srcCompat="@drawable/jpg" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="160dp"
-        android:layout_marginLeft="40dp"
-        android:text="Ramon Emmiel Jasmin"
-        android:textSize="17dp"
         android:fontFamily="@font/dmsansextrabold"
+        android:text="Ramon Emmiel Jasmin"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/location"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="185dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="196dp"
+        android:fontFamily="@font/dmsans"
         android:text="Solano, Nueva Vizcaya"
         android:textSize="15dp"
-        android:fontFamily="@font/dmsans"
-        ></TextView>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/askingPriceText"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginLeft="40dp"
-        android:text="Asking Price"
-        android:textSize="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="228dp"
         android:fontFamily="@font/dmsansextrabold"
+        android:text="Asking Price"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/askingPriceDisplay"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="245dp"
-        android:layout_marginLeft="50dp"
-        android:text="₱500.00/hour"
-        android:textSize="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="260dp"
         android:fontFamily="@font/dmsans"
+        android:text="₱500.00/hour"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/personalDetailsText"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="285dp"
-        android:layout_marginLeft="40dp"
-        android:text="Personal Details"
-        android:textSize="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="292dp"
         android:fontFamily="@font/dmsansextrabold"
+        android:text="Personal Details"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/email"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="310dp"
-        android:layout_marginLeft="50dp"
-        android:text="• Email: ramon@gmail.com"
-        android:textSize="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="324dp"
         android:fontFamily="@font/dmsans"
+        android:text="• Email: ramon@gmail.com"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/phoneNumber"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="335dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="360dp"
         android:fontFamily="@font/dmsans"
         android:text="• Phone Number: 0913 567 3435"
         android:textColor="@color/darkPurple"
-        android:textSize="15dp"></TextView>
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/specialization"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="375dp"
-        android:layout_marginLeft="40dp"
-        android:text="Specialization"
-        android:textSize="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="380dp"
         android:fontFamily="@font/dmsansextrabold"
+        android:text="Specialization"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/specialization1"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="408dp"
         android:fontFamily="@font/dmsans"
         android:text="• Coding"
         android:textColor="@color/darkPurple"
-        android:textSize="15dp"></TextView>
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/specialization2"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="425dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="432dp"
         android:fontFamily="@font/dmsans"
         android:text="• Mathematics"
         android:textColor="@color/darkPurple"
-        android:textSize="15dp"></TextView>
-
-    <TextView
-        android:id="@+id/specialization3"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="450dp"
-        android:fontFamily="@font/dmsans"
-        android:text="• Data Structure"
-        android:textColor="@color/darkPurple"
-        android:textSize="15dp"></TextView>
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/credentials"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginTop="485dp"
-        android:layout_marginLeft="40dp"
-        android:text="Credentials"
-        android:textSize="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="488dp"
         android:fontFamily="@font/dmsansextrabold"
+        android:text="Credentials"
         android:textColor="@color/darkPurple"
-        ></TextView>
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/cvText"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="510dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="532dp"
         android:fontFamily="@font/dmsans"
         android:text="• CV/Resume"
         android:textColor="@color/darkPurple"
-        android:textSize="15dp"></TextView>
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <TextView
+        android:id="@+id/specialization3"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="456dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Data Structure"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
 
     <ImageView
         android:id="@+id/tutorPicture"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginLeft="260dp"
         android:layout_marginTop="160dp"
-        android:layout_marginLeft="260dp"/>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
     <Button
         android:id="@+id/acceptButton"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="708dp"
         android:backgroundTint="@color/darkPurple"
-        android:text="Accept"></Button>
+        android:text="Accept"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
 
     <Button
         android:id="@+id/acceptButton"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="708dp"
         android:backgroundTint="@color/red"
-        android:text="REJECT"></Button>
+        android:text="REJECT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
 
     <Button
         android:id="@+id/viewResume"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="543dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="124dp"
+        android:layout_width="292dp"
+        android:layout_height="83dp"
         android:background="@android:color/transparent"
-        ></Button>
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="569dp"></Button>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView4"
         android:layout_width="47dp"
         android:layout_height="47dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="21dp"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="54dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent" />
-</RelativeLayout>
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
