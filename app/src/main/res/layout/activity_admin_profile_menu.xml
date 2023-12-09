@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- ConstraintLayout to define the layout structure -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileMenu">
 
-
+    <!-- Background image view for the profile header -->
     <ImageView
         android:id="@+id/bg"
         android:layout_width="393dp"
@@ -18,9 +20,9 @@
         app:layout_constraintVertical_bias="0.026"
         app:srcCompat="@drawable/pfp_background" />
 
+    <!-- Logout button -->
     <Button
         android:id="@+id/logout"
-
         android:layout_width="262dp"
         android:layout_height="50dp"
         android:layout_marginTop="192dp"
@@ -34,6 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.889" />
 
+    <!-- Editable field for displaying and editing the user's name -->
     <EditText
         android:id="@+id/nameField"
         android:layout_width="316dp"
@@ -57,6 +60,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.258" />
 
+    <!-- Editable field for displaying and editing the user's email address -->
     <EditText
         android:id="@+id/emailAddressField"
         android:layout_width="316dp"
@@ -79,6 +83,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.518" />
 
+    <!-- Text view for displaying the label "Full Name" -->
     <TextView
         android:id="@+id/fullName5"
         android:layout_width="69dp"
@@ -95,6 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/address"
         app:layout_constraintVertical_bias="0.786" />
 
+    <!-- Text view for displaying the label "Phone Number" -->
     <TextView
         android:id="@+id/phoneNumber5"
         android:layout_width="111dp"
@@ -110,6 +116,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.597" />
 
+    <!-- Editable field for displaying and editing the user's phone number -->
     <EditText
         android:id="@+id/contactField"
         android:layout_width="316dp"
@@ -132,6 +139,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.656" />
 
+    <!-- Text view for displaying the label "Email" -->
     <TextView
         android:id="@+id/email7"
         android:layout_width="41dp"
@@ -147,6 +155,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.462" />
 
+    <!-- Circular image view for displaying the user's profile picture -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/PFP"
         android:layout_width="60dp"
@@ -157,6 +166,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <!-- Back button for navigating back to the previous screen -->
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="20dp"
@@ -168,6 +178,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
+    <!-- Text view for displaying the user's address -->
     <TextView
         android:id="@+id/address"
         android:layout_width="wrap_content"
@@ -181,6 +192,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
+    <!-- Text view for displaying the user's name -->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -192,6 +204,5 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PFP" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
