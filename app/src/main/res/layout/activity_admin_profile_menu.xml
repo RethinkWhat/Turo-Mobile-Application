@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintVertical_bias="0.026"
         app:srcCompat="@drawable/pfp_background" />
 
     <Button
@@ -35,56 +35,27 @@
         app:layout_constraintVertical_bias="0.889" />
 
     <EditText
-        android:id="@+id/contactField"
+        android:id="@+id/nameField"
         android:layout_width="316dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
-        android:fontFamily="@font/dmsans"
-        android:hint="+63 917 690 6969"
         android:enabled="false"
-        android:textIsSelectable="false"
-        android:inputType="phone"
+        android:fontFamily="@font/dmsans"
+        android:hint="Marvin Patrick D. Lacanilao"
+        android:inputType="textEmailAddress"
         android:paddingLeft="25dp"
+        android:textIsSelectable="false"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
-
-    <TextView
-        android:id="@+id/phoneNumber5"
-        android:layout_width="111dp"
-        android:layout_height="24dp"
-        android:text="Phone Number"
-        android:textColor="#0d0140"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
-
-    <TextView
-        android:id="@+id/email7"
-        android:layout_width="41dp"
-        android:layout_height="24dp"
-        android:text="Email"
-        android:textColor="#0d0140"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.258" />
 
     <EditText
         android:id="@+id/emailAddressField"
@@ -95,18 +66,18 @@
         android:background="@drawable/edit_text_border"
         android:ems="10"
         android:enabled="false"
-        android:textIsSelectable="false"
         android:fontFamily="@font/dmsans"
         android:hint="patrick@gmail.com"
         android:inputType="textEmailAddress"
         android:paddingLeft="25dp"
+        android:textIsSelectable="false"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintVertical_bias="0.518" />
 
     <TextView
         android:id="@+id/fullName5"
@@ -122,37 +93,66 @@
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.786" />
+
+    <TextView
+        android:id="@+id/phoneNumber5"
+        android:layout_width="111dp"
+        android:layout_height="24dp"
+        android:text="Phone Number"
+        android:textColor="#0d0140"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.597" />
 
     <EditText
-        android:id="@+id/nameField"
+        android:id="@+id/contactField"
         android:layout_width="316dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="156dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
-        android:fontFamily="@font/dmsans"
         android:enabled="false"
-        android:textIsSelectable="false"
-        android:hint="Marvin Patrick D. Lacanilao"
-        android:inputType="textEmailAddress"
+        android:fontFamily="@font/dmsans"
+        android:hint="+63 917 690 6969"
+        android:inputType="phone"
         android:paddingLeft="25dp"
+        android:textIsSelectable="false"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.159" />
+        app:layout_constraintVertical_bias="0.656" />
+
+    <TextView
+        android:id="@+id/email7"
+        android:layout_width="41dp"
+        android:layout_height="24dp"
+        android:text="Email"
+        android:textColor="#0d0140"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/PFP"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -172,7 +172,7 @@
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/dmsans"
         android:text="Baguio City, Philippines"
@@ -186,7 +186,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/dmsansextrabold"
         android:text="Marvin Patrick Lacanilao"
         android:textColor="@color/white"

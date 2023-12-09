@@ -109,6 +109,7 @@
         android:id="@+id/pendingApplications"
         android:layout_width="365dp"
         android:layout_height="154dp"
+        android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="353dp"></TextView>
 

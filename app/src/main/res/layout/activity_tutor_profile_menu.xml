@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.026"
         app:srcCompat="@drawable/pfp_background" />
 
     <TextView
@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address"
-        app:layout_constraintVertical_bias="0.351" />
+        app:layout_constraintVertical_bias="0.272" />
 
     <EditText
         android:id="@+id/contactField"
@@ -129,14 +129,14 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <EditText
         android:id="@+id/specialization1"
         android:layout_width="316dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="472dp"
+        android:layout_marginTop="560dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
@@ -200,7 +200,7 @@
         android:id="@+id/locationTxt2"
         android:layout_width="111dp"
         android:layout_height="24dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="516dp"
         android:text="Specialization"
         android:textColor="#0d0140"
         android:textSize="15sp"
@@ -248,8 +248,8 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/dmsansextrabold"
         android:text="Marvin Patrick Lacanilao"
         android:textColor="@color/white"
