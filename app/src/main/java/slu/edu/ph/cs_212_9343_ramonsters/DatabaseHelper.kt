@@ -9,8 +9,9 @@ import android.util.Log
 import androidx.core.content.contentValuesOf
 
 /**
-* The class DatabaseHandler handles the CRUD operations for the SQLite, which is the database utilized for this application.
-*/
+ * The DatabaseHandler class handles CRUD operations for the SQLite database used by this application.
+ * It extends SQLiteOpenHelper and manages user-related data such as accounts, pending applications, and confirmations.
+ */
 class DatabaseHandler(context : Context) :
     SQLiteOpenHelper(context, database_name, null, database_version) {
 
@@ -40,7 +41,10 @@ class DatabaseHandler(context : Context) :
 
 
     }
-
+    
+     /**
+     * Creates the usersTable in the database when the DatabaseHandler instance is created.
+     */
     override fun onCreate(db: SQLiteDatabase) {
         val createTableQuery = """
                     CREATE TABLE $usersTable (
@@ -160,7 +164,7 @@ class DatabaseHandler(context : Context) :
 
     /**
      * This method will accept or reject a tutor application depending upon the decision of an administrator.
-     * This method only needs the pending tutori (user) and the status (1 for accept, 0 for reject)
+     * This method only needs the pending tutor (user) and the status (1 for accept, 0 for reject)
      */
     fun acceptOrRejectTutor(username : String, acceptStatus : Int) {
         val database = this.writableDatabase
@@ -336,8 +340,10 @@ class DatabaseHandler(context : Context) :
 
     /**
      * Method to get an arrayList of all the users that fall under a specific user type.
-     * 0 is regular user, 1 is tutor, 2 is pending tutor, 3 is admin.
-     * Call the method by passing in the pertinent user type number.
+     * 0 = regular user
+     * 1 = tutor
+     * 2 = pending tutor
+     * 3 = admin
      */
     fun getUsers(userType : Int): ArrayList<User> {
         Log.i("getUsers reached", "method started")
@@ -396,7 +402,7 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to get the pendings of a given user
+     * This method will return an ArrauList that contains the pendings of the passed user.
      */
     fun getPendings(username : String?) : ArrayList<User> {
         val user: User = getUser(username!!)!!
