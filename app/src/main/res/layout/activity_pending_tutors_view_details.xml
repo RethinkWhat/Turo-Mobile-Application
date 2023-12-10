@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- ConstraintLayout to define the layout structure -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout3"
@@ -8,7 +10,7 @@
     android:background="@color/background_grey"
     tools:context=".ViewDetails">
 
-
+    <!-- Back button for navigating back to the previous screen -->
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="20dp"
@@ -20,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
+    <!-- Button to redirect to the user's profile -->
     <ImageButton
         android:id="@+id/profileRedirectButton"
         android:layout_width="wrap_content"
@@ -31,6 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
+    <!-- Text view displaying the title "View Details" -->
     <TextView
         android:id="@+id/viewDetailsText"
         android:layout_width="wrap_content"
@@ -43,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- View to display a rectangular background -->
     <View
         android:id="@+id/view"
         android:layout_width="373dp"
@@ -53,6 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></View>
 
+    <!-- Dotted button to be used as a trigger -->
     <View
         android:id="@+id/pinkButton3"
         android:layout_width="330dp"
@@ -69,6 +75,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <!-- Text view displaying various specializations -->
     <TextView
         android:id="@+id/specialization1"
         android:layout_width="240dp"
@@ -82,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text view displaying various specializations -->
     <TextView
         android:id="@+id/specialization2"
         android:layout_width="240dp"
@@ -95,6 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text view displaying various specializations -->
     <TextView
         android:id="@+id/specialization3"
         android:layout_width="240dp"
@@ -108,6 +117,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying credentials -->
     <TextView
         android:id="@+id/credentials"
         android:layout_width="200dp"
@@ -121,6 +131,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying credentials -->
     <TextView
         android:id="@+id/cvText"
         android:layout_width="240dp"
@@ -134,6 +145,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (name) -->
     <TextView
         android:id="@+id/name"
         android:layout_width="200dp"
@@ -147,6 +159,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (location) -->
     <TextView
         android:id="@+id/location"
         android:layout_width="200dp"
@@ -159,6 +172,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (asking price text) -->
     <TextView
         android:id="@+id/askingPriceText"
         android:layout_width="200dp"
@@ -172,6 +186,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying personal details (asking price display) -->
     <TextView
         android:id="@+id/askingPriceDisplay"
         android:layout_width="200dp"
@@ -185,6 +200,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text view for displaying personal details section -->
     <TextView
         android:id="@+id/personalDetailsText"
         android:layout_width="200dp"
@@ -198,6 +214,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying contact details (email) -->
     <TextView
         android:id="@+id/email"
         android:layout_width="200dp"
@@ -211,6 +228,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text views for displaying contact details (phone number) -->
     <TextView
         android:id="@+id/phoneNumber"
         android:layout_width="240dp"
@@ -224,6 +242,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Text view for displaying specialization section -->
     <TextView
         android:id="@+id/specialization"
         android:layout_width="200dp"
@@ -237,7 +256,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
-
+    <!-- Image view to display the tutor's picture -->
     <ImageView
         android:id="@+id/tutorPicture"
         android:layout_width="110dp"
@@ -248,7 +267,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-
+    <!-- Button for accepting a tutor -->
     <Button
         android:id="@+id/acceptButton"
         android:layout_width="140dp"
@@ -260,6 +279,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Button>
 
+    <!-- Button for rejecting a tutor -->
     <Button
         android:id="@+id/rejectButton"
         android:layout_width="140dp"
@@ -271,6 +291,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Button>
 
+    <!-- Text view indicating that the tutor has been accepted -->
     <TextView
         android:id="@+id/tutorAcceptedTxt"
         android:layout_width="370dp"
@@ -287,6 +308,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- Button for viewing the tutor's resume -->
     <Button
         android:id="@+id/viewResume"
         android:layout_width="323dp"
@@ -300,6 +322,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="554dp"></Button>
 
+    <!-- Text view displaying the name of the resume file -->
     <TextView
         android:id="@+id/resumeText"
         android:layout_width="180dp"
@@ -307,12 +330,12 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="568dp"
         android:fontFamily="@font/dmsans"
-
         android:text="Jasmin-Resume.jpg"
         android:textColor="@color/darkPurple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- TextView to display a clickable link for viewing the file -->
     <TextView
         android:id="@+id/clickHere"
         android:layout_width="wrap_content"
@@ -326,6 +349,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- ImageView to display file type icon -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="59dp"
@@ -336,6 +360,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/jpg" />
 
+    <!-- Gray background View used for overlay effect -->
     <View
         android:id="@+id/backgroundGray"
         android:layout_width="500dp"
@@ -343,8 +368,9 @@
         android:background="#90808080"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></View>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- ImageButton for navigating back-->
     <ImageButton
         android:id="@+id/backButton2"
         android:layout_width="20dp"
@@ -357,6 +383,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
+    <!-- ImageView to display the resume image -->
     <ImageView
         android:id="@+id/resumeImg"
         android:layout_width="370dp"
@@ -368,17 +395,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <!-- Circular ImageView for displaying the user's profile picture -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView4"
         android:layout_width="54dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
-
         android:layout_marginEnd="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <!-- Button -->
     <Button
         android:id="@+id/button2"
         android:layout_width="54dp"
@@ -388,6 +416,5 @@
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

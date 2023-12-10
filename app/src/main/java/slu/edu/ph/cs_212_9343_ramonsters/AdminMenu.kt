@@ -16,59 +16,84 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * AdminMenu class represents the activity for the admin's main menu.
+ * It displays a welcome message, the admin's profile picture, and a list of pending tutor requests.
+ */
 class AdminMenu : AppCompatActivity() {
 
+    // UI elements
     private lateinit var recycler1: RecyclerView
     private lateinit var helloMessage: TextView
 
+    /**
+     * Called when the activity is first created.
+     * Sets up the UI, retrieves data from the database, and populates the pending tutor list.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_menu)
 
+        // Initialize DatabaseHelper to interact with the database
         val databaseHelper = DatabaseHandler(this)
+
+        // Log the start of getting users
         Log.i("Get Users", "Get Users started")
+        // Get pending tutor requests from the database
         val pendingTutors: ArrayList<User> = databaseHelper.getUsers(2)
+        // Log the completion of getting users
         Log.i("Get Users", "Get Users finished")
 
-        val intent = getIntent();
+        // Get the username from the Intent
+        val intent = getIntent()
         val username = intent.getStringExtra("user")
+        // Retrieve admin user information from the database
         val user = databaseHelper.getUser(username!!)
 
+        // Set up the welcome message with the admin's name
         helloMessage = findViewById(R.id.helloMsg)
-        helloMessage.setText("Hello ${user!!.fullName}!")
+        helloMessage.text = "Hello ${user!!.fullName}!"
 
-        var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
-        var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
-            100,
-            100, true)
+        // Decode and display the admin's profile picture in a button
+        var bitmap = BitmapFactory.decodeByteArray(user.PFP, 0, user.PFP!!.size)
+        var scaledBitMap = Bitmap.createScaledBitmap(bitmap, 100, 100, true)
         var profileRedirectButton: Button = findViewById(R.id.profileRedirectButton)
         var imageOfRedirectButton : ImageView = findViewById(R.id.profileRedirectImage)
         imageOfRedirectButton.setImageBitmap(scaledBitMap)
         profileRedirectButton.setOnClickListener() {
+            // Redirect to the AdminProfileMenu activity
             val intent = Intent(this, AdminProfileMenu::class.java)
             intent.putExtra("user", username)
             startActivity(intent)
         }
 
-
+        // Set up the RecyclerView for displaying pending tutor requests
         recycler1 = findViewById(R.id.pendingTutor1_recycler_view)
         if (pendingTutors.size > 0) {
             Log.i("adapter", "Adapter reached")
+            // Set the adapter to populate the RecyclerView with pending tutor requests
             recycler1.adapter = TutorAdapter(pendingTutors, user!!.userID, R.layout.pendingtutors)
         }
     }
 
+    /**
+     * TutorAdapter class is a RecyclerView adapter for displaying pending tutor requests.
+     */
     class TutorAdapter(val tutors: ArrayList<User>, val username: String, val layoutID: Int) :
-
         RecyclerView.Adapter<TutorAdapter.TutorViewHolder>() {
 
+        // Arrays to hold users for each box in the RecyclerView
         var box1: ArrayList<User> = ArrayList()
         var box2: ArrayList<User> = ArrayList()
         var box3: ArrayList<User> = ArrayList()
         var box4: ArrayList<User> = ArrayList()
 
+        /**
+         * TutorViewHolder represents a view holder for each item in the RecyclerView.
+         */
         class TutorViewHolder(val tutorView: View) : RecyclerView.ViewHolder(tutorView) {
 
+            // UI elements for each pending tutor item
             private val pendingButton1: Button = tutorView.findViewById(R.id.pendingButton1)
             private val pendingButton2: Button = tutorView.findViewById(R.id.pendingButton2)
             private val pendingButton3: Button = tutorView.findViewById(R.id.pendingButton3)
@@ -97,26 +122,35 @@ class AdminMenu : AppCompatActivity() {
             private val pendingTutorImage4: ImageView =
                 tutorView.findViewById(R.id.pendingTutorImage4)
 
-            fun bind( user1: User, user2: User, user3: User, user4: User, context: Context, username: String) {
-
+            /**
+             * Binds data to the ViewHolder.
+             */
+            fun bind(
+                user1: User,
+                user2: User,
+                user3: User,
+                user4: User,
+                context: Context,
+                username: String
+            ) {
                 Log.i("BINDING BEING", "BINDING")
                 // First box
                 if (user1.userID != "") {
-                    pendingTutorName1.setText(user1.fullName)
-                    pendingTutorLocation1.setText(user1.location)
+                    pendingTutorName1.text = user1.fullName
+                    pendingTutorLocation1.text = user1.location
                     var bitmap1 = BitmapFactory.decodeByteArray(user1.PFP, 0, user1.PFP!!.size)
                     pendingTutorImage1.setImageBitmap(bitmap1)
                 }
 
                 if (user2.userID != "") {
-                    //Second box
+                    // Second box
                     pendingTutorName2.visibility = View.VISIBLE
                     pendingTutorLocation2.visibility = View.VISIBLE
                     pendingTutorImage2.visibility = View.VISIBLE
                     pendingButton2.visibility = View.VISIBLE
 
-                    pendingTutorName2.setText(user2.fullName)
-                    pendingTutorLocation2.setText(user2.location)
+                    pendingTutorName2.text = user2.fullName
+                    pendingTutorLocation2.text = user2.location
                     var bitmap2 = BitmapFactory.decodeByteArray(user2.PFP, 0, user2.PFP!!.size)
                     pendingTutorImage2.setImageBitmap(bitmap2)
                 }
@@ -128,8 +162,8 @@ class AdminMenu : AppCompatActivity() {
                     pendingTutorImage3.visibility = View.VISIBLE
                     pendingButton3.visibility = View.VISIBLE
 
-                    pendingTutorName3.setText(user3.fullName)
-                    pendingTutorLocation3.setText(user3.location)
+                    pendingTutorName3.text = user3.fullName
+                    pendingTutorLocation3.text = user3.location
                     var bitmap3 = BitmapFactory.decodeByteArray(user3.PFP, 0, user3.PFP!!.size)
                     pendingTutorImage3.setImageBitmap(bitmap3)
                 }
@@ -141,36 +175,39 @@ class AdminMenu : AppCompatActivity() {
                     pendingTutorImage4.visibility = View.VISIBLE
                     pendingButton4.visibility = View.VISIBLE
 
-                    pendingTutorName4.setText(user4.fullName)
-                    pendingTutorLocation4.setText(user4.location)
+                    pendingTutorName4.text = user4.fullName
+                    pendingTutorLocation4.text = user4.location
                     var bitmap4 = BitmapFactory.decodeByteArray(user1.PFP, 0, user4.PFP!!.size)
                     pendingTutorImage4.setImageBitmap(bitmap4)
                 }
 
+                // Set up click listeners for each "Pending" button to view details
                 pendingButton1.setOnClickListener() {
-                    var intent = Intent(context,PendingTutorsViewDetails::class.java)
-                    intent.putExtra("tutor",user1.userID)
+                    var intent = Intent(context, PendingTutorsViewDetails::class.java)
+                    intent.putExtra("tutor", user1.userID)
                     context.startActivity(intent)
-
                 }
                 pendingButton2.setOnClickListener() {
-                    var intent = Intent(context,PendingTutorsViewDetails::class.java)
-                    intent.putExtra("tutor",user2.userID)
+                    var intent = Intent(context, PendingTutorsViewDetails::class.java)
+                    intent.putExtra("tutor", user2.userID)
                     context.startActivity(intent)
                 }
                 pendingButton3.setOnClickListener() {
-                    var intent = Intent(context,PendingTutorsViewDetails::class.java)
-                    intent.putExtra("tutor",user3.userID)
+                    var intent = Intent(context, PendingTutorsViewDetails::class.java)
+                    intent.putExtra("tutor", user3.userID)
                     context.startActivity(intent)
                 }
                 pendingButton4.setOnClickListener() {
-                    var intent = Intent(context,PendingTutorsViewDetails::class.java)
-                    intent.putExtra("tutor",user4.userID)
+                    var intent = Intent(context, PendingTutorsViewDetails::class.java)
+                    intent.putExtra("tutor", user4.userID)
                     context.startActivity(intent)
                 }
             }
         }
 
+        /**
+         * Called when RecyclerView needs a new ViewHolder of the given type to represent an item.
+         */
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TutorViewHolder {
             updateBoxes(tutors)
             val view = LayoutInflater.from(parent.context)
@@ -178,19 +215,27 @@ class AdminMenu : AppCompatActivity() {
             return TutorViewHolder(view)
         }
 
+        /**
+         * Returns the total number of items in the data set held by the adapter.
+         */
         override fun getItemCount(): Int {
             return tutors.size
         }
 
+        /**
+         * Called by RecyclerView to display the data at the specified position.
+         */
         override fun onBindViewHolder(holder: TutorViewHolder, position: Int) {
             Log.i("Bind", "Bind started")
+            // Determine the position in each box
             val box1Position = if (box1.isNotEmpty()) position % box1.size else 0
             val box2Position = if (box2.isNotEmpty()) position % box2.size else 0
             val box3Position = if (box3.isNotEmpty()) position % box3.size else 0
             val box4Position = if (box4.isNotEmpty()) position % box4.size else 0
 
-            var blankUser = User("","","","",0,"","","","",0.0,0,null,null,"","")
+            var blankUser = User("", "", "", "", 0, "", "", "", "", 0.0, 0, null, null, "", "")
             Log.i("holder.bind", "Binding attempt")
+            // Bind data to the ViewHolder
             holder.bind(
                 box1.getOrNull(box1Position) ?: blankUser,
                 box2.getOrNull(box2Position) ?: blankUser,
@@ -202,6 +247,9 @@ class AdminMenu : AppCompatActivity() {
             Log.i("Bind", "Bind completed")
         }
 
+        /**
+         * Update the box arrays with users.
+         */
         fun updateBoxes(users: ArrayList<User>) {
             Log.i("updateBoxes", "updateBoxes started")
 

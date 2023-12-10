@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!-- ConstraintLayout to define the layout structure -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +10,7 @@
     android:background="@color/background_grey"
     tools:context=".AdminMenu">
 
-
+    <!-- Button for redirecting to the admin profile -->
     <Button
         android:id="@+id/profileRedirectButton"
         android:layout_width="54dp"
@@ -20,6 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Circular image view for displaying the admin's profile picture -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileRedirectImage"
         android:layout_width="54dp"
@@ -27,12 +31,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="60dp"
-
         android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <!-- TextView to greet the admin user -->
     <TextView
         android:id="@+id/helloMsg"
         android:layout_width="276dp"
@@ -45,6 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
+    <!-- TextView for displaying the label "Pending Tutors" -->
     <TextView
         android:id="@+id/pendingTutorsText"
         android:layout_width="145dp"
@@ -60,6 +65,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.203" />
 
+    <!-- RecyclerView for displaying the list of pending tutors -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pendingTutor1_recycler_view"
         android:layout_width="344dp"
@@ -74,6 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Placeholder TextView -->
     <TextView
         android:id="@+id/pendingTutor1"
         android:layout_width="344dp"
@@ -83,6 +90,5 @@
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
