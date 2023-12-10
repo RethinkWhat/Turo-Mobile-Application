@@ -9,8 +9,9 @@ import android.util.Log
 import androidx.core.content.contentValuesOf
 
 /**
-* The class DatabaseHandler handles the CRUD operations for the SQLite, which is the database utilized for this application.
-*/
+ * The DatabaseHandler class handles CRUD operations for the SQLite database used by this application.
+ * It extends SQLiteOpenHelper and manages user-related data such as accounts, pending applications, and confirmations.
+ */
 class DatabaseHandler(context : Context) :
     SQLiteOpenHelper(context, database_name, null, database_version) {
 
@@ -41,6 +42,9 @@ class DatabaseHandler(context : Context) :
 
     }
 
+     /**
+     * Creates the usersTable in the database when the DatabaseHandler instance is created.
+     */
     override fun onCreate(db: SQLiteDatabase) {
         val createTableQuery = """
                     CREATE TABLE $usersTable (
@@ -64,11 +68,18 @@ class DatabaseHandler(context : Context) :
         db.execSQL(createTableQuery)
     }
 
-
+    /**
+     * Handles database version upgrades (not yet implemented).
+     */
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
     }
 
+    /**
+     * Adds a new user to the database.
+     *
+     * @param newUser The User object containing information about the new user.
+     */
     fun addUser(newUser: User) {
         val database = this.writableDatabase
         val values = ContentValues()
@@ -92,7 +103,11 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * This method returns a user based on the passed username
+     * Retrieves a user based on the provided username.
+     *
+     * @param username The username of the target user.
+     * @return A User object representing the user with the specified username.
+     *         Returns null if the user is not found.
      */
     fun getUser(username : String) : User? {
         Log.i("Get User" , "Get User Reached")
@@ -129,6 +144,14 @@ class DatabaseHandler(context : Context) :
      * This method is utilized when a user would like to apply to be a tutor.
      * It needs the username of the user, their specialization, asking rate, and their resume or cv.
      * Afterwards, the status of the user will be changed to '2', which indicates they are pending tutors that are under evaluation from the admins.
+     *
+     * @param username The username of the user applying for tutor status.
+     * @param location The tutor's location.
+     * @param specialization1 The tutor's first specialization.
+     * @param specialization2 The tutor's second specialization.
+     * @param specialization3 The tutor's third specialization.
+     * @param rate The tutor's hourly rate.
+     * @param resume The tutor's resume as a byte array.
      */
     fun applyToBecomeTutor(username : String, location : String,
                            specialization1 : String,specialization2 : String,specialization3 : String, rate : Double, resume : ByteArray?) {
@@ -160,7 +183,10 @@ class DatabaseHandler(context : Context) :
 
     /**
      * This method will accept or reject a tutor application depending upon the decision of an administrator.
-     * This method only needs the pending tutori (user) and the status (1 for accept, 0 for reject)
+     * This method only needs the pending tutor (user) and the status (1 for accept, 0 for reject)
+     *
+     * @param username The username of the pending tutor (user).
+     * @param acceptStatus The status indicating the decision (1 for accept, 0 for reject).
      */
     fun acceptOrRejectTutor(username : String, acceptStatus : Int) {
         val database = this.writableDatabase
@@ -198,6 +224,9 @@ class DatabaseHandler(context : Context) :
      * In this method the pendings class variable of both tutor and student will be updated. This is so that we can
      * show the currently pending applications of the student on the student menu and also show the applications the
      * tutor is yet to approve in the tutor menu.
+     *
+     * @param studentUsername The username of the student applying for tutoring.
+     * @param tutorUsername The username of the tutor to whom the student is applying.
      */
     fun applyToATutor (studentUsername : String, tutorUsername : String) {
         var tutor = getUser(tutorUsername)
@@ -268,6 +297,10 @@ class DatabaseHandler(context : Context) :
      *
      * If approved the username of the student will be moved to the class variable confirmations which holds a comma seperated list
      * of usernames approved by the tutor.
+     *
+     * @param studentUsername The username of the student whose application is being accepted or rejected.
+     * @param tutorUsername The username of the tutor making the decision.
+     * @param choice An integer representing the decision: 1 for accept, 0 for reject.
      */
     fun tutorAcceptOrRejectStudent(studentUsername : String, tutorUsername : String, choice : Int) {
         var tutor = getUser(tutorUsername)
@@ -336,8 +369,13 @@ class DatabaseHandler(context : Context) :
 
     /**
      * Method to get an arrayList of all the users that fall under a specific user type.
-     * 0 is regular user, 1 is tutor, 2 is pending tutor, 3 is admin.
-     * Call the method by passing in the pertinent user type number.
+     * 0 = regular user
+     * 1 = tutor
+     * 2 = pending tutor
+     * 3 = admin
+     *
+     * @param userType The type of users to retrieve (0 = regular user, 1 = tutor, 2 = pending tutor, 3 = admin).
+     * @return An ArrayList<User> containing users of the specified type.
      */
     fun getUsers(userType : Int): ArrayList<User> {
         Log.i("getUsers reached", "method started")
@@ -396,7 +434,7 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to get the pendings of a given user
+     * This method will return an ArrauList that contains the pendings of the passed user.
      */
     fun getPendings(username : String?) : ArrayList<User> {
         val user: User = getUser(username!!)!!
@@ -421,7 +459,10 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to get the confirmed of a given user
+     * Retrieves an ArrayList of users who have pending applications under the specified user.
+     *
+     * @param username The username of the user for whom to retrieve pending applications.
+     * @return An ArrayList<User> containing users with pending applications.
      */
     fun getConfirmed(username : String?) : ArrayList<User> {
         val user: User = getUser(username!!)!!
@@ -446,9 +487,11 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to change status of a user
+     * Method to change the status of a user.
+     *
+     * @param username The username of the user whose status needs to be changed.
+     * @param status The new status to be set.
      */
-
     fun changeStatus (username : String, status : Int) {
         var user = getUser(username)
 
@@ -476,6 +519,12 @@ class DatabaseHandler(context : Context) :
         Log.i("changeStatus", "User updated")
     }
 
+    /**
+     * Method to remove a tutor from a student's confirmations and vice versa.
+     *
+     * @param studentUsername The username of the student.
+     * @param tutorUsername The username of the tutor.
+     */
     fun deleteFromConfirms(studentUsername : String, tutorUsername : String) {
         var tutor = getUser(tutorUsername)
         var student = getUser(studentUsername)
@@ -545,7 +594,4 @@ class DatabaseHandler(context : Context) :
         database2.close()
         Log.i("deleteFromConfirms", "User updated")
     }
-
-
-
 }
