@@ -224,6 +224,9 @@ class DatabaseHandler(context : Context) :
      * In this method the pendings class variable of both tutor and student will be updated. This is so that we can
      * show the currently pending applications of the student on the student menu and also show the applications the
      * tutor is yet to approve in the tutor menu.
+     *
+     * @param studentUsername The username of the student applying for tutoring.
+     * @param tutorUsername The username of the tutor to whom the student is applying.
      */
     fun applyToATutor (studentUsername : String, tutorUsername : String) {
         var tutor = getUser(tutorUsername)
@@ -294,6 +297,10 @@ class DatabaseHandler(context : Context) :
      *
      * If approved the username of the student will be moved to the class variable confirmations which holds a comma seperated list
      * of usernames approved by the tutor.
+     *
+     * @param studentUsername The username of the student whose application is being accepted or rejected.
+     * @param tutorUsername The username of the tutor making the decision.
+     * @param choice An integer representing the decision: 1 for accept, 0 for reject.
      */
     fun tutorAcceptOrRejectStudent(studentUsername : String, tutorUsername : String, choice : Int) {
         var tutor = getUser(tutorUsername)
@@ -366,6 +373,9 @@ class DatabaseHandler(context : Context) :
      * 1 = tutor
      * 2 = pending tutor
      * 3 = admin
+     *
+     * @param userType The type of users to retrieve (0 = regular user, 1 = tutor, 2 = pending tutor, 3 = admin).
+     * @return An ArrayList<User> containing users of the specified type.
      */
     fun getUsers(userType : Int): ArrayList<User> {
         Log.i("getUsers reached", "method started")
@@ -449,7 +459,10 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to get the confirmed of a given user
+     * Retrieves an ArrayList of users who have pending applications under the specified user.
+     *
+     * @param username The username of the user for whom to retrieve pending applications.
+     * @return An ArrayList<User> containing users with pending applications.
      */
     fun getConfirmed(username : String?) : ArrayList<User> {
         val user: User = getUser(username!!)!!
@@ -474,9 +487,11 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * Method to change status of a user
+     * Method to change the status of a user.
+     *
+     * @param username The username of the user whose status needs to be changed.
+     * @param status The new status to be set.
      */
-
     fun changeStatus (username : String, status : Int) {
         var user = getUser(username)
 
@@ -504,6 +519,12 @@ class DatabaseHandler(context : Context) :
         Log.i("changeStatus", "User updated")
     }
 
+    /**
+     * Method to remove a tutor from a student's confirmations and vice versa.
+     *
+     * @param studentUsername The username of the student.
+     * @param tutorUsername The username of the tutor.
+     */
     fun deleteFromConfirms(studentUsername : String, tutorUsername : String) {
         var tutor = getUser(tutorUsername)
         var student = getUser(studentUsername)
@@ -573,7 +594,4 @@ class DatabaseHandler(context : Context) :
         database2.close()
         Log.i("deleteFromConfirms", "User updated")
     }
-
-
-
 }
