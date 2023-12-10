@@ -41,7 +41,7 @@ class DatabaseHandler(context : Context) :
 
 
     }
-    
+
      /**
      * Creates the usersTable in the database when the DatabaseHandler instance is created.
      */
@@ -68,11 +68,18 @@ class DatabaseHandler(context : Context) :
         db.execSQL(createTableQuery)
     }
 
-
+    /**
+     * Handles database version upgrades (not yet implemented).
+     */
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
     }
 
+    /**
+     * Adds a new user to the database.
+     *
+     * @param newUser The User object containing information about the new user.
+     */
     fun addUser(newUser: User) {
         val database = this.writableDatabase
         val values = ContentValues()
@@ -96,7 +103,11 @@ class DatabaseHandler(context : Context) :
     }
 
     /**
-     * This method returns a user based on the passed username
+     * Retrieves a user based on the provided username.
+     *
+     * @param username The username of the target user.
+     * @return A User object representing the user with the specified username.
+     *         Returns null if the user is not found.
      */
     fun getUser(username : String) : User? {
         Log.i("Get User" , "Get User Reached")
@@ -133,6 +144,14 @@ class DatabaseHandler(context : Context) :
      * This method is utilized when a user would like to apply to be a tutor.
      * It needs the username of the user, their specialization, asking rate, and their resume or cv.
      * Afterwards, the status of the user will be changed to '2', which indicates they are pending tutors that are under evaluation from the admins.
+     *
+     * @param username The username of the user applying for tutor status.
+     * @param location The tutor's location.
+     * @param specialization1 The tutor's first specialization.
+     * @param specialization2 The tutor's second specialization.
+     * @param specialization3 The tutor's third specialization.
+     * @param rate The tutor's hourly rate.
+     * @param resume The tutor's resume as a byte array.
      */
     fun applyToBecomeTutor(username : String, location : String,
                            specialization1 : String,specialization2 : String,specialization3 : String, rate : Double, resume : ByteArray?) {
@@ -165,6 +184,9 @@ class DatabaseHandler(context : Context) :
     /**
      * This method will accept or reject a tutor application depending upon the decision of an administrator.
      * This method only needs the pending tutor (user) and the status (1 for accept, 0 for reject)
+     *
+     * @param username The username of the pending tutor (user).
+     * @param acceptStatus The status indicating the decision (1 for accept, 0 for reject).
      */
     fun acceptOrRejectTutor(username : String, acceptStatus : Int) {
         val database = this.writableDatabase
