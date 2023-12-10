@@ -12,13 +12,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
+/**
+ * This class represents the activity for viewing details of a tutor.
+ * Users can see information about the tutor, such as name, location, asking price, contact details,
+ * specializations, and view the tutor's resume. Users can also send a tutoring request to the tutor.
+ */
 class ViewDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_details)
 
+        // Database handler for interacting with user data
         var databaseHandler = DatabaseHandler(this)
 
+        // UI element initialization
         var name : TextView = findViewById(R.id.name)
         var location : TextView = findViewById(R.id.location)
         var askingPrice : TextView = findViewById(R.id.askingPriceDisplay)
@@ -39,12 +46,14 @@ class ViewDetails : AppCompatActivity() {
 
         var bookButton : Button = findViewById(R.id.acceptButton)
 
+        // Get data from the intent
         var intent = getIntent()
         var tutor = intent.getStringExtra("tutor")
         var username = intent.getStringExtra("user")
         var user = databaseHandler.getUser(username!!)
         var tutorObj : User? = databaseHandler.getUser(tutor!!)
 
+        // Check if the user has already sent a request or the tutor is booked
         if (user!!.pendings.toString().contains(tutorObj!!.userID)) {
             requestSentText.visibility = View.VISIBLE
             bookButton.visibility = View.GONE
@@ -55,6 +64,7 @@ class ViewDetails : AppCompatActivity() {
             bookButton.visibility = View.GONE
         }
 
+        // Set tutor details in UI
         name.setText(tutorObj!!.fullName)
         location.setText(tutorObj!!.location)
         askingPrice.setText(tutorObj!!.rate.toString())
@@ -63,15 +73,18 @@ class ViewDetails : AppCompatActivity() {
         specialization1.setText(tutorObj!!.specialization1)
         specialization2.setText(tutorObj!!.specialization2)
         specialization3.setText(tutorObj!!.specialization3)
+        // Set up UI for viewing the tutor's resume
         var firstName : String = tutorObj.fullName.toString().split(" ")[0]
         resumeText.setText("$firstName-resume.jpg")
 
+        // Set tutor's profile picture
         var bitmap = BitmapFactory.decodeByteArray(tutorObj.resume,0,tutorObj.resume!!.size)
         resumeImg.setImageBitmap(bitmap)
 
         var bitmap2 = BitmapFactory.decodeByteArray(tutorObj.PFP,0,tutorObj.PFP!!.size)
         tutorPicture.setImageBitmap(bitmap2)
 
+        // Set up click listeners for buttons
         viewResume.setOnClickListener() {
             resumeImg.visibility = View.VISIBLE
             backgroundGray.visibility = View.VISIBLE
@@ -89,12 +102,14 @@ class ViewDetails : AppCompatActivity() {
             startActivity(newIntent)
         }
         bookButton.setOnClickListener() {
+            // Send a tutoring request to the tutor
             databaseHandler.applyToATutor(username!!,tutor)
             bookButton.visibility = View.GONE
             requestSentText.visibility = View.VISIBLE
         }
 
 
+        // Set user's profile picture for redirection
         var bitmap3 = BitmapFactory.decodeByteArray(user!!.PFP,0,user.PFP!!.size)
         var scaledBitMap = Bitmap.createScaledBitmap(bitmap3,
             100,
@@ -103,6 +118,7 @@ class ViewDetails : AppCompatActivity() {
         var imageOfRedirectButton : ImageView = findViewById(R.id.profileRedirectImage)
         imageOfRedirectButton.setImageBitmap(scaledBitMap)
         profileRedirectButton.setOnClickListener() {
+            // Redirect to the user's profile menu
             val intent = Intent(this, ProfileMenu::class.java)
             intent.putExtra("user", username)
             startActivity(intent)
