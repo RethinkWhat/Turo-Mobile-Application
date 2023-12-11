@@ -9,17 +9,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
-
-/** DECLARED USERS SO FAR:
- *      User:
- *          1. Email: ramonjasmin@gmail.com, password: monem
- *          2. Email: patricklacanilao@gmail.com, password: patpat
- *          3. Email: sebastiansiccuan@gmail.com, password: basti
- *
- *      Tutor:
- *          1.
- * */
-
 /**
  * To stacktrace use Log.i(tag, message) after each method it helps track what executed,
  * you can follow the it on Logcat
@@ -51,17 +40,21 @@ class Login : AppCompatActivity() {
         emailField = findViewById(R.id.editTextTextEmailAddress)
         passwordField = findViewById(R.id.editTextTextPassword)
 
+
         /** To Register a user uncomment this line and execute the program */
         //val newUser = User("rithiktank358@gmail.com", "rithik", "Rithik Tank","09177900153",0,"Baguio City, Benguet","Computer Science","Mathematics","Science",100.20,0, null,null,null,null)
         //databaseHelper.addUser(newUser)
 
         /** To Reset the database uncomment this line and execute the program */
-        /*
-        val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
+        /*val databaseFile = this.getDatabasePath(databaseHelper.databaseName)
         if (databaseFile.exists()) { databaseFile.delete() }
-        */
+         */
 
-        //databaseHelper.changeStatus("admin", 3)
+
+
+
+        //databaseHelper.changeStatus("rithik@gmail.com", 3)
+
 
         signUpButton.setOnClickListener() {
             val intent = Intent(this, SignUp::class.java)
