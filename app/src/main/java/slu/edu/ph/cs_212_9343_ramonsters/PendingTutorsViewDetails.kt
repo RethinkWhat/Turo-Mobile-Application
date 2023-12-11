@@ -20,8 +20,6 @@ class PendingTutorsViewDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pending_tutors_view_details)
 
-        // Initialize DatabaseHandler to interact with the database
-        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
 
         // UI elements
         val name: TextView = findViewById(R.id.name)
@@ -44,6 +42,10 @@ class PendingTutorsViewDetails : AppCompatActivity() {
         val rejectButton: Button = findViewById(R.id.rejectButton)
         val tutorAcceptedTxt: TextView = findViewById(R.id.tutorAcceptedTxt)
 
+
+        // Initialize DatabaseHandler to interact with the database
+        val databaseHandler = DatabaseHandler(this)
+
         // Get tutor information from the Intent
         val intent = getIntent()
         val tutor = intent.getStringExtra("tutor")
@@ -52,7 +54,7 @@ class PendingTutorsViewDetails : AppCompatActivity() {
 
         // Retrieve admin user information from the database
         val databaseHelper = DatabaseHandler(this)
-        val user: User? = databaseHelper.getUser(username.toString())
+        val user: User? = databaseHelper.getUser(username!!)
 
         // Populate UI elements with tutor information
         name.text = tutorObj!!.fullName
@@ -89,7 +91,7 @@ class PendingTutorsViewDetails : AppCompatActivity() {
         // Set up click listener for the "Back" button
         backButton.setOnClickListener() {
             val newIntent = Intent(this, AdminMenu::class.java)
-            newIntent.putExtra("user", username)
+            newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
@@ -103,6 +105,14 @@ class PendingTutorsViewDetails : AppCompatActivity() {
             databaseHandler.acceptOrRejectTutor(tutorObj.userID, 0)
             tutorAcceptedTxt.visibility = View.VISIBLE
             tutorAcceptedTxt.text = "TUTOR REJECTED"
+        }
+
+
+        // Set up click listeners for buttons
+        viewResume.setOnClickListener() {
+            resumeImg.visibility = View.VISIBLE
+            backgroundGray.visibility = View.VISIBLE
+            backButton2.visibility = View.VISIBLE
         }
     }
 }

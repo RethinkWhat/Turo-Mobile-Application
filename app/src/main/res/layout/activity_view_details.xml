@@ -230,7 +230,7 @@
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="692dp"
+        android:layout_marginTop="668dp"
         android:backgroundTint="@color/darkPurple"
         android:text="BOOK TUTOR"
         app:layout_constraintStart_toStartOf="parent"
@@ -294,7 +294,7 @@
         android:layout_width="370dp"
         android:layout_height="65dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="660dp"
         android:background="#D4CEFA"
         android:fontFamily="@font/dmsansextrabold"
         android:gravity="center"
@@ -341,15 +341,16 @@
         app:srcCompat="@drawable/back" />
 
 
-<!--    <Button-->
-<!--        android:id="@+id/viewResume"-->
-<!--        android:layout_width="311dp"-->
-<!--        android:layout_height="81dp"-->
-<!--        android:layout_marginLeft="48dp"-->
-<!--        android:layout_marginTop="544dp"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"></Button>-->
+    <Button
+        android:id="@+id/viewResume"
+        android:layout_width="311dp"
+        android:layout_height="81dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="544dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/profileRedirectButton"

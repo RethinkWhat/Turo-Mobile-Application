@@ -62,9 +62,9 @@ class AdminMenu : AppCompatActivity() {
         imageOfRedirectButton.setImageBitmap(scaledBitMap)
         profileRedirectButton.setOnClickListener() {
             // Redirect to the AdminProfileMenu activity
-            val intent = Intent(this, AdminProfileMenu::class.java)
-            intent.putExtra("user", username)
-            startActivity(intent)
+            val intent2 = Intent(this, AdminProfileMenu::class.java)
+            intent2.putExtra("user", user.userID)
+            startActivity(intent2)
         }
 
         // Set up the RecyclerView for displaying pending tutor requests
@@ -177,7 +177,7 @@ class AdminMenu : AppCompatActivity() {
 
                     pendingTutorName4.text = user4.fullName
                     pendingTutorLocation4.text = user4.location
-                    var bitmap4 = BitmapFactory.decodeByteArray(user1.PFP, 0, user4.PFP!!.size)
+                    var bitmap4 = BitmapFactory.decodeByteArray(user4.PFP, 0, user4.PFP!!.size)
                     pendingTutorImage4.setImageBitmap(bitmap4)
                 }
 
@@ -185,21 +185,25 @@ class AdminMenu : AppCompatActivity() {
                 pendingButton1.setOnClickListener() {
                     var intent = Intent(context, PendingTutorsViewDetails::class.java)
                     intent.putExtra("tutor", user1.userID)
+                    intent.putExtra("username", username)
                     context.startActivity(intent)
                 }
                 pendingButton2.setOnClickListener() {
                     var intent = Intent(context, PendingTutorsViewDetails::class.java)
                     intent.putExtra("tutor", user2.userID)
+                    intent.putExtra("username", username)
                     context.startActivity(intent)
                 }
                 pendingButton3.setOnClickListener() {
                     var intent = Intent(context, PendingTutorsViewDetails::class.java)
                     intent.putExtra("tutor", user3.userID)
+                    intent.putExtra("username", username)
                     context.startActivity(intent)
                 }
                 pendingButton4.setOnClickListener() {
                     var intent = Intent(context, PendingTutorsViewDetails::class.java)
                     intent.putExtra("tutor", user4.userID)
+                    intent.putExtra("username", username)
                     context.startActivity(intent)
                 }
             }

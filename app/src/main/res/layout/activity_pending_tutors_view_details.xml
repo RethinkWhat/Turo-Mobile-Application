@@ -297,7 +297,7 @@
         android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginTop="665dp"
         android:background="#D4CEFA"
         android:fontFamily="@font/dmsansextrabold"
         android:gravity="center"
@@ -309,6 +309,8 @@
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <!-- Button for viewing the tutor's resume -->
+
+    <!-- Text view displaying the name of the resume file -->
     <Button
         android:id="@+id/viewResume"
         android:layout_width="323dp"
@@ -316,13 +318,12 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="552dp"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="554dp"></Button>
+        app:layout_constraintTop_toTopOf="parent"></Button>
 
-    <!-- Text view displaying the name of the resume file -->
     <TextView
         android:id="@+id/resumeText"
         android:layout_width="180dp"
