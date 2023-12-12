@@ -64,6 +64,9 @@ class TutorProfileMenu : AppCompatActivity() {
         val username = intent.getStringExtra("user")
         val user = databaseHelper.getUser(username!!)
 
+        /**
+         * Tutor attributes
+         */
         emailText.setHint(user!!.userID)
         nameText.setHint(user!!.fullName)
         phoneText.setHint(user!!.contactNumber)
