@@ -1,0 +1,14 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#0d0140" /> <!-- Set the background color for pressed state -->
+            <corners android:radius="8dp" /> <!-- Set the corner radius for a rounded rectangle -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0d0140" /> <!-- Set the default background color -->
+            <corners android:radius="8dp" /> <!-- Set the corner radius for a rounded rectangle -->
+        </shape>
+    </item>
+</selector>

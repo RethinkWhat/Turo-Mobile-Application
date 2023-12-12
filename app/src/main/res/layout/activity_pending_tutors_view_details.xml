@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ConstraintLayout to define the layout structure -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_grey"
+    tools:context=".ViewDetails">
+
+    <!-- Back button for navigating back to the previous screen -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <!-- Button to redirect to the user's profile -->
+    <ImageButton
+        android:id="@+id/profileRedirectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
+
+    <!-- Text view displaying the title "View Details" -->
+    <TextView
+        android:id="@+id/viewDetailsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="158dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="View Details"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- View to display a rectangular background -->
+    <View
+        android:id="@+id/view"
+        android:layout_width="373dp"
+        android:layout_height="526dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="108dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></View>
+
+    <!-- Dotted button to be used as a trigger -->
+    <View
+        android:id="@+id/pinkButton3"
+        android:layout_width="330dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="543dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="219dp"
+        android:background="@drawable/dotted"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!-- Text view displaying various specializations -->
+    <TextView
+        android:id="@+id/specialization1"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="428dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Coding"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text view displaying various specializations -->
+    <TextView
+        android:id="@+id/specialization2"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="452dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Mathematics"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text view displaying various specializations -->
+    <TextView
+        android:id="@+id/specialization3"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="476dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Data Structure"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying credentials -->
+    <TextView
+        android:id="@+id/credentials"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="500dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Credentials"
+        android:textColor="@color/darkPurple"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying credentials -->
+    <TextView
+        android:id="@+id/cvText"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="532dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• CV/Resume"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying personal details (name) -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Ramon Emmiel Jasmin"
+        android:textColor="@color/darkPurple"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying personal details (location) -->
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Solano, Nueva Vizcaya"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying personal details (asking price text) -->
+    <TextView
+        android:id="@+id/askingPriceText"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Asking Price"
+        android:textColor="@color/darkPurple"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying personal details (asking price display) -->
+    <TextView
+        android:id="@+id/askingPriceDisplay"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="252dp"
+        android:fontFamily="@font/dmsans"
+        android:text="₱500.00/hour"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text view for displaying personal details section -->
+    <TextView
+        android:id="@+id/personalDetailsText"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="285dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Personal Details"
+        android:textColor="@color/darkPurple"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying contact details (email) -->
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="324dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Email: ramon@gmail.com"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text views for displaying contact details (phone number) -->
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="364dp"
+        android:fontFamily="@font/dmsans"
+        android:text="• Phone Number: 0913 567 3435"
+        android:textColor="@color/darkPurple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Text view for displaying specialization section -->
+    <TextView
+        android:id="@+id/specialization"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="392dp"
+        android:fontFamily="@font/dmsansextrabold"
+        android:text="Specialization"
+        android:textColor="@color/darkPurple"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Image view to display the tutor's picture -->
+    <ImageView
+        android:id="@+id/tutorPicture"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!-- Button for accepting a tutor -->
+    <Button
+        android:id="@+id/acceptButton"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="668dp"
+        android:backgroundTint="@color/darkPurple"
+        android:text="ACCEPT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <!-- Button for rejecting a tutor -->
+    <Button
+        android:id="@+id/rejectButton"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="668dp"
+        android:backgroundTint="@color/red"
+        android:text="REJECT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <!-- Text view indicating that the tutor has been accepted -->
+    <TextView
+        android:id="@+id/tutorAcceptedTxt"
+        android:layout_width="370dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="665dp"
+        android:background="#D4CEFA"
+        android:fontFamily="@font/dmsansextrabold"
+        android:gravity="center"
+        android:text="TUTOR ACCEPTED"
+        android:textColor="#FFFFFFFF"
+        android:textSize="17dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <!-- Button for viewing the tutor's resume -->
+
+    <!-- Text view displaying the name of the resume file -->
+    <Button
+        android:id="@+id/viewResume"
+        android:layout_width="323dp"
+        android:layout_height="69dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="552dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <TextView
+        android:id="@+id/resumeText"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="568dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Jasmin-Resume.jpg"
+        android:textColor="@color/darkPurple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- TextView to display a clickable link for viewing the file -->
+    <TextView
+        android:id="@+id/clickHere"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="588dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Click here to view file"
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ImageView to display file type icon -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="59dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="560dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jpg" />
+
+    <!-- Gray background View used for overlay effect -->
+    <View
+        android:id="@+id/backgroundGray"
+        android:layout_width="500dp"
+        android:layout_height="1000dp"
+        android:background="#90808080"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ImageButton for navigating back-->
+    <ImageButton
+        android:id="@+id/backButton2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <!-- ImageView to display the resume image -->
+    <ImageView
+        android:id="@+id/resumeImg"
+        android:layout_width="370dp"
+        android:layout_height="580dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="116dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!-- Circular ImageView for displaying the user's profile picture -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView4"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!-- Button -->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
