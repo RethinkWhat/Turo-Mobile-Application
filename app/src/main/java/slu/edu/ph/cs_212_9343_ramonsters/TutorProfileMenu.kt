@@ -77,13 +77,18 @@ class TutorProfileMenu : AppCompatActivity() {
         var scaledBitmap = Bitmap.createScaledBitmap(bitmap,150,150,true)
         pfp.setImageBitmap(scaledBitmap)
 
-
+        /**
+         * Goes back to the TutorMenu
+         */
         backButton.setOnClickListener() {
             var newIntent = Intent(this,TutorMenu::class.java)
             newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
+        /**
+         * Logs the user out of the application.
+         */
         logoutButton.setOnClickListener() {
             var newIntent = Intent(this, Login::class.java)
             startActivity(newIntent)
