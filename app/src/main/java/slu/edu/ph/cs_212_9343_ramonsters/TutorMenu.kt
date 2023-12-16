@@ -17,16 +17,27 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Class that provides the functionality for tutors to view and manage pending and approved
+ * tutoring sessions
+ */
 class TutorMenu : AppCompatActivity(){
 
+    /**
+     * Displays the pending or approved students.
+     */
     private lateinit var recycler1: RecyclerView
 
-
+    /**
+     * Instantiates and populates the components of the UI elements.
+     */
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutor_menu)
 
-
+        /**
+         * Instantiates DatabaseHandler to perform database operations.
+         */
         val databaseHelper = DatabaseHandler(this)
         var approvedSessionButton: Button = findViewById(R.id.approvedSessionsButton)
         var pendingSessionButton: Button = findViewById(R.id.pendingSessionsButton)
@@ -39,7 +50,9 @@ class TutorMenu : AppCompatActivity(){
         helloMsg.setText("Hello ${user!!.fullName}!")
         Log.i("Tutor Menu", "getUser")
 
-
+        /**
+         * Bitmap array that holds the image of the profile picture.
+         */
         var bitmap = BitmapFactory.decodeByteArray(user.PFP,0,user.PFP!!.size)
         var scaledBitMap = Bitmap.createScaledBitmap(bitmap,
             100,
@@ -53,6 +66,9 @@ class TutorMenu : AppCompatActivity(){
             startActivity(newIntent)
         }
 
+        /**
+         * ArrayList of the students that are pending
+         */
         var pendingTutors: ArrayList<User>? = databaseHelper.getPendings(user!!.userID)
         Log.i("Tutor Menu", "getPendings")
 
@@ -86,6 +102,10 @@ class TutorMenu : AppCompatActivity(){
 
     }
 
+    /**
+     * Nested class that store the users' attributes for three initial separate display boxes.
+     *
+     */
     class TutorAdapter(val tutors: ArrayList<User>, val username: String, val layoutID: Int) :
 
         RecyclerView.Adapter<TutorAdapter.TutorViewHolder>() {
@@ -94,9 +114,16 @@ class TutorMenu : AppCompatActivity(){
         var box2: ArrayList<User> = ArrayList()
         var box3: ArrayList<User> = ArrayList()
 
+        /**
+         * Handles button clicks in the RecyclerView
+         */
         interface AdapterCallback {
             fun buttonClick(user: User)
         }
+
+        /**
+         * Nested class to view individual items of the RecyclerView.
+         */
         class TutorViewHolder(val tutorView: View) : RecyclerView.ViewHolder(tutorView) {
 
             private val tutorName1: TextView = tutorView.findViewById(R.id.tutor)
@@ -239,6 +266,9 @@ class TutorMenu : AppCompatActivity(){
             }
         }
 
+        /**
+         * Creates a new view holder when needed.
+         */
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TutorViewHolder {
             updateBoxes(tutors)
             val view = LayoutInflater.from(parent.context)
@@ -246,6 +276,9 @@ class TutorMenu : AppCompatActivity(){
             return TutorViewHolder(view)
         }
 
+        /**
+         * Gets the size of the tutors
+         */
         override fun getItemCount(): Int {
             return tutors.size
         }

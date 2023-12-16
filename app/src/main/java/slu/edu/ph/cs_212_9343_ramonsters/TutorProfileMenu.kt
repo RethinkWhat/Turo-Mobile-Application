@@ -13,6 +13,9 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
+/**
+ * Displays the attributes of the tutor in detail.
+ */
 class TutorProfileMenu : AppCompatActivity() {
 
     lateinit var logout : ImageView
@@ -34,6 +37,9 @@ class TutorProfileMenu : AppCompatActivity() {
     lateinit var pfp : ImageView
     lateinit var logoutButton : Button
 
+    /**
+     * Instantiates and populates the components and elements of the UI.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutor_profile_menu)
@@ -50,11 +56,17 @@ class TutorProfileMenu : AppCompatActivity() {
         specialization3 = findViewById(R.id.specialization3)
         logoutButton = findViewById(R.id.logout)
 
+        /**
+         * Object of DatabaseHandler to use database operations."
+         */
         var databaseHelper = DatabaseHandler(this)
         val intent = getIntent();
         val username = intent.getStringExtra("user")
         val user = databaseHelper.getUser(username!!)
 
+        /**
+         * Tutor attributes
+         */
         emailText.setHint(user!!.userID)
         nameText.setHint(user!!.fullName)
         phoneText.setHint(user!!.contactNumber)
@@ -68,12 +80,18 @@ class TutorProfileMenu : AppCompatActivity() {
         var scaledBitmap = Bitmap.createScaledBitmap(bitmap,150,150,true)
         pfp.setImageBitmap(scaledBitmap)
 
+        /**
+         * Goes back to the TutorMenu
+         */
         backButton.setOnClickListener() {
             var newIntent = Intent(this,TutorMenu::class.java)
             newIntent.putExtra("user", user!!.userID)
             startActivity(newIntent)
         }
 
+        /**
+         * Logs the user out of the application.
+         */
         logoutButton.setOnClickListener() {
             var newIntent = Intent(this, Login::class.java)
             startActivity(newIntent)
